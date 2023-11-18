@@ -1,20 +1,44 @@
-import { installNuxtSiteConfig, updateSiteConfig } from 'nuxt-site-config-kit'
-
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     "@nuxtjs/robots",
-    '@nuxtseo/module',
-    'nuxt-icon',
-    'nuxt-simple-sitemap'],
-  site: {
-    url: 'https://janaenderle.com',
-    name: 'Studio Rotstich',
-    description: 'Studio Rotstich is a design agency focusing on brand identities and print media. It was founded by Jana Enderle, a studied communication designer and operates throughout Germany and also partly abroad.',
-    defaultLocale: 'en',
-    identity: {
-      type: 'Person'
+    'nuxt-simple-sitemap',
+    "@nuxtjs/i18n"],
+
+  // mutli language support
+  i18n: {
+
+    baseUrl: 'https://next.janaenderle.com', //TODO: Change to live url
+
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.ts',
+      },
+      {
+        code: 'de',
+        iso: 'de-DE',
+        file: 'de-DE.ts',
+      },
+    ],
+    lazy: true,
+    langDir: 'lang',
+    defaultLocale: "en",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
     },
-    instagram: '@studio.rotstich',
+
+    // route names
+    customRoutes: 'config',
+    pages: {
+      about: {
+        en: '/about-me',
+        de: '/über',
+      }
+    }
   },
+
 })
