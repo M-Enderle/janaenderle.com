@@ -27,3 +27,58 @@ const title = "Studio Rotstich" + t(route.meta.title)
     </Html>
   </div>
 </template>
+
+<style lang="scss">
+
+  @font-face {
+    font-family: 'Sora';
+    src:  url('../static/Sora.woff2') format('woff2');
+  }
+
+  $color-primary: white;
+  $color-secondary: black;
+  $color-tertiary: rgb(255, 26, 26);
+
+  html {
+    font-family: 'Sora', sans-serif;
+    background-color: $color-primary;
+    color: $color-secondary;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+    cursor: url(@/Cursor-black.png) 20 20, auto;
+  }
+
+  body {
+    padding: 0 20px;
+    margin: 0;
+    cursor: url(@/Cursor-black.png) 20 20, auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-secondary;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: $color-tertiary;
+  }
+
+  button {
+    font-family: 'Sora', sans-serif;
+    background-color: $color-primary;
+    color: $color-secondary;
+    padding: 0;
+    margin: 0;
+    border: None;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  button:hover {
+    color: $color-tertiary;
+  }
+
+</style>

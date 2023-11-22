@@ -2,14 +2,13 @@
 const { locale, locales, t } = useI18n()
 
 definePageMeta({
-  title: 'pages.titles.index'
+  title: 'pages.page_titles.index',
+  description: 'default_seo',
 })
 
-const switchLocalePath = useSwitchLocalePath()
+await navigateTo(t('pages.routes.projects'))
+
 </script>
 
 <template>
-    <div>
-    <h1>{{ t('welcome') }}</h1>
-  </div>
 </template>

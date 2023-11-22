@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
+    '@nuxt/image',
     "@nuxtjs/robots",
     'nuxt-simple-sitemap',
     "@nuxtjs/i18n"],
@@ -36,9 +37,35 @@ export default defineNuxtConfig({
     pages: {
       about: {
         en: '/about-me',
-        de: '/über',
-      }
+        de: '/ueber',
+      },
+      projects: {
+        en: '/projects',
+        de: '/projekte',
+      },
+      free_hand: {
+        en: '/free-hand',
+        de: '/freihand',
+      },
+      imprints: {
+        en: '/imprints',
+        de: '/impressum',
+      },
+      
     }
   },
 
+  image: {
+    quality: 40,
+    format: ['webp'],
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
+  },
 })
