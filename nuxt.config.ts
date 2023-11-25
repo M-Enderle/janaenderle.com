@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     'nuxt-simple-sitemap',
     "@nuxtjs/i18n",
-    'nuxt-og-image'],
+    'nuxt-icon'],
 
   // mutli language support
   i18n: {
@@ -92,5 +92,16 @@ export default defineNuxtConfig({
       'xxl': 1536,
       '2xl': 1536
     },
+  },
+
+
+  nitro: {
+    prerender: {
+      crawlLinks: true, // recommended
+    }
+  },
+
+  site: {
+    url: 'https://next.janaenderle.com', //TODO: Change to live url
   },
 })

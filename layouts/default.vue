@@ -1,11 +1,14 @@
 <script setup>
+
 const route = useRoute()
+
 const { t } = useI18n()
 const head = useLocaleHead({
   addDirAttribute: true,
   identifierAttribute: 'id',
   addSeoAttributes: true
 })
+
 const title = "Studio Rotstich" + t(route.meta.title)
 </script>
 
@@ -13,13 +16,24 @@ const title = "Studio Rotstich" + t(route.meta.title)
   <div>
     <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
       <Head>
+        
         <Title>{{ title }}</Title>
+
         <template v-for="link in head.link" :key="link.id">
           <Link :id="link.id" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
         </template>
+
         <template v-for="meta in head.meta" :key="meta.id">
           <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
         </template>
+
+        <!-- OpenGraph -->
+        <Meta property="og:title" hid="og-title" :content="title" />
+        <Meta property="og:description" hid="og-description" content="default_seo" /> 
+        <Meta property="og:image" hid="og-image" content="/images/JanaEnderle.jpg" />
+        <Meta property="og:url" hid="og-url" content="https://janaenderle.com" />
+        <Meta property="og:type" hid="og-type" content="website" />
+
       </Head>
       <Body>
         <slot />
