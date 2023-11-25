@@ -1,16 +1,18 @@
 <template>
-    <nuxt-link :to="url">
+    <div style="margin-top: 50px"></div>
+    <a :href="url">
         <div class="image_wrapper">
             <NuxtImg class="image" :src="imagePath" :alt="alt" />
         </div>
+        <div style="margin-top: 20px"></div>
         <div class="scroll-container">
             <div class="scroll-text">
             <span v-for="i in speed" :key="i" class="no_hover_text">
-                {{ title }}
+                {{ title }} +&#8203;
             </span>
             </div>
         </div>
-    </nuxt-link>
+    </a>
 </template>
 
 <script>
@@ -35,17 +37,13 @@ export default {
     },
     computed: {
         speed() {
-            console.log(this.title.length);
-            return Math.floor(200/this.title.length);
+            return Math.round(1000/(this.title.length + 10));
         }
     }
 }
 </script>
 
 <style lang="scss">
-.image_wrapper {
-    padding: 20px 0;
-}
 
 .image {
     width: 100%;
@@ -57,13 +55,14 @@ export default {
 .scroll-container {
   overflow: hidden;
   white-space: nowrap;
+  margin: -20px -20px;
 }
 
 .scroll-text {
   display: inline-block;
-  animation: scroll-right 60s linear infinite;
-  font-size: 80px;
-  font-weight: 400;
+  animation: scroll-right 110s linear infinite;
+  font-size: 6vh;
+  font-weight: 500;
 }
 
 @keyframes scroll-right {
@@ -71,7 +70,7 @@ export default {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-90%);
+    transform: translateX(-80%);
   }
 }
 

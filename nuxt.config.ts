@@ -4,7 +4,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     "@nuxtjs/robots",
     'nuxt-simple-sitemap',
-    "@nuxtjs/i18n"],
+    "@nuxtjs/i18n",
+    'nuxt-og-image'],
 
   // mutli language support
   i18n: {
@@ -43,15 +44,39 @@ export default defineNuxtConfig({
         en: '/projects',
         de: '/projekte',
       },
-      free_hand: {
-        en: '/free-hand',
-        de: '/freihand',
+      free_hands: {
+        en: '/free-hands',
+        de: '/freihaende',
       },
-      imprints: {
-        en: '/imprints',
+      imprint: {
+        en: '/imprint',
         de: '/impressum',
       },
-      
+      project: {
+        en: '/project/',
+        de: '/projekt/',
+      },
+      project_lenis: {
+        en: '/project/lenis',
+        de: '/projekt/lenis',
+      },
+      project_super_me: {
+        en: '/project/super_me',
+        de: '/projekt/super_me',
+      },
+      project_odds_and_ends: {
+        en: '/project/odds_and_ends',
+        de: '/projekt/odds_and_ends',
+      },
+      project_vulkanfieber: {
+        en: '/project/vulkanfieber',
+        de: '/projekt/vulkanfieber',
+      },
+      project_cre4te: {
+        en: '/project/cre4te',
+        de: '/projekt/cre4te',
+      },
+
     }
   },
 

@@ -8,7 +8,7 @@ export default {
         routes: {
             about: '/de/ueber',
             projects: '/de/projekte',
-            free_hand: '/de/freihand',
+            free_hands: '/de/freihaende',
             imprints: '/de/impressum',
         },
         titles: {
@@ -25,7 +25,7 @@ export default {
                     alt: "Ein Smartphone liegt auf einer Betonoberfläche mit einem farbenfrohen Retro-Spiel auf dem Bildschirm, neben einem Laptop mit dekorativen Aufklebern auf dem Deckel."
                 }
             },
-            path: "/de/projekte/super-me",
+            path: "/de/projekt/super_me",
             title: "Super Me"
         },
         IKEAXAstraZeneca: {
@@ -34,7 +34,7 @@ export default {
                     alt: ""
                 }
             },
-            path: "/de/projekte/IKEAXAstraZeneca",
+            path: "/de/projekt/IKEAXAstraZeneca",
             title: "IKEAXAstraZeneca"
         },
         lenis: {
@@ -43,7 +43,7 @@ export default {
                     alt: ""
                 }
             },
-            path: "/de/projekte/lenis",
+            path: "/de/projekt/lenis",
             title: "Leni's Sweet & Salty"
         },
         odds_and_ends: {
@@ -52,7 +52,7 @@ export default {
                     alt: ""
                 }
             },
-            path: "/de/projekte/odds-and-ends",
+            path: "/de/projekt/odds_and_ends",
             title: "odds & ends"
         },
         vulkanfieber: {
@@ -61,7 +61,7 @@ export default {
                     alt: ""
                 }
             },
-            path: "/de/projekte/vulkanfieber",
+            path: "/de/projekt/vulkanfieber",
             title: "Vulkanfieber"
         },
         cre4te: {
@@ -70,7 +70,7 @@ export default {
                     alt: ""
                 }
             },
-            path: "/de/projekte/cre4te",
+            path: "/de/projekt/cre4te",
             title: "CRE4TE"
         },
     }

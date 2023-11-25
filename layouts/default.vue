@@ -50,7 +50,12 @@ const title = "Studio Rotstich" + t(route.meta.title)
   }
 
   body {
-    padding: 0 20px;
+    @media (max-width: 767px) {
+      padding: 0 10px;
+    }
+    @media (min-width: 768px) {
+      padding: 0 20px;
+    }
     margin: 0;
     cursor: url(@/Cursor-black.png) 20 20, auto;
   }
@@ -80,5 +85,31 @@ const title = "Studio Rotstich" + t(route.meta.title)
   button:hover {
     color: $color-tertiary;
   }
+
+  /* Customize website's scrollbar like Mac OS
+Not supports in Firefox and IE */
+
+/* total width */
+body::-webkit-scrollbar {
+    background-color: #fff;
+    width: 7px;
+}
+
+/* background of the scrollbar except button or resizer */
+body::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+/* scrollbar itself */
+body::-webkit-scrollbar-thumb {
+    background-color: #737373;
+    border-radius: 16px;
+    border: 2px solid #fff;
+}
+
+/* set button(top and bottom of the scrollbar) */
+body::-webkit-scrollbar-button {
+    display:none;
+}
 
 </style>
