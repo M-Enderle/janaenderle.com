@@ -2,7 +2,7 @@
     <div style="margin-top: 50px"></div>
     <a :href="url">
         <div class="image_wrapper">
-            <NuxtImg class="image" :src="imagePath" :alt="alt" />
+            <img :src="myImage" :alt="alt" class="image">
         </div>
         <div style="margin-top: 20px"></div>
         <div class="scroll-container">
@@ -16,9 +16,18 @@
 </template>
 
 <script>
+
+import { Cloudinary } from '@cloudinary/url-gen';
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: 'dqxwy7joy'
+  }
+}); 
+
 export default {
     props: {
-        imagePath: {
+        imageID: {
             type: String,
             required: true
         },
@@ -35,10 +44,16 @@ export default {
             required: true
         }
     },
+    setup(props) {
+        const myImage = cld.image("Studio Rotstich/" + props.imageID).format('auto').quality('30').toURL();
+        return {
+            myImage
+        }
+    },
     computed: {
         speed() {
             return Math.round(1000/(this.title.length + 10));
-        }
+        },
     }
 }
 </script>
@@ -47,9 +62,6 @@ export default {
 
 .image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
 }
 
 .scroll-container {

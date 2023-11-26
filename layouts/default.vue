@@ -9,14 +9,22 @@ const head = useLocaleHead({
   addSeoAttributes: true
 })
 
-const title = "Studio Rotstich" + t(route.meta.title)
+const { url } = useCldImageUrl({
+  options: {
+    src: "Studio Rotstich/ugqx0dbl7dgttw1yfdby",
+    width: "1200",
+    height: "630",
+  }
+})
+
+const title = "Studio Rotstich"
 </script>
 
 <template>
   <div>
     <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
       <Head>
-        
+
         <Title>{{ title }}</Title>
 
         <template v-for="link in head.link" :key="link.id">
@@ -29,8 +37,8 @@ const title = "Studio Rotstich" + t(route.meta.title)
 
         <!-- OpenGraph -->
         <Meta property="og:title" hid="og-title" :content="title" />
-        <Meta property="og:description" hid="og-description" content="default_seo" /> 
-        <Meta property="og:image" hid="og-image" content="/images/JanaEnderle.jpg" />
+        <Meta property="og:description" hid="og-description" :content="t('defaultSEO')" /> 
+        <Meta property="og:image" hid="og-image" :content="url" />
         <Meta property="og:url" hid="og-url" content="https://janaenderle.com" />
         <Meta property="og:type" hid="og-type" content="website" />
 
@@ -61,6 +69,7 @@ const title = "Studio Rotstich" + t(route.meta.title)
     font-size: 25px;
     font-weight: 400;
     cursor: url(@/Cursor-black.png) 20 20, auto;
+    overflow-x: hidden;
   }
 
   body {

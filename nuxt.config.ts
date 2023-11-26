@@ -1,11 +1,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
-    '@nuxt/image',
     "@nuxtjs/robots",
     'nuxt-simple-sitemap',
     "@nuxtjs/i18n",
-    'nuxt-icon'],
+    'nuxt-icon',
+    "@nuxtjs/cloudinary",
+    "@nuxt/image"
+  ],
 
   // mutli language support
   i18n: {
@@ -80,19 +82,19 @@ export default defineNuxtConfig({
     }
   },
 
-  image: {
-    quality: 40,
-    format: ['webp'],
-    screens: {
-      'xs': 320,
-      'sm': 640,
-      'md': 768,
-      'lg': 1024,
-      'xl': 1280,
-      'xxl': 1536,
-      '2xl': 1536
-    },
-  },
+  //image: {
+  //  quality: 40,
+  //  format: ['webp'],
+  //  screens: {
+  //    'xs': 320,
+  //    'sm': 640,
+  //    'md': 768,
+  //    'lg': 1024,
+  //    'xl': 1280,
+  //    'xxl': 1536,
+  //    '2xl': 1536
+  //  },
+  //},
 
 
   nitro: {
@@ -104,4 +106,8 @@ export default defineNuxtConfig({
   site: {
     url: 'https://next.janaenderle.com', //TODO: Change to live url
   },
+
+  cloudinary: {
+    cloudName: 'dqxwy7joy',
+  }
 })

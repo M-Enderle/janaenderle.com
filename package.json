@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.1.0",
     "@nuxtjs/i18n": "^8.0.0-rc.5",
     "@nuxtjs/robots": "^3.0.0",
     "nuxt": "^3.8.1",
@@ -21,7 +22,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.1.0",
+    "@cloudinary/url-gen": "^1.13.0",
+    "@nuxtjs/cloudinary": "^2.4.3",
+    "cloudinary": "^1.41.0",
     "vuex": "^4.0.2"
   }
 }

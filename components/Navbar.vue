@@ -54,6 +54,12 @@ export default {
         }
     },
 
+    data() {
+        return {
+            url: this.$route.path
+        }
+    },
+
     mounted() {
         const logo = document.getElementById("logo");
         logo.addEventListener("mouseover", function( event ) {
@@ -64,6 +70,9 @@ export default {
             const studioName = event.currentTarget.querySelector("#studio_name");
             studioName.textContent = "Studio Rotstich";
         });
+
+        const url = window.location.href;
+        
     },
 
     methods: {
