@@ -23,7 +23,9 @@
   },
   "dependencies": {
     "@cloudinary/url-gen": "^1.13.0",
+    "@funken-studio/sitemap-nuxt-3": "^4.0.4",
     "@nuxtjs/cloudinary": "^2.4.3",
+    "@nuxtjs/sitemap": "^2.4.0",
     "cloudinary": "^1.41.0",
     "vuex": "^4.0.2"
   }

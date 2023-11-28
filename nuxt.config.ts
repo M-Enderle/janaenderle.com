@@ -1,12 +1,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
-    "@nuxtjs/robots",
-    'nuxt-simple-sitemap',
     "@nuxtjs/i18n",
     'nuxt-icon',
     "@nuxtjs/cloudinary",
-    "@nuxt/image"
+    "@nuxt/image",
+    ['@funken-studio/sitemap-nuxt-3', { generateOnBuild: true }],
   ],
 
   // mutli language support
@@ -82,30 +81,11 @@ export default defineNuxtConfig({
     }
   },
 
-  //image: {
-  //  quality: 40,
-  //  format: ['webp'],
-  //  screens: {
-  //    'xs': 320,
-  //    'sm': 640,
-  //    'md': 768,
-  //    'lg': 1024,
-  //    'xl': 1280,
-  //    'xxl': 1536,
-  //    '2xl': 1536
-  //  },
-  //},
-
-
   nitro: {
     prerender: {
       crawlLinks: true, // recommended
     },
     compressPublicAssets: true
-  },
-
-  site: {
-    url: 'https://next.janaenderle.com', //TODO: Change to live url
   },
 
   cloudinary: {

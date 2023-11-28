@@ -38,6 +38,7 @@ const description = t(route.meta.description)
         </template>
 
         <Meta name="description" hid="description" :content="description" />
+        <Meta name="msvalidate.01" content="8BB110BB289ECF54AC00E4B1184EA1AF" />
         
         <!-- Icons -->
         <Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -144,5 +145,19 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-button {
     display:none;
 }
+
+p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+h1 {
+    font-size: 100px;
+    font-weight: 400;
+    margin: 30px 0;
+    line-height: 110%;
+    letter-spacing: -1px;
+  }
 
 </style>

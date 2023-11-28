@@ -1,10 +1,19 @@
 export default {
     defaultSEO: "Ich bin Jana Enderle und die Gründerin von Studio Rotstich. Mein Studio legt den Fokus auf ganzheitliche Konzepte und detailreiches, aber lautes Design. Dabei ist das Zusammenspiel von digitalen und analogen Medien von großer Bedeutung.", 
     SEO: {
-        "about": "Hey! Ich bin Jana Enderle von Studio Rotstich. Ich bin eine Kommunikationsdesignerin und habe mich auf Branding und Printmedien spezialisiert.",
-        "projects": "Willkommen bei Studio Rotstich! Entdecken Sie meine Projektgalerie, die die kreative Verbindung von traditionellen und modernen Kommunikationsformen zeigt. ",
-        "free_hand": "Willkommen auf der Freihand-Seite von Studio Rotstich! Hier finden Sie eine Auswahl an handgezeichneten Produkten, die Sie in meinem Etsy-Shop kaufen können.",
-        "imprint": "Impressum von Studio Rotstich."
+        about: "Hey! Ich bin Jana Enderle von Studio Rotstich. Ich bin eine Kommunikationsdesignerin und habe mich auf Branding und Printmedien spezialisiert.",
+        projects: "Willkommen bei Studio Rotstich! Entdecken Sie meine Projektgalerie, die die kreative Verbindung von traditionellen und modernen Kommunikationsformen zeigt. ",
+        free_hand: "Willkommen auf der Freihand-Seite von Studio Rotstich! Hier finden Sie eine Auswahl an handgezeichneten Produkten, die Sie in meinem Etsy-Shop kaufen können.",
+        imprint: "Impressum von Studio Rotstich.",
+        project: {
+            super_me: "Super Me ist ein Projekt von Studio Rotstich. Es ist ein Konzept für ein Retro-Spiel, welches auf Smartphones gespielt werden kann.",
+            IKEAXAstraZeneca: "IKEAXAstraZeneca ist ein Projekt von Studio Rotstich. Es ist ein Konzept für einen Katalog, welcher die Zeugung von Kindern thematisiert.",
+            lenis: "Leni's Sweet & Salty ist ein Projekt von Studio Rotstich. Es ist ....",
+            odds_and_ends: "odds & ends ist ein Projekt von Studio Rotstich. Es ist ein Konzept für eine App, welche die Verwendung von Lebensmittelabfällen reduzieren soll.",
+            vulkanfieber: "Vulkanfieber ist ein Projekt von Studio Rotstich. Es ist ein Konzept für ein Poster, welches über Verhütung aufklärt.",
+            cre4te: "CRE4TE ist ein Projekt von Studio Rotstich. Es ist ein Konzept....",
+        }
+
     },
     pages: {
         routes: {
@@ -18,6 +27,15 @@ export default {
             projects: 'Projekte',
             free_hand: 'Freihand',
             imprints: 'Impressum',
+            index: "Studio Rotstich",
+            project: {
+                super_me: 'Super Me - Ein Projekt von Studio Rotstich',
+                IKEAXAstraZeneca: 'IKEAXAstraZeneca - Ein Projekt von Studio Rotstich',
+                lenis: 'Leni\'s Sweet & Salty - Ein Projekt von Studio Rotstich',
+                odds_and_ends: 'odds & ends - Ein Projekt von Studio Rotstich',
+                vulkanfieber: 'Vulkanfieber - Ein Projekt von Studio Rotstich',
+                cre4te: 'CRE4TE - Ein Projekt von Studio Rotstich',
+            }
         }
     },
     projects: {
@@ -123,6 +141,18 @@ export default {
                     3: "++ Praktikum / Maurer, Rapp & Henneberg"
                 },
             }
+        },
+        super_me: {
+            1: {
+                1: "Studienprojekt",
+                2: "Masterthese"
+            },
+            2: {
+                1: "Nicht erfolgreich genug, nicht glücklich genug, nicht gut genug und nicht perfekt genug? Studien zufolge scheint vor allem die Generation Z unzufriedener zu sein denn je. Aber warum verspüren so viele von uns im heutigen Schlaraffenland eine Sucht nach Perfektion?",
+                2: "Super Me, ein Spiel zur Förderung der mentalen Gesundheit, hilft unzufriedenen und psychisch kranken jungen Mädchen, sich selbst zu akzeptieren, ihren eigenen Weg zu finden und selbstwirksam zu werden.",
+                3: "Die Super Me Welt ist voller unerwarteter Lösungen und setzt den Fokus auf die Charakterstärken der Mädchen."
+            },
+            3: "Entdecke die Super Me Welt und dich selbst!"
         },
     }
 }

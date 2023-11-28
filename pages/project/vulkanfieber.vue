@@ -3,7 +3,8 @@
 const { locale, locales, t } = useI18n()
 
 definePageMeta({
-  title: 'pages.titles.projects'
+  title: 'pages.titles.project.vulkanfieber',
+  description: 'SEO.project.vulkanfieber',
 })
 
 </script>

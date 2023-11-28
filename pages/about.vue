@@ -76,21 +76,4 @@ export default {
     hyphens: auto;
   }
 
-  .about div {
-    font-size: 16px;
-  }
-
-  .about h1 {
-    font-size: 100px;
-    font-weight: 400;
-    margin: 30px 0;
-    line-height: 110%;
-    letter-spacing: -1px;
-  }
-
-  .about p {
-    margin: 0;
-  }
-  
-
 </style>
