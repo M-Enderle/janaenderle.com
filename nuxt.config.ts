@@ -39,19 +39,19 @@ export default defineNuxtConfig({
     customRoutes: 'config',
     pages: {
       about: {
-        en: '/about-me',
+        en: '/about',
         de: '/ueber',
       },
       projects: {
         en: '/projects',
         de: '/projekte',
       },
-      free_hands: {
-        en: '/free-hands',
-        de: '/freihaende',
+      free_hand: {
+        en: '/free-hand',
+        de: '/freihand',
       },
       imprint: {
-        en: '/imprint',
+        en: '/imprints',
         de: '/impressum',
       },
       project: {
@@ -100,7 +100,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true, // recommended
-    }
+    },
+    compressPublicAssets: true
   },
 
   site: {
@@ -109,5 +110,5 @@ export default defineNuxtConfig({
 
   cloudinary: {
     cloudName: 'dqxwy7joy',
-  }
+  },
 })

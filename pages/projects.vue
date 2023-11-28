@@ -3,12 +3,16 @@
 const { locale, locales, t } = useI18n()
 
 definePageMeta({
-  title: 'pages.titles.projects'
+  title: 'pages.titles.projects',
+  description: 'SEO.projects',
 })
 
 </script>
 
 <template>
+
+  <h1 style="display: none">Studio Rotstich - {{ t("pages.titles.projects") }}</h1>
+
   <Card :imageID="'m4qfb3n2sxstadl3za2r'" 
         :alt="t('projects.super_me.images.front.alt')" 
         :title="t('projects.super_me.title')" 
@@ -40,17 +44,6 @@ definePageMeta({
         :url="t('projects.cre4te.path')" 
   /> 
 </template>
-
-<script>
-export default {
-  mounted() {
-    const navbar_free_hand= document.getElementById("navbar_free_hand");
-    navbar_free_hand.style.color = "black";
-    const navbar_projects = document.getElementById("navbar_projects");
-    navbar_projects.style.color = "rgb(255, 26, 26)";
-  }
-}
-</script>
 
 <style lang="scss">
 </style>

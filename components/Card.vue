@@ -5,7 +5,7 @@
             <img :src="myImage" :alt="alt" class="image">
         </div>
         <div style="margin-top: 20px"></div>
-        <div class="scroll-container">
+        <div class="scroll-container" v-if="title">
             <div class="scroll-text">
             <span v-for="i in speed" :key="i" class="no_hover_text">
                 {{ title }} +&#8203;
@@ -18,6 +18,8 @@
 <script>
 
 import { Cloudinary } from '@cloudinary/url-gen';
+import {fill} from "@cloudinary/url-gen/actions/resize";
+import { useStore } from 'vuex'
 
 const cld = new Cloudinary({
   cloud: {
@@ -37,7 +39,7 @@ export default {
         },
         title: {
             type: String,
-            required: true
+            required: false
         },
         url: {
             type: String,
@@ -45,7 +47,16 @@ export default {
         }
     },
     setup(props) {
-        const myImage = cld.image("Studio Rotstich/" + props.imageID).format('auto').quality('30').toURL();
+        const store = useStore()
+        const isMobile = computed(() => store.state.isMobile)
+        let myImage;
+
+        if (isMobile == true) {
+            myImage = cld.image("Studio Rotstich/" + props.imageID).resize(fill().aspectRatio("1.4")).format('auto').quality('25').toURL();
+        } else {
+            myImage = cld.image("Studio Rotstich/" + props.imageID).format('auto').quality('35').toURL();
+        }
+
         return {
             myImage
         }
@@ -90,5 +101,11 @@ export default {
     text-decoration: none;
     color: black;
 }
+
+@media screen and (min-width: 768px) {
+    .scroll-text {
+        font-size: 7.5vh;
+    }
+  }
 
 </style>

@@ -1,18 +1,18 @@
 <template>
     <div id="navbar" v-show="!isMobile">
-        <div id="logo" class="nav_third" @click="navigateTo(t('pages.routes.projects'))">
+        <a id="logo" class="nav_third" :href="t('pages.routes.projects')">
             <div id="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
-        </div>
+        </a>
         <div id="main_navigation" class="nav_third">
             <nuxt-link :to="t('pages.routes.projects')" id="navbar_projects">{{ t('pages.titles.projects') }}</nuxt-link>
             <div id="seperator-plus">+</div>
-            <nuxt-link :to="t('pages.routes.free_hands')" id="navbar_free_hand">{{ t('pages.titles.free_hand') }}</nuxt-link>
+            <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand">{{ t('pages.titles.free_hand') }}</nuxt-link>
         </div>
         <div id="right_nav" class="nav_third">
             <button v-if="locale === 'en'" @click="setLocale('de')" id="lang_button">DE</button>
             <button v-if="locale === 'de'" @click="setLocale('en')" id="lang_button">EN</button>
-            <nuxt-link :to="t('pages.routes.about')" >{{ t('pages.titles.about') }}</nuxt-link>
+            <nuxt-link :to="t('pages.routes.about')">{{ t('pages.titles.about') }}</nuxt-link>
         </div>
     </div>
     <div id="navbar" v-show="isMobile" >
@@ -26,7 +26,7 @@
     </div>
     <div id="nav_mobile_unfolded" class="folded" v-show="isMobile">
         <nuxt-link :to="t('pages.routes.projects')" id="navbar_projects" @click="toggle_mobile_nav">{{ t('pages.titles.projects') }}</nuxt-link>
-        <nuxt-link :to="t('pages.routes.free_hands')" id="navbar_free_hand" @click="toggle_mobile_nav">{{ t('pages.titles.free_hand') }}</nuxt-link>
+        <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand" @click="toggle_mobile_nav">{{ t('pages.titles.free_hand') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.about')" @click="toggle_mobile_nav">{{ t('pages.titles.about') }}</nuxt-link>
         <div class="spacer" style="height: 3vh"></div>
         <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com" @click="toggle_mobile_nav">Mail</a>
@@ -108,6 +108,11 @@ export default {
     z-index: 2;
 }
 
+#logo:hover {
+    cursor: pointer;
+    color: black;
+}
+
 #main_navigation {
     display: flex;
     justify-content: center;
@@ -185,6 +190,10 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.router-link-active {
+    color: rgb(255, 26, 26);
 }
 
 </style>

@@ -7,30 +7,30 @@
         <img :src="myImage" alt="Jana Enderle, the lead designer at Studio Rotstich" class="image">
       </div>
       <div class="third">
-        {{ t('texts.about.text1') }}
+        <p>{{ t('texts.about.text1') }}</p>
         <br><br>
-        {{ t('texts.about.text2') }}
+        <p>{{ t('texts.about.text2') }}</p>
       </div>
       <div class="third">
-        {{ t('texts.about.history.1.1') }}<br>
-        {{ t('texts.about.history.1.2') }}
+        <p>{{ t('texts.about.history.1.1') }}</p>
+        <p>{{ t('texts.about.history.1.2') }}</p>
         <br>
-        {{ t('texts.about.history.2.1') }}<br>
-        {{ t('texts.about.history.2.2') }}<br>
-        {{ t('texts.about.history.2.3') }}<br>
+        <p>{{ t('texts.about.history.2.1') }}</p>
+        <p>{{ t('texts.about.history.2.2') }}</p>
+        <p>{{ t('texts.about.history.2.3') }}</p>
         <br>
-        {{ t('texts.about.history.3.1') }}<br>
-        {{ t('texts.about.history.3.2') }}<br>
+        <p>{{ t('texts.about.history.3.1') }}</p>
+        <p>{{ t('texts.about.history.3.2') }}</p>
         <br>
-        {{ t('texts.about.history.4.1') }}<br>
-        {{ t('texts.about.history.4.2') }}<br>
+        <p>{{ t('texts.about.history.4.1') }}</p>
+        <p>{{ t('texts.about.history.4.2') }}</p>
         <br>
-        {{ t('texts.about.history.5.1') }}<br>
-        {{ t('texts.about.history.5.2') }}<br>
+        <p>{{ t('texts.about.history.5.1') }}</p>
+        <p>{{ t('texts.about.history.5.2') }}</p>
         <br>
-        {{ t('texts.about.history.6.1') }}<br>
-        {{ t('texts.about.history.6.2') }}<br>
-        {{ t('texts.about.history.6.3') }}<br>
+        <p>{{ t('texts.about.history.6.1') }}</p>
+        <p>{{ t('texts.about.history.6.2') }}</p>
+        <p>{{ t('texts.about.history.6.3') }}</p>
       </div>
     </div>
   </div>
@@ -52,7 +52,8 @@ export default {
     const { locale, locales, t } = useI18n()
 
     definePageMeta({
-      title: 'pages.titles.about'
+      title: 'pages.titles.about',
+      description: 'SEO.about',
     })
 
     const myImage = cld.image("Studio Rotstich/ugqx0dbl7dgttw1yfdby").format('auto').quality('20').toURL();
@@ -86,5 +87,10 @@ export default {
     line-height: 110%;
     letter-spacing: -1px;
   }
+
+  .about p {
+    margin: 0;
+  }
+  
 
 </style>
