@@ -16,10 +16,10 @@
         </div>
     </div>
     <div class="navbar" id="navmobile">
-        <div class="logo" @click="navigateTo(t('pages.routes.projects'))">
+        <a class="logo" :href="t('pages.routes.projects')">
             <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
-        </div>
+        </a>
         <div class="unfold_plus" @click="toggle_mobile_nav">
             +
         </div>

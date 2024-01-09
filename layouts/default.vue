@@ -93,7 +93,6 @@ const description = t(route.meta.description)
     }
     margin: 0;
     cursor: url(@/Cursor-black.png) 20 20, auto;
-    overflow-x: hidden;
   }
 
   a {
@@ -160,6 +159,26 @@ h1 {
     margin: 30px 0;
     line-height: 110%;
     letter-spacing: -1px;
+  }
+
+  .arrow-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(-90deg);
+    transition: opacity 300ms;
+  }
+
+  @media screen and (min-width: 768px) {
+    .arrow-up {
+      display: none;
+    }
+  }
+
+  .hide {
+    opacity: 0;
+    transition: opacity 300ms;
+    pointer-events: none;
   }
 
 </style>

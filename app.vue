@@ -3,6 +3,7 @@
     <Navbar />
     <RouterView />
     <Footer />
+    <NuxtImg src="/arrow_up.svg" width="50px" class="arrow-up" :class="{ 'hide': hideArrow }" @click="scrollToTop" />
   </NuxtLayout>
 
   <!--
@@ -21,6 +22,12 @@ import { useStore } from 'vuex'
 
 export default {
 
+    data() {
+        return {
+            hideArrow: false, // Add this line
+        }
+    },
+
     setup() {
         const store = useStore()
 
@@ -35,6 +42,7 @@ export default {
 
     mounted() {
         window.addEventListener('resize', this.handleResize)
+        window.addEventListener('scroll', this.handleScroll)
         if (window.innerWidth >= 768) {
             this.$store.dispatch('setIsMobile', false)
         } else {
@@ -52,6 +60,21 @@ export default {
                 this.$store.dispatch('setIsMobile', false)
             } else {
                 this.$store.dispatch('setIsMobile', true)
+            }
+        },
+
+        scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        },
+
+        handleScroll() {
+            if (window.scrollY > 100) {
+                this.hideArrow = false
+            } else {
+                this.hideArrow = true
             }
         }
     }
