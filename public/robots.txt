@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /
+Disallow: 
 
-Sitemap: http://next.janaenderle.com/sitemap.xml
+Sitemap: http://janaenderle.com/sitemap.xml

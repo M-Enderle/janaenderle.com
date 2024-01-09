@@ -1,8 +1,8 @@
 <template>
     <div class="footer">
         <div class="third">
-            <nuxt-link :to="t('pages.routes.imprints')">{{ t('pages.titles.imprints') }}</nuxt-link>
-            <div style="margin-top: 1vh" v-if="isMobile">Copyright © 2023 Jana Enderle</div>
+            <nuxt-link :to="t('pages.routes.imprint')">{{ t('pages.titles.imprint') }}</nuxt-link>
+            <div style="margin-top: 1vh" v-if="isMobile">Copyright © 2024 <br>Jana Enderle</div>
         </div>
         <div class="third">
             <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com" @click="toggle_mobile_nav">Mail</a><br>
@@ -11,7 +11,7 @@
             <a target="_blank" rel="noopener noreferrer" href="https://www.etsy.com/shop/Janascreativestudio?ref=search_shop_redirect" @click="toggle_mobile_nav">Etsy</a><br>
         </div>
         <div class="third" v-if="!isMobile">
-            Copyright © 2023 Jana Enderle
+            Copyright © 2024 Jana Enderle
         </div>
         
     </div>
@@ -55,7 +55,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vh;
+    margin-top: 10vh;
     margin-bottom: 5vh;
     align-items: flex-start;
 }

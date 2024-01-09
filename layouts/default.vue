@@ -81,6 +81,7 @@ const description = t(route.meta.description)
     font-weight: 400;
     cursor: url(@/Cursor-black.png) 20 20, auto;
     overflow-x: hidden;
+    width: 100vw;
   }
 
   body {
@@ -92,6 +93,7 @@ const description = t(route.meta.description)
     }
     margin: 0;
     cursor: url(@/Cursor-black.png) 20 20, auto;
+    overflow-x: hidden;
   }
 
   a {

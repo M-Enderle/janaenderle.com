@@ -5,13 +5,13 @@ export default defineNuxtConfig({
     'nuxt-icon',
     "@nuxtjs/cloudinary",
     "@nuxt/image",
-    ['@funken-studio/sitemap-nuxt-3', { generateOnBuild: true }],
+    ['@funken-studio/sitemap-nuxt-3', { generateOnBuild: true , hostname: 'https://janaenderle.com'}],
   ],
 
   // mutli language support
   i18n: {
 
-    baseUrl: 'https://next.janaenderle.com', //TODO: Change to live url
+    baseUrl: 'https://janaenderle.com', //TODO: Change to live url
 
     locales: [
       {
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         de: '/freihand',
       },
       imprint: {
-        en: '/imprints',
+        en: '/imprint',
         de: '/impressum',
       },
       project: {
@@ -91,4 +91,10 @@ export default defineNuxtConfig({
   cloudinary: {
     cloudName: 'dqxwy7joy',
   },
+
+  routeRules: {
+    '/project': { redirect: '/projects' },
+    '/de/projekt': { redirect: '/de/projekte' },
+  }
+
 })

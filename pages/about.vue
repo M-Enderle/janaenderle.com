@@ -7,33 +7,36 @@
         <img :src="myImage" alt="Jana Enderle, the lead designer at Studio Rotstich" class="image">
       </div>
       <div class="third">
+        <div class="spacemobile"></div>
         <p>{{ t('texts.about.text1') }}</p>
-        <br><br>
+        <div class="space"></div>
         <p>{{ t('texts.about.text2') }}</p>
       </div>
       <div class="third">
+        <div class="spacemobile"></div>
         <p>{{ t('texts.about.history.1.1') }}</p>
         <p>{{ t('texts.about.history.1.2') }}</p>
-        <br>
+        <div class="space"></div>
         <p>{{ t('texts.about.history.2.1') }}</p>
         <p>{{ t('texts.about.history.2.2') }}</p>
         <p>{{ t('texts.about.history.2.3') }}</p>
-        <br>
+        <div class="space"></div>
         <p>{{ t('texts.about.history.3.1') }}</p>
         <p>{{ t('texts.about.history.3.2') }}</p>
-        <br>
+        <div class="space"></div>
         <p>{{ t('texts.about.history.4.1') }}</p>
         <p>{{ t('texts.about.history.4.2') }}</p>
-        <br>
+        <div class="space"></div>
         <p>{{ t('texts.about.history.5.1') }}</p>
         <p>{{ t('texts.about.history.5.2') }}</p>
-        <br>
+        <div class="space"></div>
         <p>{{ t('texts.about.history.6.1') }}</p>
         <p>{{ t('texts.about.history.6.2') }}</p>
         <p>{{ t('texts.about.history.6.3') }}</p>
       </div>
     </div>
   </div>
+  <div style="margin-top: 100px"></div>
 </template>
 
 <script>
@@ -74,6 +77,24 @@ export default {
   .third {
     display: block;
     hyphens: auto;
+  }
+
+  .space {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .thirds {
+      display: block;
+    }
+
+    .spacemobile {
+      margin-bottom: 15px;
+    }
+  }
+
+  .image {
+    width: 100%;
   }
 
 </style>

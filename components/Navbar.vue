@@ -1,7 +1,7 @@
 <template>
-    <div id="navbar" v-show="!isMobile">
-        <a id="logo" class="nav_third" :href="t('pages.routes.projects')">
-            <div id="studio_name">Studio Rotstich</div>
+    <div class="navbar" id="navdesktop">
+        <a class="logo nav_third" :href="t('pages.routes.projects')">
+            <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
         </a>
         <div id="main_navigation" class="nav_third">
@@ -15,12 +15,12 @@
             <nuxt-link :to="t('pages.routes.about')">{{ t('pages.titles.about') }}</nuxt-link>
         </div>
     </div>
-    <div id="navbar" v-show="isMobile" >
-        <div id="logo" @click="navigateTo(t('pages.routes.projects'))">
-            <div id="studio_name">Studio Rotstich</div>
+    <div class="navbar" id="navmobile">
+        <div class="logo" @click="navigateTo(t('pages.routes.projects'))">
+            <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
         </div>
-        <div id="unfold_plus" @click="toggle_mobile_nav">
+        <div class="unfold_plus" @click="toggle_mobile_nav">
             +
         </div>
     </div>
@@ -61,18 +61,15 @@ export default {
     },
 
     mounted() {
-        const logo = document.getElementById("logo");
+        const logo = document.getElementsByClassName("logo")[0];
         logo.addEventListener("mouseover", function( event ) {
-            const studioName = event.currentTarget.querySelector("#studio_name");
+            const studioName = event.currentTarget.querySelector(".studio_name");
             studioName.textContent = "Studio Ro+s+tich";
         });
         logo.addEventListener("mouseout", function( event ) {
-            const studioName = event.currentTarget.querySelector("#studio_name");
+            const studioName = event.currentTarget.querySelector(".studio_name");
             studioName.textContent = "Studio Rotstich";
         });
-
-        const url = window.location.href;
-        
     },
 
     methods: {
@@ -89,6 +86,7 @@ export default {
                 nav_mobile_unfolded.classList.add("unfolded");
                 unfold_plus.style.transform = "rotate(45deg)";
                 document.body.style.overflow = "hidden";
+                document.body.style.height = "100vh";
             }
 
         }
@@ -99,7 +97,7 @@ export default {
 
 <style lang="scss">
 
-#navbar {
+.navbar {
     display: flex;
     justify-content: space-between;
     position: sticky;
@@ -108,9 +106,24 @@ export default {
     z-index: 2;
 }
 
-#logo:hover {
-    cursor: pointer;
+@media (max-width: 768px) {
+    #navdesktop {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    #navmobile {
+        display: none;
+    }
+}
+
+.logo:hover {
     color: black;
+}
+
+.logo {
+    cursor: pointer;
 }
 
 #main_navigation {
@@ -136,8 +149,14 @@ export default {
     color: rgb(255, 26, 26);
 }
 
-#studio_name {
+.studio_name {
     transition: all 0.5s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .nav_third {
@@ -148,7 +167,7 @@ export default {
     background-color: transparent;
 }
 
-#unfold_plus {
+.unfold_plus {
     font-size: 80px;
     font-weight: 100;
     line-height: 70px;
