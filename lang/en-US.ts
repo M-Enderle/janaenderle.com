@@ -21,6 +21,7 @@ export default {
             projects: '/projects',
             free_hand: '/free-hand',
             imprint: '/imprint',
+            index: "/"
         },
         titles: {
             about: 'About',
@@ -127,6 +128,10 @@ export default {
             "title": "Buy the seasonal calendar here",
             "href": "https://www.etsy.com/de-en/listing/984922301/regional-seasonal-calendar-vegetables?click_key=28bb153757573262e99ff7dda29407ca8eb77cf8%3A984922301&click_sum=f3789170&ref=shop_home_feat_1&frs=1",
             "alt": "A hand-drawn seasonal calendar with regional fruit and vegetables by Jana Enderle, which is sold on the Etsy platform in DIN A5 and DIN A4."
+        },
+        linol: {
+            "href": "https://www.etsy.com/de/listing/1661217069/linoldruck-grab-the-cat-linolschnitt?ref=listings_manager_grid",
+            "alt": "A hand-crafted linocut print with a hand grabbing a cat by Jana Enderle, which is sold on the Etsy platform.",
         },
         card: {
             "href": "https://www.etsy.com/de/listing/1370905299/postkarte-schlitten-geschenke?click_key=a758981933b95e8d8073a81ad3ae0ecb540a29f0%3A1370905299&click_sum=83b8aae5&ref=related-5",

@@ -21,13 +21,14 @@ export default {
             projects: '/de/projekte',
             free_hand: '/de/freihand',
             imprint: '/de/impressum',
+            index: "/de"
         },
         titles: {
             about: 'Über',
             projects: 'Projekte',
             free_hand: 'Freihand',
             imprint: 'Impressum',
-            index: "Studio Rotstich",
+            index: "Studio Rotstich - DE",
             project: {
                 super_me: 'Super Me - Ein Projekt von Studio Rotstich',
                 IKEAXAstraZeneca: 'IKEAXAstraZeneca - Ein Projekt von Studio Rotstich',
@@ -127,6 +128,10 @@ export default {
             "title": "Kaufe den Saisonkalender hier",
             "href": "https://www.etsy.com/de-en/listing/984922301/regional-seasonal-calendar-vegetables?click_key=28bb153757573262e99ff7dda29407ca8eb77cf8%3A984922301&click_sum=f3789170&ref=shop_home_feat_1&frs=1",
             "alt": "Ein handgezeichneter Saisonkalender mit regionalem Gemüse und Obst von Jana Enderle, welcher auf der Plattform Etsy in DIN A5 und DIN A4 verkauft wird."
+        },
+        linol: {
+            "href": "https://www.etsy.com/de/listing/1661217069/linoldruck-grab-the-cat-linolschnitt?ref=listings_manager_grid",
+            "alt": "Ein handgefertigter Linoldruck von Jana Enderle, welcher auf der Plattform Etsy verkauft wird. Der Druck zeigt eine Katze, die von einer Hand gegriffen wird."
         },
         card: {
             "href": "https://www.etsy.com/de/listing/1370905299/postkarte-schlitten-geschenke?click_key=a758981933b95e8d8073a81ad3ae0ecb540a29f0%3A1370905299&click_sum=83b8aae5&ref=related-5",

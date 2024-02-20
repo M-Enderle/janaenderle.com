@@ -19,6 +19,12 @@ definePageMeta({
         :url="t('free_hand.calendar.href')" 
   /> 
 
+  <Card :imageID="'c5r32k5uh1eqcvpxach5'"
+        :mobileImageID="'opxd3snqumxsqsamslyv'"
+        :alt="t('free_hand.linol.alt')" 
+        :url="t('free_hand.linol.href')" 
+  /> 
+
   <Card :imageID="'klkpetd2snocoqvcgyjx'"
         :mobileImageID="'vkv0ggnclzy4nqgl5wyz'" 
         :alt="t('free_hand.card.alt')" 

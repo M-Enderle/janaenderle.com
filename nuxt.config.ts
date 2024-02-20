@@ -37,13 +37,13 @@ export default defineNuxtConfig({
     // route names
     customRoutes: 'config',
     pages: {
+      idex: {
+        en: '/',
+        de: '/de',
+      },
       about: {
         en: '/about',
         de: '/ueber',
-      },
-      projects: {
-        en: '/projects',
-        de: '/projekte',
       },
       free_hand: {
         en: '/free-hand',
@@ -91,10 +91,5 @@ export default defineNuxtConfig({
   cloudinary: {
     cloudName: 'dqxwy7joy',
   },
-
-  routeRules: {
-    '/project': { redirect: '/projects' },
-    '/de/projekt': { redirect: '/de/projekte' },
-  }
 
 })

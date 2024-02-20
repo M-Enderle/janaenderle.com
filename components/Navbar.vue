@@ -1,11 +1,11 @@
 <template>
     <div class="navbar" id="navdesktop">
-        <a class="logo nav_third" :href="t('pages.routes.projects')">
+        <a class="logo nav_third" :href="t('pages.routes.index')">
             <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
         </a>
         <div id="main_navigation" class="nav_third">
-            <nuxt-link :to="t('pages.routes.projects')" id="navbar_projects">{{ t('pages.titles.projects') }}</nuxt-link>
+            <nuxt-link :to="t('pages.routes.index')" id="navbar_projects">{{ t('pages.titles.projects') }}</nuxt-link>
             <div id="seperator-plus">+</div>
             <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand">{{ t('pages.titles.free_hand') }}</nuxt-link>
         </div>
@@ -20,7 +20,7 @@
             <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
         </a>
-        <div class="unfold_plus" @click="toggle_mobile_nav">
+        <div id="unfold_plus" @click="toggle_mobile_nav">
             +
         </div>
     </div>
@@ -64,7 +64,7 @@ export default {
         const logo = document.getElementsByClassName("logo")[0];
         logo.addEventListener("mouseover", function( event ) {
             const studioName = event.currentTarget.querySelector(".studio_name");
-            studioName.textContent = "Studio Ro+s+tich";
+            studioName.textContent = "Studio Ro+s+ich";
         });
         logo.addEventListener("mouseout", function( event ) {
             const studioName = event.currentTarget.querySelector(".studio_name");
@@ -79,12 +79,12 @@ export default {
             if (nav_mobile_unfolded.classList.contains("unfolded")) {
                 nav_mobile_unfolded.classList.remove("unfolded");
                 nav_mobile_unfolded.classList.add("folded");
-                unfold_plus.style.transform = "rotate(0deg)";
+                unfold_plus.classList.remove("rotated");
                 document.body.style.overflow = "auto";
             } else {
                 nav_mobile_unfolded.classList.remove("folded");
                 nav_mobile_unfolded.classList.add("unfolded");
-                unfold_plus.style.transform = "rotate(45deg)";
+                unfold_plus.classList.add("rotated")
                 document.body.style.overflow = "hidden";
                 document.body.style.height = "100vh";
             }
@@ -167,10 +167,19 @@ export default {
     background-color: transparent;
 }
 
-.unfold_plus {
+#unfold_plus {
     font-size: 80px;
     font-weight: 100;
     line-height: 70px;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76); 
+    -ms-transition: -ms-transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76); 
+    transition: transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76);
+}
+
+.rotated {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
     -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76); 
     -ms-transition: -ms-transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76); 
     transition: transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76);

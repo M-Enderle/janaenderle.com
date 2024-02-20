@@ -2,7 +2,10 @@
     <div class="footer">
         <div class="third">
             <nuxt-link :to="t('pages.routes.imprint')">{{ t('pages.titles.imprint') }}</nuxt-link>
-            <div style="margin-top: 1vh" v-if="isMobile">Copyright © 2024 <br>Jana Enderle</div>
+            <div style="margin-top: 1vh" v-if="isMobile">
+                Copyright © 2024 <br>
+                Jana Enderle
+            </div>
         </div>
         <div class="third">
             <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com" @click="toggle_mobile_nav">Mail</a><br>
