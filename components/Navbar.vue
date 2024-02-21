@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="navbar" id="navmobile">
-        <a class="logo" :href="t('pages.routes.projects')">
+        <a class="logo" :href="t('pages.routes.index')">
             <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
         </a>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div id="nav_mobile_unfolded" class="folded" v-show="isMobile">
-        <nuxt-link :to="t('pages.routes.projects')" id="navbar_projects" @click="toggle_mobile_nav">{{ t('pages.titles.projects') }}</nuxt-link>
+        <nuxt-link :to="t('pages.routes.index')" id="navbar_projects" @click="toggle_mobile_nav">{{ t('pages.titles.projects') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand" @click="toggle_mobile_nav">{{ t('pages.titles.free_hand') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.about')" @click="toggle_mobile_nav">{{ t('pages.titles.about') }}</nuxt-link>
         <div class="spacer" style="height: 3vh"></div>

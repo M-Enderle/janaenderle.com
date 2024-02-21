@@ -1,5 +1,5 @@
 export default {
-    defaultSEO: "Ich bin Jana Enderle und die Gründerin von Studio Rotstich in Berlin Charlottenburg. Mein Studio legt den Fokus auf ganzheitliche Konzepte und detailreiches, aber lautes Design. Dabei kommt es auf das Zusammenspiel von digitalen und analogen Kommunikationsmedien an.", 
+    defaultSEO: "Ich bin Jana Enderle, Gründerin des Studio Rotstich in Berlin Charlottenburg, spezialisiert auf ganzheitliche Designkonzepte und kühne, detaillierte Entwürfe, die digitale und analoge Kommunikationsmedien verbinden.", 
     SEO: {
         about: "Hey! Ich bin Jana Enderle von Studio Rotstich Berlin. Ich bin Kommunikationsdesignerin und habe mich auf Corporate Branding und Printmedien spezialisiert.",
         projects: "Willkommen bei Studio Rotstich! Entdecken Sie meine Projektgalerie, die die kreative Verbindung von traditionellen und modernen Kommunikationsformen zeigt.",
@@ -18,17 +18,15 @@ export default {
     pages: {
         routes: {
             about: '/de/ueber',
-            projects: '/de/projekte',
             free_hand: '/de/freihand',
             imprint: '/de/impressum',
             index: "/de"
         },
         titles: {
-            about: 'Über',
-            projects: 'Projekte',
-            free_hand: 'Freihand',
-            imprint: 'Impressum',
-            index: "Studio Rotstich - DE",
+            about: 'Studio Rotstich | Über Mich',
+            free_hand: 'Studio Rotstich | Freihand',
+            imprint: 'Studio Rotstich | Impressum',
+            index: "Studio Rotstich",
             project: {
                 super_me: 'Super Me - Ein Projekt von Studio Rotstich',
                 IKEAXAstraZeneca: 'IKEAXAstraZeneca - Ein Projekt von Studio Rotstich',

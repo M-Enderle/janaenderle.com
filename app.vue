@@ -3,7 +3,7 @@
     <Navbar />
     <RouterView />
     <Footer />
-    <NuxtImg src="/arrow_up.svg" width="50px" class="arrow-up" :class="{ 'hide': hideArrow }" @click="scrollToTop" />
+    <NuxtImg src="/arrow_up.svg" width="50px" class="arrow-up" :class="{ 'hide': hideArrow }" @click="scrollToTop" alt="Scroll up icon"/>
   </NuxtLayout>
 
   <!--

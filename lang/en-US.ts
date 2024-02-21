@@ -1,8 +1,7 @@
 export default {
-    defaultSEO: "I am Jana Enderle and the founder of Studio Rotstich in Berlin Charlottenburg. My studio focuses on holistic concepts and detailed, yet loud design. This depends on the interaction between digital and analog communication media", 
+    defaultSEO: "I'm Jana Enderle, founder of Studio Rotstich in Berlin Charlottenburg, specializing in holistic design concepts and bold, detailed designs that merge digital and analog communication media.", 
     SEO: {
         about: "Hey! I'm Jana Enderle from Studio Rotstich Berlin. I am a communication designer specializing in corporate branding and print media.",
-        projects: "Welcome to Studio Rotstich! Discover my project gallery showcasing the creative blend of traditional and modern forms of communication.",
         free_hand: "Welcome to Freehand by Studio Rotstich! Here you will find a selection of hand-drawn products that you can also buy in my Etsy store.",
         imprint: "Imprint of Studio Rotstich.",
         project: {
@@ -18,16 +17,14 @@ export default {
     pages: {
         routes: {
             about: '/about',
-            projects: '/projects',
             free_hand: '/free-hand',
             imprint: '/imprint',
             index: "/"
         },
         titles: {
-            about: 'About',
-            projects: 'Projects',
-            free_hand: 'Free Hand',
-            imprint: 'Imprint',
+            about: 'Studio Rotstich | About',
+            free_hand: 'Studio Rotstich | Free Hand',
+            imprint: 'Studio Rotstich | Imprint',
             index: "Studio Rotstich",
             project: {
                 super_me: 'Super Me - a project by Studio Rotstich',

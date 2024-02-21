@@ -17,7 +17,7 @@ const { url } = useCldImageUrl({
   }
 })
 
-const title = "Studio Rotstich"
+const title = t(route.meta.title)
 const description = t(route.meta.description)
 
 </script>
