@@ -13,6 +13,12 @@ definePageMeta({
 
   <h1 style="display: none">Studio Rotstich - {{ t("pages.titles.index") }}</h1>
 
+  <Card :imageID="'veg2hyw2oyeqlefycoul'"
+        :mobileImageID="'a2cn1asys3mm449ynigr'"
+        :alt="t('projects.annayuna.images.front')" 
+        :title="t('projects.annayuna.title')" 
+        :url="t('projects.annayuna.path')" 
+  /> 
   <Card :imageID="'m4qfb3n2sxstadl3za2r'"
         :mobileImageID="'y9cax5heidbqufxrv3yy'"
         :alt="t('projects.super_me.images.front')" 

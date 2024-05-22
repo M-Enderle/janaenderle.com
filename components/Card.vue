@@ -74,7 +74,7 @@ export default {
 .scroll-container {
   overflow: hidden;
   white-space: nowrap;
-  margin: -20px -20px;
+  margin: -10px -10px;
 }
 
 .scroll-text {
@@ -113,6 +113,10 @@ export default {
 
     .desktop {
         display: block;
+    }
+
+    .scroll-container {
+        margin: -20px -20px;
     }
 }
 

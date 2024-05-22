@@ -12,6 +12,7 @@ export default {
             odds_and_ends: "odds & ends ist ein Projekt von Studio Rotstich. Es ist ein Konzept für eine App und eine Kampagne, welche gegen die Lebensmittelverschwendung kämpft und über die Verwendung von Lebensmittelresten aufklärt.",
             vulkanfieber: "Vulkanfieber ist ein Projekt von Studio Rotstich. Es zeigt eine Kampagne für Festivals, die effektiv sexuell aufklärt.",
             cre4te: "CRE4TE ist ein Projekt von Studio Rotstich. Das Projekt beschäftigt sich mit einer visuellen und physischen Umsetzung des Designprozess.",
+            annayuna: "Studio Rotstich hat das Erscheinungsbild für die Künstlerin ANNA YUNA erstellt. Designed wurden das Logo und dazugehöriger Merch.",
         }
 
     },
@@ -23,10 +24,11 @@ export default {
             index: "/de"
         },
         titles: {
-            about: 'Studio Rotstich | Über Mich',
-            free_hand: 'Studio Rotstich | Freihand',
-            imprint: 'Studio Rotstich | Impressum',
+            about: 'Über Mich',
+            free_hand: 'Freihand',
+            imprint: 'Impressum',
             index: "Studio Rotstich",
+            projects: "Projekte",
             project: {
                 super_me: 'Super Me - Ein Projekt von Studio Rotstich',
                 IKEAXAstraZeneca: 'IKEAXAstraZeneca - Ein Projekt von Studio Rotstich',
@@ -34,6 +36,7 @@ export default {
                 odds_and_ends: 'odds & ends - Ein Projekt von Studio Rotstich',
                 vulkanfieber: 'Vulkanfieber - Ein Projekt von Studio Rotstich',
                 cre4te: 'CRE4TE - Ein Projekt von Studio Rotstich',
+                annayuna: 'ANNA YUNA - Ein Projekt von Studio Rotstich',
             }
         }
     },
@@ -51,7 +54,7 @@ export default {
             path: "/de/projekt/super_me",
             title: "SUPER ME",
             next: "/de/projekt/lenis",
-            previous: "/de/projekt/cre4te"
+            previous: "/de/projekt/annayuna"
         },
         IKEAXAstraZeneca: {
             images: {
@@ -118,7 +121,19 @@ export default {
             path: "/de/projekt/cre4te",
             title: "CRE4TE",
             next: "/de/projekt/super_me",
-            previous: "/de/projekt/vulkanfieber"
+            previous: "/de/projekt/annayuna"
+        },
+        annayuna: {
+            images: {
+              front:"Eine Person steht in einem dunkel angehauchten Waschsalon mit dem Rücken zur Kamera. Auf dem Hoodie den sie trägt, ist ein lilaner Audruck mit verschiedenen Schriftarten von der Musikerin ANNA YUNA zu sehen.",
+              1: "Auf einer Kleiderstange hängt ein beiges Tshirt. Das Tshirt hat auf der Vorderseite einen kleinen Aufdruck. Hier steht in lilaner Farbe ANNA YUNA.",
+              2: "Eine Person steht mit dem Rücken zur Kamera und trägt einen beigen Hoodie. Darauf ist in Nahaufnahme ein lilaner Audruck mit verschiedenen Schriftarten von der Musikerin ANNA YUNA zu sehen.",
+              3: "Zwei kleine durchsichtige Plastiktüten liegen auf Beton. In den Tüten befinden sich weiße Sticker mit der lilanen Schrift ANNA YUNA. Sie liegen bei Konzerten aus.",
+            },
+            path: "/de/projekt/annayuna",
+            title: "ANNA YUNA",
+            next: "/de/projekt/super_me",
+            previous: "/de/projekt/cre4te"
         },
     },
     free_hand: {
@@ -242,6 +257,16 @@ export default {
                 2: "Das Konzept beruht auf der Kombination zweier Schleifen."
             },
             3: "4 x erschaffen, 4 x gestalten, 4 x erfolgreich sein."
-        }
+        },
+        annayuna: {
+            1: {
+                1: "Bezahltes Projekt"
+            },
+            2: {
+                1: "Panikwach und Gedankenkarussell im Sommer in Berlin? Sie möchte loslassen und einen safe space aufbauen, ganz für sich selbst.",
+                2: "ANNA YUNA singt mit ihrer klaren und puren Stimme genau darüber. Ihre Songs im Indie-Pop Stil sind mit elektronischen Elementen untermalt. Energie geladenes Laut und vorsichtiges Leise - bei ihren Songs kommen ehrliche Gefühle auf.",
+                3: "Das Schriftbild spiegelt die Stimmung durch hohen Strichstärkenkontrast und tiefem Lilaton wider. Zeilen aus ANNAs Songs machen den Merch nahbar und lassen mitfühlen."
+            },
+        },
     }
 }

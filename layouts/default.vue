@@ -149,37 +149,31 @@ body::-webkit-scrollbar-button {
 }
 
 p {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 300;
-  }
+  margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+}
 
 h1 {
-    font-size: 100px;
-    font-weight: 400;
-    margin: 30px 0;
-    line-height: 110%;
-    letter-spacing: -1px;
-  }
+  font-size: 100px;
+  font-weight: 400;
+  margin: 30px 0;
+  line-height: 110%;
+  letter-spacing: -1px;
+}
 
-  .arrow-up {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    transform: rotate(-90deg);
-    transition: opacity 300ms;
-  }
+.arrow-up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transform: rotate(-90deg);
+  transition: opacity 300ms;
+}
 
-  @media screen and (min-width: 768px) {
-    .arrow-up {
-      display: none;
-    }
-  }
-
-  .hide {
-    opacity: 0;
-    transition: opacity 300ms;
-    pointer-events: none;
-  }
+.hide {
+  opacity: 0;
+  transition: opacity 300ms;
+  pointer-events: none;
+}
 
 </style>

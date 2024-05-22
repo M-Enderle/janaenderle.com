@@ -11,6 +11,7 @@ export default {
             odds_and_ends: "odds & ends is a project by Studio Rotstich. It is a concept for an app and a campaign that fights against food waste and educates people about the use of leftover food.",
             vulkanfieber: "Vulkanfieber is a project by Studio Rotstich. It shows a campaign for festivals that provides effective sexual education.",
             cre4te: "CRE4TE is a project by Studio Rotstich. The project deals with a visual and physical realization of the design process.",
+            annayuna: "Studio Rotstich created the visual identity for the artist ANNA YUNA. The logo and associated merch were designed.",
         }
 
     },
@@ -21,11 +22,13 @@ export default {
             imprint: '/imprint',
             index: "/"
         },
+
         titles: {
-            about: 'Studio Rotstich | About',
-            free_hand: 'Studio Rotstich | Free Hand',
-            imprint: 'Studio Rotstich | Imprint',
+            about: 'About',
+            free_hand: 'Free Hand',
+            imprint: 'Imprint',
             index: "Studio Rotstich",
+            projects: "Projects",
             project: {
                 super_me: 'Super Me - a project by Studio Rotstich',
                 IKEAXAstraZeneca: 'IKEAXAstraZeneca - a project by Studio Rotstich',
@@ -33,6 +36,7 @@ export default {
                 odds_and_ends: 'odds & ends - a project by Studio Rotstich',
                 vulkanfieber: 'Vulkanfieber - a project by Studio Rotstich',
                 cre4te: 'CRE4TE - a project by Studio Rotstich',
+                annayuna: 'ANNA YUNA - a project by Studio Rotstich',
             }
         }
     },
@@ -50,7 +54,7 @@ export default {
             path: "/project/super_me",
             title: "SUPER ME",
             next: "/project/lenis",
-            previous: "/project/cre4te"
+            previous: "/project/annayuna"
         },
         IKEAXAstraZeneca: {
             images: {
@@ -99,7 +103,7 @@ export default {
                 2: "Two different stickers for the Volcano Fever campaign are stuck on two festival cups. They show abstract graphics for the male and female genital area.",  
                 3: "The packaging and some cards from the Vulkanfieber drinking game lie on the floor. The game Swallowing without excuses is fun, informative and educational at the same time.",
                 4: "You can see more cards from the Vulkanfieber drinking game. These come from different game categories with various fun tasks.",
-                5: "Auf einer Oberfläche liegt ein Smartphone mit der geöffneten Website von Vulkanfieber. Diese ist in grellen Farben gehalten und beinhaltet informative und aufklärende Artikel über wichtige Themen. Dazu ansprechende Grafiken."
+                5: "On a surface lies a smartphone showing the Vulkanfieber website. The site is brightly colored and contains informative and educational articles on important topics. It also features appealing graphics.",
             },
             path: "/project/vulkanfieber",
             title: "Vulkanfieber",
@@ -111,13 +115,25 @@ export default {
                 front: "Puzzle pieces of a game are assembled with two hands. The puzzle represents the visual solution to a design process. Individual puzzle pieces can be put together individually, are colored and labeled with tasks.",
                 1: "Many puzzle pieces lie on a table. The pieces are part of the cre4te design process and can be assembled in different ways.",
                 2: "The puzzle pieces are stacked on top of each other and the material is visible. The pieces are made of fine wood with many layers.",  
-                3: "Mit zwei Händen werden die Puzzleteile zusammengesetzt. Hier ist das Grundgerüst der vier Phasen bereits zusammengebaut. Weitere Teile sind zusätzlich.",
-                4: "Die App für das Puzzle cre4te ist schlicht designed und funktioniert über Kameraerkennung. So können verschiedene Aktionen vorgenommen werden und das Team up to date bleiben.",
+                3: "The puzzle pieces are put together with two hands. The basic structure of the four phases is already assembled here. Further pieces are additional.",
+                4: "The app for the cre4te puzzle has a simple design and works via camera recognition. This allows various actions to be performed and the team to stay up to date.",
             },
             path: "/project/cre4te",
             title: "CRE4TE",
-            next: "/project/super_me",
+            next: "/project/annayuna",
             previous: "/project/vulkanfieber"
+        },
+        annayuna: {
+            images: {
+              front:"A person is standing in a dark-colored laundromat with her back to the camera. On the hoodie she is wearing is a purple print with different fonts of the musician ANNA YUNA.",
+              1: "A beige shirt is hanging on a clothes rail. The shirt has a small print on the front. It says ANNA YUNA in purple.",
+              2: "One person is standing with their back to the camera and is wearing a beige hoodie. A close-up of a purple print with different fonts of the musician ANNA YUNA can be seen on it.",
+              3: "Two small transparent plastic bags are lying on concrete. The bags contain white stickers with the purple lettering ANNA YUNA. They are handed out at concerts.",
+            },
+            path: "/project/annayuna",
+            title: "ANNA YUNA",
+            next: "/project/super_me",
+            previous: "/project/cre4te"
         },
     },
     free_hand: {
@@ -241,6 +257,16 @@ export default {
                 2: "The concept relies on the combination of two loops."
             },
             3: "4 x create, 4 x design, 4 x succeed."
-        }
+        },
+        annayuna: {
+            1: {
+                1: "Paid Project"
+            },
+            2: {
+                1: "Awake to panic and a carousel of thoughts during the summer in Berlin? She wants to let go and create a safe space all to herself.",
+                2: "ANNA YUNA is singing about exactly that with her clear and pure voice. Her indie-pop style songs are enhanced with electronic elements. High-energy loud and cautious quiet - her songs evoke honest feelings.",
+                3: "The typeface reflects the mood with its high line weight contrast and deep purple tone. Lines from ANNA's songs make the merch approachable and empathetic."
+            },
+        },
     }
 }
