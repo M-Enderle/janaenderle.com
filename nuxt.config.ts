@@ -77,7 +77,14 @@ export default defineNuxtConfig({
         en: '/project/cre4te',
         de: '/projekt/cre4te',
       },
-
+      project_annayuna: {
+        en: '/project/annayuna',
+        de: '/projekt/annayuna',
+      },
+      test: {
+        en: '/test',
+        de: '/test',
+      },
     }
   },
 

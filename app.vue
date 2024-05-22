@@ -37,6 +37,9 @@ export default {
         } else {
             store.dispatch('setIsMobile', true)
         }
+
+        store.dispatch('setGridMode', false)
+        
         }
     },
 
@@ -76,7 +79,7 @@ export default {
             } else {
                 this.hideArrow = true
             }
-        }
+        },
     }
 }
 </script>

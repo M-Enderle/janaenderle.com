@@ -10,19 +10,26 @@
             <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand">{{ t('pages.titles.free_hand') }}</nuxt-link>
         </div>
         <div id="right_nav" class="nav_third">
+            <NuxtImg src="/Website_Icon_Fullscreen.svg" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen"/>
+            <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode"/>
             <button v-if="locale === 'en'" @click="setLocale('de')" id="lang_button">DE</button>
             <button v-if="locale === 'de'" @click="setLocale('en')" id="lang_button">EN</button>
             <nuxt-link :to="t('pages.routes.about')">{{ t('pages.titles.about') }}</nuxt-link>
         </div>
     </div>
-    <div class="navbar" id="navmobile">
+    <div class="navbar" id="navmobile" v-show="isMobile">
         <a class="logo" :href="t('pages.routes.index')">
             <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
         </a>
-        <div id="unfold_plus" @click="toggle_mobile_nav">
-            +
+        <div class="right-nav">
+            <NuxtImg src="/Website_Icon_Fullscreen.svg" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen"/>
+            <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode"/>
+            <div id="unfold_plus" @click="toggle_mobile_nav">
+                +
+            </div>
         </div>
+        
     </div>
     <div id="nav_mobile_unfolded" class="folded" v-show="isMobile">
         <nuxt-link :to="t('pages.routes.index')" id="navbar_projects" @click="toggle_mobile_nav">{{ t('pages.titles.projects') }}</nuxt-link>
@@ -46,11 +53,12 @@ export default {
     setup() {
         const store = useStore()
         const isMobile = computed(() => store.state.isMobile)
+        const gridMode = computed(() => store.state.gridMode)
         const { locale, locales, t, setLocale } = useI18n()
 
         return {
             isMobile,
-            t, locale, locales, setLocale
+            t, locale, locales, setLocale, gridMode, store
         }
     },
 
@@ -86,11 +94,13 @@ export default {
                 nav_mobile_unfolded.classList.add("unfolded");
                 unfold_plus.classList.add("rotated")
                 document.body.style.overflow = "hidden";
-                document.body.style.height = "100vh";
+                document.body.style.height = "auto";
             }
 
+        },
+        toggleGrid() {
+            this.$store.dispatch('setGridMode', !this.gridMode)
         }
-        
     }
 }
 </script>
@@ -141,8 +151,19 @@ export default {
     align-items: flex-start;
     justify-content: flex-end;
     button {
-        margin-right: 40px;
+        margin-right: 18px;
     }
+
+    .grid-fullscreen {
+        margin-right: 18px;
+        cursor: pointer;
+
+        &:hover {
+            filter: invert(32%) sepia(83%) saturate(5598%) hue-rotate(348deg) brightness(97%) contrast(111%);
+        }
+
+    }
+
 }
 
 .studio_name_hover {
@@ -176,6 +197,8 @@ export default {
     transition: transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76);
 }
 
+
+
 .rotated {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -202,6 +225,25 @@ export default {
         width: 100%;
         display: inherit;
         font-size: 6vh;
+    }
+
+}
+
+#navmobile {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: end;
+
+    .right-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .grid-fullscreen {
+        height: 38px;
+        margin-right: 20px;
     }
 
 }
