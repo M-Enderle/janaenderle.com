@@ -1,96 +1,82 @@
 <template>
     <div style="margin-top: 50px"></div>
-    <a :href="url">
+    <nuxt-link :to="project.url">
         <div class="image_wrapper">
-            <img :src="image" :alt="alt" class="desktop image">
-            <img :src="mobile_image" :alt="alt" class="mobile image">
+            <img :src="image" :alt="project.alt" class="desktop image">
+            <img :src="mobile_image" :alt="project.alt" class="mobile image">
         </div>
         <div style="margin-top: 20px"></div>
-        <div class="scroll-container" v-if="title">
+        <div class="scroll-container" v-if="project.title">
             <div class="scroll-text">
-            <span v-for="i in speed" :key="i" class="no_hover_text">
-                {{ title }} +&#8203;
-            </span>
+                <span v-for="i in speed" :key="i" class="no_hover_text" >
+                    {{ t(project.title) }} +&#8203;
+                </span>
             </div>
         </div>
-    </a>
+    </nuxt-link>
 </template>
 
 <script>
 
 import { Cloudinary } from '@cloudinary/url-gen';
+import { useI18n } from 'vue-i18n'
 
 const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'dqxwy7joy'
-  }
-}); 
+    cloud: {
+        cloudName: 'dqxwy7joy'
+    }
+});
 
 export default {
     props: {
-        imageID: {
-            type: String,
+        project: {
+            type: Object,
             required: true
-        },
-        alt: {
-            type: String,
-            required: true
-        },
-        title: {
-            type: String,
-            required: false
-        },
-        url: {
-            type: String,
-            required: false
-        },
-        mobileImageID: {
-            type: String,
-            required: true
-        },
+        }
     },
     setup(props) {
-        let mobile_image = cld.image("Studio Rotstich/mobile/" + props.mobileImageID).format('auto').quality('40').toURL();
-        let image = cld.image("Studio Rotstich/" + props.imageID).format('auto').quality('35').toURL();
+        let mobile_image = cld.image("Studio Rotstich/mobile/" + props.project.mobileImageID).format('auto').quality('40').toURL();
+        let image = cld.image("Studio Rotstich/" + props.project.imageID).format('auto').quality('35').toURL();
+        const { t } = useI18n()
 
         return {
-            image, mobile_image
+            image, mobile_image, t
         }
     },
     computed: {
         speed() {
-            return Math.round(1000/(this.title.length + 10));
+            return Math.round(1000 / (this.t(this.project.title).length + 10));
         },
     }
 }
 </script>
 
 <style lang="scss">
-
 .image {
     width: 100%;
 }
 
 .scroll-container {
-  overflow: hidden;
-  white-space: nowrap;
-  margin: -10px -10px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: -10px -10px;
 }
 
 .scroll-text {
-  display: inline-block;
-  animation: scroll-right 110s linear infinite;
-  font-size: 8vh;
-  font-weight: 400;
+    display: inline-block;
+    animation: scroll-right 110s linear infinite;
+    font-size: 8vh;
+    font-weight: 400;
 }
 
 @keyframes scroll-right {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-80%);
-  }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-80%);
+    }
 }
 
 .no_hover_text {
@@ -119,6 +105,4 @@ export default {
         margin: -20px -20px;
     }
 }
-
-
 </style>

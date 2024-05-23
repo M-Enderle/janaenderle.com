@@ -1,77 +1,141 @@
 <template>
+      <ClientOnly>
+      <div class="spacer" v-if="gridMode" style="height: 40px"></div>
+      <TransitionGroup name="fade" tag="div" class="list" @before-leave="handleBeforeLeave">
+            <div v-for="(pair, pairIndex) in chunkedProjects" :key="'pair-' + pairIndex" class="pair-container"
+                  v-if="gridMode && !isMobile">
+                  <div v-for="(project, index) in pair" :key="project.imageID" class="grid-card-wrapper">
+                        <GridCard :style="{ animationDelay: pairIndex * 0.2 + 's' }" :project="project" />
+                  </div>
+                  <div v-if="pair.length === 1 || pair.length === 2 " class="grid-card-wrapper blank"></div>
+                  <div v-if="pair.length === 1 " class="grid-card-wrapper blank"></div>
+            </div>
+            <div v-for="(pair, pairIndex) in chunkedProjectsMobile" :key="'pair-' + pairIndex" class="pair-container"
+                  v-if="gridMode && isMobile">
+                  <div v-for="(project, index) in pair" :key="project.imageID" class="grid-card-wrapper">
+                        <GridCard :style="{ animationDelay: pairIndex * 0.2 + 's' }" :project="project" />
+                  </div>
+                  <div v-if="pair.length === 1" class="grid-card-wrapper blank"></div>
+            </div>
+      </TransitionGroup>
 
-      <h1 style="display: none">Studio Rotstich - {{ t("pages.titles.index") }}</h1>
+      <Card v-for="project in projects" v-if="!gridMode" :key="project.imageID" :project="project" />
+      </ClientOnly>
 
-      <div>
-
-            <Card :imageID="'veg2hyw2oyeqlefycoul'"
-                  :mobileImageID="'a2cn1asys3mm449ynigr'"
-                  :alt="t('projects.annayuna.images.front')" 
-                  :title="t('projects.annayuna.title')" 
-                  :url="t('projects.annayuna.path')" 
-            /> 
-            <Card :imageID="'m4qfb3n2sxstadl3za2r'"
-                  :mobileImageID="'y9cax5heidbqufxrv3yy'"
-                  :alt="t('projects.super_me.images.front')" 
-                  :title="t('projects.super_me.title')" 
-                  :url="t('projects.super_me.path')" 
-            /> 
-            <Card :imageID="'kf2qo9kd2yaxongtzy44'" 
-                  :mobileImageID="'byp6rgplmsbltdkyska2'"
-                  :alt="t('projects.lenis.images.front')" 
-                  :title="t('projects.lenis.title')" 
-                  :url="t('projects.lenis.path')" 
-            /> 
-            <Card :imageID="'j1mnrsywkwmrkhknw6kg'" 
-                  :mobileImageID="'tmtyeemgy56vw6kujyx6'"
-                  :alt="t('projects.IKEAXAstraZeneca.images.front')" 
-                  :title="t('projects.IKEAXAstraZeneca.title')" 
-                  :url="t('projects.IKEAXAstraZeneca.path')" 
-            /> 
-            <Card :imageID="'uxcqpnglmtl2shbolu3j'" 
-                  :mobileImageID="'spivkzcya2ks1v71enbx'"
-                  :alt="t('projects.odds_and_ends.images.front')" 
-                  :title="t('projects.odds_and_ends.title')" 
-                  :url="t('projects.odds_and_ends.path')" 
-            /> 
-            <Card :imageID="'xp5kmuhkhfvdgtieff0y'" 
-                  :mobileImageID="'tknjkur0thaffq46um7y'"
-                  :alt="t('projects.vulkanfieber.images.front')" 
-                  :title="t('projects.vulkanfieber.title')" 
-                  :url="t('projects.vulkanfieber.path')" 
-            /> 
-            <Card :imageID="'ckguvelcu7tahwvnuzls'" 
-                  :mobileImageID="'agylusnxghug4b6ublsz'"
-                  :alt="t('projects.cre4te.images.front')" 
-                  :title="t('projects.cre4te.title')" 
-                  :url="t('projects.cre4te.path')" 
-            /> 
-
-      </div>
+      <a v-for="project in projects" :href="project.url" :aria-label="t(project.title)" :key="project.imageID"></a>
 
 </template>
 
 <script>
 import { useStore } from 'vuex'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default {
+      setup() {
+            const store = useStore()
+            const isMobile = computed(() => store.state.isMobile)
+            const gridMode = computed(() => store.state.gridMode)
+            const { t } = useI18n()
 
-setup() {
-      const store = useStore()
-      const isMobile = computed(() => store.state.isMobile)
-      const gridMode = computed(() => store.state.gridMode)
-      const { locale, locales, t, setLocale } = useI18n()
+            const handleBeforeLeave = (el) => {
+                  const children = el.children;
+                  for (let i = 0; i < children.length; i++) {
+                        children[i].style.animationDelay = '0s';
+                        children[i].classList.add('fade-leave-active');
+                  }
+            }
 
-      definePageMeta({
-            title: 'pages.titles.index',
-            description: 'defaultSEO',
-      })
+            definePageMeta({
+                  title: 'pages.titles.index',
+                  description: 'defaultSEO',
+            })
 
-      return {
-            isMobile,
-            t, locale, locales, setLocale, gridMode, store
-        }
-    }
+            const projects = [
+                  { imageID: 'veg2hyw2oyeqlefycoul', mobileImageID: 'a2cn1asys3mm449ynigr', alt: 'projects.annayuna.images.front', title: 'projects.annayuna.title', url: t('projects.annayuna.path') },
+                  { imageID: 'm4qfb3n2sxstadl3za2r', mobileImageID: 'y9cax5heidbqufxrv3yy', alt: 'projects.super_me.images.front', title: 'projects.super_me.title', url: t('projects.super_me.path') },
+                  { imageID: 'kf2qo9kd2yaxongtzy44', mobileImageID: 'byp6rgplmsbltdkyska2', alt: 'projects.lenis.images.front', title: 'projects.lenis.title', url: t('projects.lenis.path') },
+                  { imageID: 'j1mnrsywkwmrkhknw6kg', mobileImageID: 'tmtyeemgy56vw6kujyx6', alt: 'projects.IKEAXAstraZeneca.images.front', title: 'projects.IKEAXAstraZeneca.title', url: t('projects.IKEAXAstraZeneca.path') },
+                  { imageID: 'uxcqpnglmtl2shbolu3j', mobileImageID: 'spivkzcya2ks1v71enbx', alt: 'projects.odds_and_ends.images.front', title: 'projects.odds_and_ends.title', url: t('projects.odds_and_ends.path') },
+                  { imageID: 'xp5kmuhkhfvdgtieff0y', mobileImageID: 'tknjkur0thaffq46um7y', alt: 'projects.vulkanfieber.images.front', title: 'projects.vulkanfieber.title', url: t('projects.vulkanfieber.path') },
+                  { imageID: 'ckguvelcu7tahwvnuzls', mobileImageID: 'agylusnxghug4b6ublsz', alt: 'projects.cre4te.images.front', title: 'projects.cre4te.title', url: t('projects.cre4te.path') }
+            ]
 
+            // mobile 2 else 3
+            const chunkedProjectsMobile = computed(() => {
+                  const chunks = []
+                  for (let i = 0; i < projects.length; i += 2) {
+                        chunks.push(projects.slice(i, i + 2))
+                  }
+                  return chunks
+            })
+
+            const chunkedProjects = computed(() => {
+                  const chunks = []
+                  for (let i = 0; i < projects.length; i += 3) {
+                        chunks.push(projects.slice(i, i + 3))
+                  }
+                  return chunks
+            })
+
+            return { isMobile, t, projects, gridMode, handleBeforeLeave, chunkedProjects, chunkedProjectsMobile }
+      }
 }
 </script>
+
+<style scoped>
+.fade-enter-active {
+      transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+      opacity: 0;
+}
+
+.list div {
+      opacity: 0;
+      animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+      to {
+            opacity: 1;
+      }
+}
+
+.fade-leave-active {
+      animation: fadeOut 0.03s forwards !important;
+}
+
+@keyframes fadeOut {
+      from {
+            opacity: 1;
+      }
+
+      to {
+            opacity: 0;
+      }
+}
+
+.pair-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+}
+
+.grid-card-wrapper {
+      flex: 1;
+      box-sizing: border-box;
+}
+
+.blank .empty {
+      height: 100%;
+      /* Ensure the placeholder takes full height of the grid card */
+}
+
+.grid-card-wrapper+.grid-card-wrapper {
+      margin-left: 7px;
+      /* Spacer between two GridCards */
+}
+</style>

@@ -99,4 +99,5 @@ export default defineNuxtConfig({
     cloudName: 'dqxwy7joy',
   },
 
+
 })

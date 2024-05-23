@@ -1,23 +1,29 @@
 <template>
-    <div class="footer">
-        <div class="third">
-            <nuxt-link :to="t('pages.routes.imprint')">{{ t('pages.titles.imprint') }}</nuxt-link>
-            <div style="margin-top: 1vh" v-if="isMobile">
-                Copyright © 2024 <br>
-                Jana Enderle
+    
+        <div class="footer">
+            <div class="third">
+                <nuxt-link :to="t('pages.routes.imprint')">{{ t('pages.titles.imprint') }}</nuxt-link>
+                <ClientOnly>
+                <div style="margin-top: 1vh" v-if="isMobile">
+                    Copyright © 2024 <br>
+                    Jana Enderle
+                </div>
+            </ClientOnly>
             </div>
-        </div>
-        <div class="third">
-            <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com" @click="toggle_mobile_nav">Mail</a><br>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/studio.rotstich/" @click="toggle_mobile_nav">Instagram</a><br>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jana-enderle/" @click="toggle_mobile_nav">LinkedIn</a><br>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.etsy.com/shop/Janascreativestudio?ref=search_shop_redirect" @click="toggle_mobile_nav">Etsy</a><br>
-        </div>
-        <div class="third" v-if="!isMobile">
-            Copyright © 2024 Jana Enderle
-        </div>
-        
+            <div class="third">
+                <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com" @click="toggle_mobile_nav">Mail</a><br>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/studio.rotstich/" @click="toggle_mobile_nav">Instagram</a><br>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jana-enderle/" @click="toggle_mobile_nav">LinkedIn</a><br>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.etsy.com/shop/Janascreativestudio?ref=search_shop_redirect" @click="toggle_mobile_nav">Etsy</a><br>
+            </div>
+        <ClientOnly>
+            <div class="third" v-if="!isMobile">
+                Copyright © 2024 Jana Enderle
+            </div>
+        </ClientOnly>
+            
     </div>
+    
 </template>
 <script>
 

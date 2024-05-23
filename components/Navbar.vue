@@ -1,9 +1,9 @@
 <template>
     <div class="navbar" id="navdesktop">
-        <a class="logo nav_third" :href="t('pages.routes.index')">
+        <nuxt-link class="logo nav_third" :to="t('pages.routes.index')" style="color: black !important">
             <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
-        </a>
+        </nuxt-link>
         <div id="main_navigation" class="nav_third">
             <nuxt-link :to="t('pages.routes.index')" id="navbar_projects">{{ t('pages.titles.projects') }}</nuxt-link>
             <div id="seperator-plus">+</div>
@@ -18,10 +18,10 @@
         </div>
     </div>
     <div class="navbar" id="navmobile" v-show="isMobile">
-        <a class="logo" :href="t('pages.routes.index')">
+        <nuxt-link class="logo" :to="t('pages.routes.index')" style="color: black !important">
             <div class="studio_name">Studio Rotstich</div>
             <div>Jana Enderle</div>
-        </a>
+        </nuxt-link>
         <div class="right-nav">
             <NuxtImg src="/Website_Icon_Fullscreen.svg" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen"/>
             <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode"/>
