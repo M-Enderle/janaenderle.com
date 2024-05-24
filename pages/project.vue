@@ -18,7 +18,7 @@ video {
 }
 
 .project-title, h2 {
-    font-size: 8vh;
+    font-size: 7.2vh;
     font-weight: 400;
 }
 

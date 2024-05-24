@@ -10,8 +10,8 @@
             <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand">{{ t('pages.titles.free_hand') }}</nuxt-link>
         </div>
         <div id="right_nav" class="nav_third">
-            <NuxtImg src="/Website_Icon_Fullscreen.svg" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen"/>
-            <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode"/>
+            <NuxtImg src="/Website_Icon_Fullscreen.svg" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen" v-if="currentRoute.fullPath === t('pages.routes.index') || currentRoute.fullPath === t('pages.routes.free_hand')"/>
+            <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode" v-if="currentRoute.fullPath === t('pages.routes.index') || currentRoute.fullPath === t('pages.routes.free_hand')"/>
             <button v-if="locale === 'en'" @click="setLocale('de')" id="lang_button">DE</button>
             <button v-if="locale === 'de'" @click="setLocale('en')" id="lang_button">EN</button>
             <nuxt-link :to="t('pages.routes.about')">{{ t('pages.titles.about') }}</nuxt-link>
@@ -23,8 +23,8 @@
             <div>Jana Enderle</div>
         </nuxt-link>
         <div class="right-nav">
-            <NuxtImg src="/Website_Icon_Fullscreen.svg" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen"/>
-            <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode"/>
+            <NuxtImg src="/Website_Icon_Fullscreen.svg" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen" v-if="currentRoute.fullPath === t('pages.routes.index') || currentRoute.fullPath === t('pages.routes.free_hand')"/>
+            <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode" v-if="currentRoute.fullPath === t('pages.routes.index') || currentRoute.fullPath === t('pages.routes.free_hand')"/>
             <div id="unfold_plus" @click="toggle_mobile_nav">
                 +
             </div>
@@ -55,10 +55,11 @@ export default {
         const isMobile = computed(() => store.state.isMobile)
         const gridMode = computed(() => store.state.gridMode)
         const { locale, locales, t, setLocale } = useI18n()
+        const { currentRoute } = useRouter();
 
         return {
             isMobile,
-            t, locale, locales, setLocale, gridMode, store
+            t, locale, locales, setLocale, gridMode, store, currentRoute
         }
     },
 
@@ -189,7 +190,7 @@ export default {
 }
 
 #unfold_plus {
-    font-size: 80px;
+    font-size: 75px;
     font-weight: 100;
     line-height: 70px;
     -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, -0.91, 0.31, 1.76); 
@@ -232,7 +233,7 @@ export default {
 #navmobile {
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
     justify-content: end;
 
     .right-nav {
@@ -244,6 +245,15 @@ export default {
     .grid-fullscreen {
         height: 38px;
         margin-right: 20px;
+    }
+
+    .logo {
+        font-size: 7vw;
+    }
+
+    .grid-fullscreen {
+        height: 35px;
+        margin-right: 15px;
     }
 
 }
