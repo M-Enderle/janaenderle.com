@@ -1,4 +1,5 @@
 <script setup>
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 
 const route = useRoute()
 
@@ -23,6 +24,7 @@ const description = t(route.meta.description)
 </script>
 
 <template>
+  <SpeedInsights />
   <div>
     <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
       <Head>
