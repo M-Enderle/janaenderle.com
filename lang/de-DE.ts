@@ -24,7 +24,7 @@ export default {
             index: "/de"
         },
         titles: {
-            about: 'Über Mich',
+            about: 'Über',
             free_hand: 'Freihand',
             imprint: 'Impressum',
             index: "Studio Rotstich",
