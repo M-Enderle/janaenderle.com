@@ -14,6 +14,7 @@
             <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode" v-if="currentRoute.fullPath === t('pages.routes.index') || currentRoute.fullPath === t('pages.routes.free_hand')"/>
             <button v-if="locale === 'en'" @click="setLocale('de')" id="lang_button">DE</button>
             <button v-if="locale === 'de'" @click="setLocale('en')" id="lang_button">EN</button>
+            <nuxt-link :to="t('pages.routes.contact')">{{ t('pages.titles.contact') }}</nuxt-link>
             <nuxt-link :to="t('pages.routes.about')">{{ t('pages.titles.about') }}</nuxt-link>
         </div>
     </div>
@@ -34,6 +35,7 @@
     <div id="nav_mobile_unfolded" class="folded" v-show="isMobile">
         <nuxt-link :to="t('pages.routes.index')" id="navbar_projects" @click="toggle_mobile_nav">{{ t('pages.titles.projects') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand" @click="toggle_mobile_nav">{{ t('pages.titles.free_hand') }}</nuxt-link>
+        <nuxt-link :to="t('pages.routes.contact')" @click="toggle_mobile_nav">{{ t('pages.titles.contact') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.about')" @click="toggle_mobile_nav">{{ t('pages.titles.about') }}</nuxt-link>
         <div class="spacer" style="height: 3vh"></div>
         <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com" @click="toggle_mobile_nav">Mail</a>

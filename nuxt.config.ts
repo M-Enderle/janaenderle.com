@@ -53,6 +53,14 @@ export default defineNuxtConfig({
         en: '/imprint',
         de: '/impressum',
       },
+      contact: {
+        en: '/contact',
+        de: '/kontakt',
+      },
+      contact_success: {
+        en: '/contact-success',
+        de: '/kontakt-erfolg',
+      },
       project: {
         en: '/project/',
         de: '/projekt/',
