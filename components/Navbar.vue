@@ -14,8 +14,8 @@
             <NuxtImg src="/Website_Icon_Raster.svg" height="30px" class="grid-fullscreen" v-show="!gridMode" @click="toggleGrid" alt="Enable Grid Mode" v-if="currentRoute.fullPath === t('pages.routes.index') || currentRoute.fullPath === t('pages.routes.free_hand')"/>
             <button v-if="locale === 'en'" @click="setLocale('de')" id="lang_button">DE</button>
             <button v-if="locale === 'de'" @click="setLocale('en')" id="lang_button">EN</button>
-            <nuxt-link :to="t('pages.routes.contact')">{{ t('pages.titles.contact') }}</nuxt-link>
-            <nuxt-link :to="t('pages.routes.about')">{{ t('pages.titles.about') }}</nuxt-link>
+            <nuxt-link :to="t('pages.routes.about')" id="navbar_about">{{ t('pages.titles.about') }}</nuxt-link>
+            <nuxt-link :to="t('pages.routes.contact')" id="navbar_contact">{{ t('pages.titles.contact') }}</nuxt-link>
         </div>
     </div>
     <div class="navbar" id="navmobile" v-show="isMobile">
@@ -149,10 +149,15 @@ export default {
     }
 }
 
+#navbar_contact {
+    margin-left: 10px;
+}
+
 #right_nav {
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+
     button {
         margin-right: 18px;
     }

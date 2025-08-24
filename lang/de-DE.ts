@@ -284,7 +284,9 @@ export default {
                 nameRequired: "Name ist erforderlich",
                 emailRequired: "E-Mail ist erforderlich",
                 emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-                messageRequired: "Nachricht ist erforderlich"
+                messageRequired: "Nachricht ist erforderlich",
+                success: "Nachricht erfolgreich gesendet!",
+                error: "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
             },
             success: {
                 title: "Vielen Dank!",

@@ -273,23 +273,19 @@ export default {
             },
         },
         contact: {
-            title: "Contact",
-            subtitle: "Get in touch",
+            title: "Contact me",
             form: {
                 name: "Name",
                 email: "Email",
                 message: "Message",
-                submit: "Send Email",
+                submit: "Send email",
                 sending: "Sending...",
                 nameRequired: "Name is required",
                 emailRequired: "Email is required",
                 emailInvalid: "Please enter a valid email address",
-                messageRequired: "Message is required"
-            },
-            success: {
-                title: "Thank you!",
-                message: "Your message has been sent successfully. I'll get back to you soon.",
-                backToContact: "Back to Contact"
+                messageRequired: "Message is required",
+                success: "Email sent",
+                error: "Failed to send message. Please contact me directly via email."
             }
         },
     }

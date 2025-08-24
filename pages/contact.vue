@@ -1,67 +1,66 @@
+
 <template>
   <div class="contact">
     <h1>{{ t('texts.contact.title') }}</h1>
-    <div class="contact-content">
-      <div class="contact-info">
-        <h2>{{ t('texts.contact.subtitle') }}</h2>
-        <div class="contact-details">
-          <p>Studio Rotstich</p>
-          <p>Jana Enderle</p>
-          <p>Olbersstraße 4</p>
-          <p>10589 Berlin Charlottenburg</p>
-          <div class="space"></div>
-          <p><a href="mailto:hello@janaenderle.com">hello@janaenderle.com</a></p>
-        </div>
+    <div class="thirds">
+      <div class="third">
+        <p>Studio Rotstich</p>
+        <p>Jana Enderle</p>
+        <br>
+        <p>Olbersstraße 4</p>
+        <p>10589 Berlin</p>
+        <br>
+        <p><a href="mailto:hello@janaenderle.com">hello@janaenderle.com</a></p>
+        <p><a href="tel:+4917660404458">+49 176 60404458</a></p>
       </div>
-      
-      <div class="contact-form">
-        <form @submit.prevent="submitForm">
-          <div class="form-group">
-            <label for="name">{{ t('texts.contact.form.name') }} *</label>
-            <input 
-              type="text" 
-              id="name" 
-              v-model="form.name" 
-              :class="{ 'error': errors.name }"
-              required
-            />
-            <span v-if="errors.name" class="error-message">{{ errors.name }}</span>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">{{ t('texts.contact.form.email') }} *</label>
-            <input 
-              type="email" 
-              id="email" 
-              v-model="form.email" 
-              :class="{ 'error': errors.email }"
-              required
-            />
-            <span v-if="errors.email" class="error-message">{{ errors.email }}</span>
-          </div>
-          
-          <div class="form-group">
-            <label for="message">{{ t('texts.contact.form.message') }} *</label>
-            <textarea 
-              id="message" 
-              v-model="form.message" 
-              :class="{ 'error': errors.message }"
-              rows="6"
-              required
-            ></textarea>
-            <span v-if="errors.message" class="error-message">{{ errors.message }}</span>
-          </div>
-          
-          <button 
-            type="submit" 
-            :disabled="isSubmitting"
-            class="submit-btn"
+      <div class="third">
+        <form class="contact-form" @submit.prevent="submitForm">
+          <label for="name">{{ t('texts.contact.form.name') }}</label>
+          <input 
+            type="text" 
+            id="name" 
+            v-model="form.name" 
+            class="form-input" 
+            autocomplete="name"
+            :class="{ 'error': errors.name }"
           >
-            <span v-if="!isSubmitting">{{ t('texts.contact.form.submit') }}</span>
-            <span v-else>{{ t('texts.contact.form.sending') }}</span>
-            <span class="arrow">→</span>
-          </button>
+          <span v-if="errors.name" class="error-message">{{ errors.name }}</span>
+
+          <label for="email">{{ t('texts.contact.form.email') }}</label>
+          <input 
+            type="email" 
+            id="email" 
+            v-model="form.email" 
+            class="form-input" 
+            autocomplete="email"
+            :class="{ 'error': errors.email }"
+          >
+          <span v-if="errors.email" class="error-message">{{ errors.email }}</span>
+
+          <label for="message">{{ t('texts.contact.form.message') }}</label>
+          <textarea 
+            id="message" 
+            v-model="form.message" 
+            class="form-input" 
+            rows="6" 
+            autocomplete="off"
+            :class="{ 'error': errors.message }"
+          ></textarea>
+          <span v-if="errors.message" class="error-message">{{ errors.message }}</span>
+
+                     <button type="submit" class="btn-link" :disabled="isSubmitting || isSubmitted" :class="{ 'success': isSubmitted }">
+             <span v-if="isSubmitting">{{ t('texts.contact.form.sending') }}</span>
+             <span v-else-if="isSubmitted">{{ t('texts.contact.form.success') }}</span>
+             <span v-else>{{ t('texts.contact.form.submit') }}</span>
+             <img v-if="!isSubmitting && !isSubmitted" src="/arrow.png" width="12px" alt="Send arrow" style="transform: rotate(180deg)" />
+           </button>
+          
+          <div v-if="submitError" class="error-message">
+            {{ t('texts.contact.form.error') }}
+          </div>
         </form>
+      </div>
+      <div class="third">
       </div>
     </div>
   </div>
@@ -69,209 +68,221 @@
 </template>
 
 <script>
+
 export default {
   setup() {
-    const { locale, t } = useI18n()
-    const router = useRouter()
-    
+    const { locale, locales, t } = useI18n()
+
     definePageMeta({
       title: 'pages.titles.contact',
       description: 'SEO.contact',
     })
 
-    return {
-      t, locale, router
+    // Form state
+    const form = reactive({
+      name: '',
+      email: '',
+      message: ''
+    })
+
+    const errors = reactive({
+      name: '',
+      email: '',
+      message: ''
+    })
+
+    const isSubmitting = ref(false)
+    const isSubmitted = ref(false)
+    const submitError = ref(false)
+
+    // Validation function
+    const validateForm = () => {
+      let isValid = true
+      
+      // Reset errors
+      errors.name = ''
+      errors.email = ''
+      errors.message = ''
+
+      if (!form.name.trim()) {
+        errors.name = t('texts.contact.form.nameRequired')
+        isValid = false
+      }
+
+      if (!form.email.trim()) {
+        errors.email = t('texts.contact.form.emailRequired')
+        isValid = false
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(form.email)) {
+          errors.email = t('texts.contact.form.emailInvalid')
+          isValid = false
+        }
+      }
+
+      if (!form.message.trim()) {
+        errors.message = t('texts.contact.form.messageRequired')
+        isValid = false
+      }
+
+      return isValid
     }
-  },
-  
-  data() {
-    return {
-      form: {
-        name: '',
-        email: '',
-        message: ''
-      },
-      errors: {},
-      isSubmitting: false
-    }
-  },
-  
-  methods: {
-    validateForm() {
-      this.errors = {}
-      
-      if (!this.form.name.trim()) {
-        this.errors.name = this.t('texts.contact.form.nameRequired')
-      }
-      
-      if (!this.form.email.trim()) {
-        this.errors.email = this.t('texts.contact.form.emailRequired')
-      } else if (!this.isValidEmail(this.form.email)) {
-        this.errors.email = this.t('texts.contact.form.emailInvalid')
-      }
-      
-      if (!this.form.message.trim()) {
-        this.errors.message = this.t('texts.contact.form.messageRequired')
-      }
-      
-      return Object.keys(this.errors).length === 0
-    },
-    
-    isValidEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      return emailRegex.test(email)
-    },
-    
-    async submitForm() {
-      if (!this.validateForm()) {
+
+    // Submit form function
+    const submitForm = async () => {
+      if (!validateForm()) {
         return
       }
-      
-      this.isSubmitting = true
-      
+
+      isSubmitting.value = true
+      submitError.value = false
+
       try {
         const response = await $fetch('/api/contact', {
           method: 'POST',
           body: {
-            name: this.form.name,
-            email: this.form.email,
-            message: this.form.message
+            name: form.name.trim(),
+            email: form.email.trim(),
+            message: form.message.trim()
           }
         })
-        
-        // Redirect to success page
-        await this.router.push(this.t('pages.routes.contact_success'))
+
+        if (response?.success) {
+          isSubmitted.value = true
+        }
       } catch (error) {
         console.error('Form submission error:', error)
-        // TODO: Add error handling UI
-        alert('There was an error sending your message. Please try again.')
+        submitError.value = true
       } finally {
-        this.isSubmitting = false
+        isSubmitting.value = false
       }
     }
-  }
+
+
+
+    return {
+      t,
+      form,
+      errors,
+      isSubmitting,
+      isSubmitted,
+      submitError,
+      submitForm
+    }
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-.contact {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+<style lang="scss">
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    text-align: center;
+  .thirds {
+    display: grid;
+    grid-template-columns: 32.66% 32.66% 32.66%;
+    grid-gap: 1%;
   }
-}
 
-.contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 40px;
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .third {
+    display: block;
+    hyphens: auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-}
 
-.contact-info {
-  h2 {
-    font-size: 1.5rem;
+  .space {
     margin-bottom: 20px;
   }
 
-  .contact-details {
-    font-size: 1rem;
-    line-height: 1.6;
+  @media screen and (max-width: 768px) {
 
-    p {
-      margin-bottom: 5px;
+    br {
+      line-height: 0.5;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      
-      &:hover {
-        color: rgb(255, 26, 26);
-      }
+    h1 {
+      font-size: 12vw !important;
+      font-weight: 400 !important;
     }
   }
-}
-
-.contact-form {
-  .form-group {
-    margin-bottom: 25px;
+  /* Contact form */
+  .contact-form {
+    max-width: 100%;
+    overflow-x: hidden;
 
     label {
       display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 400;
+      width: 90%;
     }
 
-    input, textarea {
+    .form-input {
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      font-family: inherit;
+      max-width: 100%;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 1px solid #000000;
+      background: transparent;
+      padding: 6px 0;
+      outline: none;
+      resize: none;
+      margin-bottom: 16px;
       font-size: 16px;
-      transition: border-color 0.3s ease;
-
-      &:focus {
-        outline: none;
-        border-color: rgb(255, 26, 26);
-      }
-
-      &.error {
-        border-color: #ff0000;
-      }
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 120px;
+    .form-input:focus {
+      border-bottom-color: #000;
+    }
+
+    .btn-link {
+      margin-top: 24px;
+      appearance: none;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 400;
+      font-size: 18px;
+    }
+
+    .btn-link span {
+      transition: transform 120ms ease-in-out;
+    }
+
+    .btn-link:hover span {
+      transform: translateX(2px);
+    }
+
+    .btn-link:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-link.success {
+      color: #28a745;
+      opacity: 1;
+    }
+
+    .form-input.error {
+      border-bottom-color: #dc3545;
     }
 
     .error-message {
-      display: block;
-      color: #ff0000;
+      color: #dc3545;
       font-size: 14px;
-      margin-top: 5px;
+      margin-top: 4px;
+      display: block;
     }
   }
-}
 
-.submit-btn {
-  background: #000;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  &:hover:not(:disabled) {
-    background: rgb(255, 26, 26);
+  /* Prevent long links (like email) from causing horizontal scroll */
+  .third a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-
-  .arrow {
-    font-size: 18px;
-  }
-}
-
-.space {
-  margin-bottom: 20px;
-}
 </style>
