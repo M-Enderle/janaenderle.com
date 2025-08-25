@@ -58,7 +58,7 @@ export default {
       description: 'SEO.about',
     })
 
-    const myImage = cld.image("Studio Rotstich/ugqx0dbl7dgttw1yfdby").format('auto').quality('20').toURL();
+    const myImage = cld.image("Studio Rotstich/2022_Jana_Basel-2-2_1_jgczkq.jpg").format('auto').quality('20').toURL();
     return {
         myImage, t
     }

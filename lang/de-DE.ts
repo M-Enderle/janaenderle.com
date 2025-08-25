@@ -5,6 +5,7 @@ export default {
         projects: "Willkommen bei Studio Rotstich! Entdecken Sie meine Projektgalerie, die die kreative Verbindung von traditionellen und modernen Kommunikationsformen zeigt.",
         free_hand: "Willkommen bei Freihand von Studio Rotstich! Hier findest du eine Auswahl an handgezeichneten Produkten, die du auch in meinem Etsy-Shop kaufen kannst.",
         imprint: "Impressum von Studio Rotstich.",
+        contact: "Kontakt Studio Rotstich. Nimm Kontakt auf für Designprojekte, Kooperationen oder allgemeine Anfragen.",
         project: {
             super_me: "Super Me ist ein Studienprojekt von Studio Rotstich. Es beschreibt ein Konzept für ein Gesundheitsspiel für unzufriedene junge Mädchen.",
             IKEAXAstraZeneca: "IKEA X AstraZeneca ist ein Projekt von Studio Rotstich. Durch die fiktive Kooperation von IKEA und AstraZeneca wird gezeigt, wie einfach das Designerbaby vermarktet werden kann.",
@@ -21,12 +22,15 @@ export default {
             about: '/de/ueber',
             free_hand: '/de/freihand',
             imprint: '/de/impressum',
+            contact: '/de/kontakt',
+            contact_success: '/de/kontakt-erfolg',
             index: "/de"
         },
         titles: {
             about: 'Über',
             free_hand: 'Freihand',
             imprint: 'Impressum',
+            contact: 'Kontakt',
             index: "Studio Rotstich",
             projects: "Projekte",
             project: {
@@ -152,6 +156,11 @@ export default {
         },
         placemat: {
             "alt": "Eine handgezeichnete Tischunterlage mit Häusern im winterlichen Stil."
+        },
+        heart: {
+            "href": "https://www.etsy.com/de/listing/4312492180/postkarte-herz-alles-gute-linoldruck-din?ref=shop_home_feat_3&logging_key=0c10486a8f4a1f9d60fdff14061d34281ce31fb6%3A4312492180",
+            "alt": "Linolschnitt Postkarte Herz alles Gute DIN A6",
+            "title": "Kaufe die Linolschnitt Postkarte hier"
         }
     },
     texts: {
@@ -267,6 +276,28 @@ export default {
                 2: "ANNA YUNA singt mit ihrer klaren und puren Stimme genau darüber. Ihre Songs im Indie-Pop Stil sind mit elektronischen Elementen untermalt. Energie geladenes Laut und vorsichtiges Leise - bei ihren Songs kommen ehrliche Gefühle auf.",
                 3: "Das Schriftbild spiegelt die Stimmung durch hohen Strichstärkenkontrast und tiefem Lilaton wider. Zeilen aus ANNAs Songs machen den Merch nahbar und lassen mitfühlen."
             },
+        },
+        contact: {
+            title: "Kontakt",
+            subtitle: "Schreib mir",
+            form: {
+                name: "Name",
+                email: "E-Mail",
+                message: "Nachricht",
+                submit: "E-Mail senden",
+                sending: "Wird gesendet...",
+                nameRequired: "Name ist erforderlich",
+                emailRequired: "E-Mail ist erforderlich",
+                emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+                messageRequired: "Nachricht ist erforderlich",
+                success: "Nachricht erfolgreich gesendet!",
+                error: "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
+            },
+            success: {
+                title: "Vielen Dank!",
+                message: "Deine Nachricht wurde erfolgreich gesendet. Ich melde mich bald bei dir.",
+                backToContact: "Zurück zum Kontakt"
+            }
         },
     }
 }

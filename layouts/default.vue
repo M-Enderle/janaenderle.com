@@ -12,7 +12,7 @@ const head = useLocaleHead({
 
 const { url } = useCldImageUrl({
   options: {
-    src: "Studio Rotstich/ugqx0dbl7dgttw1yfdby",
+    src: "Studio Rotstich/2022_Jana_Basel-2-2_1_jgczkq.jpg",
     width: "1200",
     height: "630",
   }
@@ -94,7 +94,8 @@ const description = t(route.meta.description)
     @media (min-width: 768px) {
       padding: 0 20px;
     }
-    margin: 0;
+    margin: 0 auto;
+    max-width: 2500px;
     cursor: url(@/Cursor-black.png) 20 20, auto;
   }
 

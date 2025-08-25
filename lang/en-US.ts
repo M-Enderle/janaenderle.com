@@ -4,6 +4,7 @@ export default {
         about: "Hey! I'm Jana Enderle from Studio Rotstich Berlin. I am a communication designer specializing in corporate branding and print media.",
         free_hand: "Welcome to Freehand by Studio Rotstich! Here you will find a selection of hand-drawn products that you can also buy in my Etsy store.",
         imprint: "Imprint of Studio Rotstich.",
+        contact: "Contact Studio Rotstich. Get in touch for design projects, collaborations, or general inquiries.",
         project: {
             super_me: "Super Me is a study project by Studio Rotstich. It describes a concept for a health game for dissatisfied young girls.",
             IKEAXAstraZeneca: "IKEA X AstraZeneca is a project by Studio Rotstich. The fictitious cooperation between IKEA and AstraZeneca shows how easily the designer baby can be marketed.",
@@ -20,6 +21,8 @@ export default {
             about: '/about',
             free_hand: '/free-hand',
             imprint: '/imprint',
+            contact: '/contact',
+            contact_success: '/contact-success',
             index: "/"
         },
 
@@ -27,6 +30,7 @@ export default {
             about: 'About',
             free_hand: 'Free Hand',
             imprint: 'Imprint',
+            contact: 'Contact',
             index: "Studio Rotstich",
             projects: "Projects",
             project: {
@@ -152,6 +156,11 @@ export default {
         },
         placemat: {
             "alt": "A hand-drawn placemat with houses in winter style."
+        },
+        heart: {
+            "href": "https://www.etsy.com/de/listing/4312492180/postkarte-herz-alles-gute-linoldruck-din?ref=shop_home_feat_3&logging_key=0c10486a8f4a1f9d60fdff14061d34281ce31fb6%3A4312492180",
+            "alt": "Postcard Heart all the best Linocut DIN A6",
+            "title": "Buy the lino postcard here"
         }
     },
     texts: {
@@ -267,6 +276,22 @@ export default {
                 2: "ANNA YUNA is singing about exactly that with her clear and pure voice. Her indie-pop style songs are enhanced with electronic elements. High-energy loud and cautious quiet - her songs evoke honest feelings.",
                 3: "The typeface reflects the mood with its high line weight contrast and deep purple tone. Lines from ANNA's songs make the merch approachable and empathetic."
             },
+        },
+        contact: {
+            title: "Contact me",
+            form: {
+                name: "Name",
+                email: "Email",
+                message: "Message",
+                submit: "Send email",
+                sending: "Sending...",
+                nameRequired: "Name is required",
+                emailRequired: "Email is required",
+                emailInvalid: "Please enter a valid email address",
+                messageRequired: "Message is required",
+                success: "Email sent",
+                error: "Failed to send message. Please contact me directly via email."
+            }
         },
     }
 }
