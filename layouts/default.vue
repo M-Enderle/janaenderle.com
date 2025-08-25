@@ -95,7 +95,7 @@ const description = t(route.meta.description)
       padding: 0 20px;
     }
     margin: 0 auto;
-    max-width: 1920px;
+    max-width: 2500px;
     cursor: url(@/Cursor-black.png) 20 20, auto;
   }
 
