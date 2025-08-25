@@ -130,8 +130,12 @@ export default {
       return isValid
     }
 
-    // Initialize success state from URL query
-    if (route.query?.success === 'true') {
+    // Initialize success state from URL query (tolerate case/variants)
+    const successQueryValue = route.query?.success
+    if (
+      (typeof successQueryValue === 'string' && successQueryValue.toLowerCase() === 'true') ||
+      successQueryValue === '1'
+    ) {
       isSubmitted.value = true
     }
 
@@ -276,6 +280,8 @@ export default {
     .btn-link.success {
       color: #28a745 !important;
       opacity: 1;
+      pointer-events: none;
+      cursor: default;
     }
 
     .btn-link.success:disabled {
