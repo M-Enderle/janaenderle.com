@@ -72,6 +72,8 @@
 export default {
   setup() {
     const { locale, locales, t } = useI18n()
+    const router = useRouter()
+    const route = useRoute()
 
     definePageMeta({
       title: 'pages.titles.contact',
@@ -149,6 +151,10 @@ export default {
 
         if (response?.success) {
           isSubmitted.value = true
+          router.replace({
+            path: route.path,
+            query: { ...route.query, sucess: 'True' }
+          })
         }
       } catch (error) {
         console.error('Form submission error:', error)
@@ -229,6 +235,7 @@ export default {
       resize: none;
       margin-bottom: 16px;
       font-size: 16px;
+      font-family: 'Sora', sans-serif;
     }
 
     .form-input:focus {
