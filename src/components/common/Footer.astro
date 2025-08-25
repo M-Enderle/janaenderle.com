@@ -1,0 +1,69 @@
+---
+import { useTranslations } from '../../utils/i18n';
+
+export interface Props {
+  lang: 'en' | 'de';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="footer">
+  <div class="third">
+    <a href={t('pages.routes.imprint')}>{t('pages.titles.imprint')}</a>
+    <div class="copyright mobile-only" style="margin-top: 1vh">
+      Copyright © 2025 <br>
+      Jana Enderle
+    </div>
+  </div>
+  <div class="third">
+    <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com">Mail</a><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/studio.rotstich/">Instagram</a><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jana-enderle/">LinkedIn</a><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://www.etsy.com/shop/Janascreativestudio?ref=search_shop_redirect">Etsy</a><br>
+  </div>
+  <div class="third desktop-only">
+    Copyright © 2025 Jana Enderle
+  </div>
+</div>
+
+<style lang="scss">
+  .footer {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 300;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+  }
+
+  .third {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: flex;
+  }
+
+  @media screen and (max-width: 767px) {
+    .mobile-only {
+      display: block;
+    }
+    
+    .desktop-only {
+      display: none;
+    }
+  }
+</style>

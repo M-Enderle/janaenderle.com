@@ -1,0 +1,100 @@
+---
+import { useTranslations } from '../../utils/i18n';
+
+export interface Props {
+  project: {
+    imageID: string;
+    mobileImageID: string;
+    alt: string;
+    title: string;
+    url: string;
+  };
+  lang: 'en' | 'de';
+}
+
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Generate Cloudinary URLs
+const image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_35/Studio%20Rotstich/${project.imageID}`;
+const mobile_image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_40/Studio%20Rotstich/mobile/${project.mobileImageID}`;
+
+// Calculate animation speed based on title length
+const titleText = t(project.title);
+const speed = Math.round(1000 / (titleText.length + 10));
+---
+
+<div style="margin-top: 50px"></div>
+<a href={project.url}>
+  <div class="image_wrapper">
+    <img src={image} alt={t(project.alt)} class="desktop image">
+    <img src={mobile_image} alt={t(project.alt)} class="mobile image">
+  </div>
+  <div style="margin-top: 20px"></div>
+  {project.title && (
+    <div class="scroll-container">
+      <div class="scroll-text">
+        {Array.from({ length: speed }, (_, i) => (
+          <span key={i} class="no_hover_text">
+            {titleText} +&#8203;
+          </span>
+        ))}
+      </div>
+    </div>
+  )}
+</a>
+
+<style lang="scss">
+  .image {
+    width: 100%;
+  }
+
+  .scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: -10px -10px;
+  }
+
+  .scroll-text {
+    display: inline-block;
+    animation: scroll-right 110s linear infinite;
+    font-size: 8vh;
+    font-weight: 400;
+  }
+
+  @keyframes scroll-right {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-80%);
+    }
+  }
+
+  .no_hover_text {
+    text-decoration: none;
+    color: black;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    .scroll-text {
+      font-size: 7.5vh;
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    .desktop {
+      display: block;
+    }
+
+    .scroll-container {
+      margin: -20px -20px;
+    }
+  }
+</style>
