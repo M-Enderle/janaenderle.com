@@ -48,12 +48,13 @@
           ></textarea>
           <span v-if="errors.message" class="error-message">{{ errors.message }}</span>
 
-                     <button type="submit" class="btn-link" :disabled="isSubmitting || isSubmitted" :class="{ 'success': isSubmitted }">
+          <button type="submit" class="btn-link" :disabled="isSubmitting || isSubmitted">
              <span v-if="isSubmitting">{{ t('texts.contact.form.sending') }}</span>
-             <span v-else-if="isSubmitted">{{ t('texts.contact.form.success') }} du hurensohn</span>
-             <span v-else>{{ t('texts.contact.form.submit') }}</span>
+             <span v-if="!isSubmitting && !isSubmitted">{{ t('texts.contact.form.submit') }}</span>
              <img v-if="!isSubmitting && !isSubmitted" src="/arrow.png" width="12px" alt="Send arrow" style="transform: rotate(180deg)" />
            </button>
+
+          <span v-if="isSubmitted" id="success-message">{{ t('texts.contact.form.success') }}</span>
           
           <div v-if="submitError" class="error-message">
             {{ t('texts.contact.form.error') }}
@@ -195,6 +196,13 @@ export default {
     grid-gap: 1%;
   }
 
+  #success-message {
+    color: #28a745;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 24px;
+  }
+
   .third {
     display: block;
     hyphens: auto;
@@ -283,13 +291,6 @@ export default {
       pointer-events: none;
       cursor: default;
     }
-
-    .btn-link.success:disabled {
-      color: #28a745 !important;
-      opacity: 1;
-    }
-    
-    
 
     .form-input.error {
       border-bottom-color: #dc3545;
