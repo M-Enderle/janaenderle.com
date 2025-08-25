@@ -156,6 +156,11 @@ export default {
         },
         placemat: {
             "alt": "A hand-drawn placemat with houses in winter style."
+        },
+        heart: {
+            "href": "https://www.etsy.com/de/listing/4312492180/postkarte-herz-alles-gute-linoldruck-din?ref=shop_home_feat_3&logging_key=0c10486a8f4a1f9d60fdff14061d34281ce31fb6%3A4312492180",
+            "alt": "Postcard Heart all the best Linocut DIN A6",
+            "title": "Buy the lino postcard here"
         }
     },
     texts: {

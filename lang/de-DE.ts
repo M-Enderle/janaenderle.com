@@ -156,6 +156,11 @@ export default {
         },
         placemat: {
             "alt": "Eine handgezeichnete Tischunterlage mit Häusern im winterlichen Stil."
+        },
+        heart: {
+            "href": "https://www.etsy.com/de/listing/4312492180/postkarte-herz-alles-gute-linoldruck-din?ref=shop_home_feat_3&logging_key=0c10486a8f4a1f9d60fdff14061d34281ce31fb6%3A4312492180",
+            "alt": "Linolschnitt Postkarte Herz alles Gute DIN A6",
+            "title": "Kaufe die Linolschnitt Postkarte hier"
         }
     },
     texts: {

@@ -60,6 +60,13 @@ export default {
                         url: t('free_hand.calendar.href')
                   },
                   {
+                        imageID: 'HerzPostkarte_Web_jxxzr5.jpg',
+                        mobileImageID: 'HerzPostkarte_Mobile_ow2vxw.jpg',
+                        alt: 'free_hand.heart.alt',
+                        url: t('free_hand.heart.href'),
+                        title: 'free_hand.heart.title'
+                  },
+                  {
                         imageID: 'c5r32k5uh1eqcvpxach5',
                         mobileImageID: 'opxd3snqumxsqsamslyv',
                         alt: 'free_hand.linol.alt',
@@ -75,7 +82,7 @@ export default {
                         imageID: 'rkw34nnlj9fk7g9uz1za',
                         mobileImageID: 'r43eywgbfpvu4oceswfw',
                         alt: 'free_hand.placemat.alt',
-                        url: ''
+                        url: t('free_hand.placemat.href')
                   }
             ];
 
