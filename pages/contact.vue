@@ -286,6 +286,11 @@ export default {
       opacity: 1;
     }
 
+    .btn-link.success:disabled {
+      color: #28a745;
+      opacity: 1;
+    }
+
     .form-input.error {
       border-bottom-color: #dc3545;
     }
