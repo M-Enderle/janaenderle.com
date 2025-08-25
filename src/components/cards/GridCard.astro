@@ -1,0 +1,80 @@
+---
+import { useTranslations } from '../../utils/i18n';
+
+export interface Props {
+  project: {
+    imageID: string;
+    mobileImageID: string;
+    alt: string;
+    title: string;
+    url: string;
+  };
+  lang: 'en' | 'de';
+  animationDelay?: string;
+}
+
+const { project, lang, animationDelay = '0s' } = Astro.props;
+const t = useTranslations(lang);
+
+// Generate Cloudinary URLs with proper encoding  
+const mobile_image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_40/Studio%20Rotstich/mobile/${encodeURIComponent(project.mobileImageID)}`;
+---
+
+<div>
+  <a href={project.url}>
+    <div 
+      class="gridcard-container" 
+      style={`background-image: url('${mobile_image}'); animation-delay: ${animationDelay};`}
+    >
+      {project.title && (
+        <div class="cutout-text">{t(project.title)}</div>
+      )}
+    </div>
+  </a>
+</div>
+
+<style lang="scss">
+  .gridcard-container {
+    position: relative;
+    /* Needed to position the cutout text in the middle of the image */
+    width: 500px;
+    /* Some height */
+    background-size: cover;
+    /* Cover the whole container */
+    aspect-ratio: 1;
+    /* Square aspect ratio */
+    margin: 3px 0;
+    /* Some margin */
+    width: 100%;
+  }
+
+  .cutout-text {
+    background-color: white;
+    color: black;
+    font-size: 4vw;
+    /* Responsive font size */
+    font-weight: bold;
+    margin: 0 auto;
+    /* Center the text container */
+    padding: 10px;
+    width: 90%;
+    text-align: center;
+    /* Center text */
+    position: absolute;
+    /* Position text */
+    top: 50%;
+    /* Position text in the middle */
+    left: 50%;
+    /* Position text in the middle */
+    transform: translate(-50%, -50%);
+    /* Position text in the middle */
+    mix-blend-mode: screen;
+    /* This makes the cutout text possible */
+    display: none;
+  }
+
+  .gridcard-container:hover .cutout-text {
+    display: block;
+    /* Show the cutout text on hover */
+  }
+</style>

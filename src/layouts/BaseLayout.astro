@@ -1,0 +1,162 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  lang?: 'en' | 'de';
+}
+
+const { title, description, lang = 'en' } = Astro.props;
+
+// Cloudinary URL for OpenGraph image
+const ogImageUrl = `https://res.cloudinary.com/dqxwy7joy/image/upload/c_fill,w_1200,h_630/Studio%20Rotstich/2022_Jana_Basel-2-2_1_jgczkq.jpg`;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="msvalidate.01" content="8BB110BB289ECF54AC00E4B1184EA1AF" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" href="/favicon-google.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:url" content="https://janaenderle.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- Alternate language links -->
+  {lang === 'en' && <link rel="alternate" hreflang="de" href="/de" />}
+  {lang === 'de' && <link rel="alternate" hreflang="en" href="/" />}
+</head>
+<body>
+  <slot />
+</body>
+</html>
+
+<style lang="scss" is:global>
+  @font-face {
+    font-family: 'Sora';
+    src: url('/Sora.woff2') format('woff2');
+  }
+
+  $color-primary: white;
+  $color-secondary: black;
+  $color-tertiary: rgb(255, 26, 26);
+
+  html {
+    font-family: 'Sora', sans-serif;
+    background-color: $color-primary;
+    color: $color-secondary;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+    cursor: url(/Cursor-black.png) 20 20, auto;
+    overflow-x: hidden;
+    width: 100vw;
+  }
+
+  body {
+    margin: 0 auto;
+    max-width: 2500px;
+    cursor: url(/Cursor-black.png) 20 20, auto;
+    
+    @media (max-width: 767px) {
+      padding: 0 10px;
+    }
+    @media (min-width: 768px) {
+      padding: 0 20px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-secondary;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: $color-tertiary;
+  }
+
+  button {
+    font-family: 'Sora', sans-serif;
+    background-color: $color-primary;
+    color: $color-secondary;
+    padding: 0;
+    margin: 0;
+    border: None;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  button:hover {
+    color: $color-tertiary;
+  }
+
+  /* Customize website's scrollbar like Mac OS
+  Not supports in Firefox and IE */
+
+  /* total width */
+  body::-webkit-scrollbar {
+      background-color: #fff;
+      width: 7px;
+  }
+
+  /* background of the scrollbar except button or resizer */
+  body::-webkit-scrollbar-track {
+      background-color: #fff;
+  }
+
+  /* scrollbar itself */
+  body::-webkit-scrollbar-thumb {
+      background-color: #737373;
+      border-radius: 16px;
+      border: 2px solid #fff;
+  }
+
+  /* set button(top and bottom of the scrollbar) */
+  body::-webkit-scrollbar-button {
+      display:none;
+  }
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  h1 {
+    font-size: 100px;
+    font-weight: 400;
+    margin: 30px 0;
+    line-height: 110%;
+    letter-spacing: -1px;
+  }
+
+  .arrow-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(-90deg);
+    transition: opacity 300ms;
+  }
+
+  .hide {
+    opacity: 0;
+    transition: opacity 300ms;
+    pointer-events: none;
+  }
+</style>

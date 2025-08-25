@@ -1,0 +1,221 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Card from '../components/cards/Card.astro';
+import GridCard from '../components/cards/GridCard.astro';
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const title = t('pages.titles.index');
+const description = t('defaultSEO');
+
+// Projects data
+const projects = [
+  { imageID: 'veg2hyw2oyeqlefycoul', mobileImageID: 'a2cn1asys3mm449ynigr', alt: 'projects.annayuna.images.front', title: 'projects.annayuna.title', url: t('projects.annayuna.path') },
+  { imageID: 'm4qfb3n2sxstadl3za2r', mobileImageID: 'y9cax5heidbqufxrv3yy', alt: 'projects.super_me.images.front', title: 'projects.super_me.title', url: t('projects.super_me.path') },
+  { imageID: 'kf2qo9kd2yaxongtzy44', mobileImageID: 'byp6rgplmsbltdkyska2', alt: 'projects.lenis.images.front', title: 'projects.lenis.title', url: t('projects.lenis.path') },
+  { imageID: 'j1mnrsywkwmrkhknw6kg', mobileImageID: 'tmtyeemgy56vw6kujyx6', alt: 'projects.IKEAXAstraZeneca.images.front', title: 'projects.IKEAXAstraZeneca.title', url: t('projects.IKEAXAstraZeneca.path') },
+  { imageID: 'uxcqpnglmtl2shbolu3j', mobileImageID: 'spivkzcya2ks1v71enbx', alt: 'projects.odds_and_ends.images.front', title: 'projects.odds_and_ends.title', url: t('projects.odds_and_ends.path') },
+  { imageID: 'xp5kmuhkhfvdgtieff0y', mobileImageID: 'tknjkur0thaffq46um7y', alt: 'projects.vulkanfieber.images.front', title: 'projects.vulkanfieber.title', url: t('projects.vulkanfieber.path') },
+  { imageID: 'ckguvelcu7tahwvnuzls', mobileImageID: 'agylusnxghug4b6ublsz', alt: 'projects.cre4te.images.front', title: 'projects.cre4te.title', url: t('projects.cre4te.path') }
+];
+
+// Chunk projects for mobile (2 per row) and desktop (3 per row)
+const chunkedProjectsMobile = [];
+for (let i = 0; i < projects.length; i += 2) {
+  chunkedProjectsMobile.push(projects.slice(i, i + 2));
+}
+
+const chunkedProjects = [];
+for (let i = 0; i < projects.length; i += 3) {
+  chunkedProjects.push(projects.slice(i, i + 3));
+}
+---
+
+<MainLayout title={title} description={description}>
+  <div class="spacer grid-mode-visible" style="height: 40px"></div>
+  
+  <!-- Grid view for desktop -->
+  <div class="list grid-mode-visible desktop-grid">
+    {chunkedProjects.map((pair, pairIndex) => (
+      <div key={`pair-${pairIndex}`} class="pair-container">
+        {pair.map((project, index) => (
+          <div key={project.imageID} class="grid-card-wrapper">
+            <GridCard 
+              project={project} 
+              lang={lang} 
+              animationDelay={`${pairIndex * 0.2}s`}
+            />
+          </div>
+        ))}
+        {pair.length === 1 || pair.length === 2 ? (
+          <div class="grid-card-wrapper blank"></div>
+        ) : null}
+        {pair.length === 1 ? (
+          <div class="grid-card-wrapper blank"></div>
+        ) : null}
+      </div>
+    ))}
+  </div>
+
+  <!-- Grid view for mobile -->
+  <div class="list grid-mode-visible mobile-grid">
+    {chunkedProjectsMobile.map((pair, pairIndex) => (
+      <div key={`pair-${pairIndex}`} class="pair-container">
+        {pair.map((project, index) => (
+          <div key={project.imageID} class="grid-card-wrapper">
+            <GridCard 
+              project={project} 
+              lang={lang} 
+              animationDelay={`${pairIndex * 0.2}s`}
+            />
+          </div>
+        ))}
+        {pair.length === 1 ? (
+          <div class="grid-card-wrapper blank"></div>
+        ) : null}
+      </div>
+    ))}
+  </div>
+
+  <!-- List view -->
+  <div class="grid-mode-hidden">
+    {projects.map((project) => (
+      <Card key={project.imageID} project={project} lang={lang} />
+    ))}
+  </div>
+
+  <!-- Hidden links for accessibility -->
+  <div style="position: absolute; left: -9999px;">
+    {projects.map((project) => (
+      <a key={project.imageID} href={project.url} aria-label={t(project.alt)}></a>
+    ))}
+  </div>
+</MainLayout>
+
+<script>
+  import { isMobile, gridMode } from '../stores/app';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Update visibility based on grid mode
+    function updateGridMode(isGridMode) {
+      const gridElements = document.querySelectorAll('.grid-mode-visible');
+      const listElements = document.querySelectorAll('.grid-mode-hidden');
+      
+      gridElements.forEach(el => {
+        el.style.display = isGridMode ? 'block' : 'none';
+      });
+      
+      listElements.forEach(el => {
+        el.style.display = isGridMode ? 'none' : 'block';
+      });
+    }
+
+    // Update mobile/desktop grid visibility
+    function updateMobileView(isMobileView) {
+      const desktopGrid = document.querySelector('.desktop-grid');
+      const mobileGrid = document.querySelector('.mobile-grid');
+      
+      if (desktopGrid && mobileGrid) {
+        desktopGrid.style.display = isMobileView ? 'none' : 'block';
+        mobileGrid.style.display = isMobileView ? 'block' : 'none';
+      }
+    }
+
+    // Subscribe to store changes
+    if (typeof gridMode.subscribe === 'function') {
+      gridMode.subscribe(updateGridMode);
+    }
+    if (typeof isMobile.subscribe === 'function') {
+      isMobile.subscribe(updateMobileView);
+    }
+    
+    // Initial setup
+    updateGridMode(gridMode.get ? gridMode.get() : false);
+    updateMobileView(isMobile.get ? isMobile.get() : false);
+
+    // Add fade animations to list items
+    const listDivs = document.querySelectorAll('.list div');
+    listDivs.forEach((div, index) => {
+      div.style.opacity = '0';
+      div.style.animation = 'fadeIn 0.3s forwards';
+      div.style.animationDelay = `${index * 0.1}s`;
+    });
+  });
+</script>
+
+<style lang="scss">
+  .fade-enter-active {
+    transition: opacity 0.3s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .list div {
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-leave-active {
+    animation: fadeOut 0.03s forwards !important;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .pair-container {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .grid-card-wrapper {
+    flex: 1;
+    margin: 0 3px;
+  }
+
+  .grid-card-wrapper.blank {
+    visibility: hidden;
+  }
+
+  .desktop-grid {
+    display: none;
+  }
+
+  .mobile-grid {
+    display: block;
+  }
+
+  .grid-mode-visible {
+    display: none;
+  }
+
+  .grid-mode-hidden {
+    display: block;
+  }
+
+  @media screen and (min-width: 768px) {
+    .desktop-grid {
+      display: block;
+    }
+    
+    .mobile-grid {
+      display: none;
+    }
+  }
+</style>

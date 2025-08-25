@@ -1,37 +1,35 @@
 {
-  "name": "nuxt-app",
+  "name": "astro-app",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.1.0",
-    "@nuxtjs/i18n": "^8.0.0-rc.5",
-    "@nuxtjs/robots": "^3.0.0",
-    "nuxt": "^3.11.2",
-    "nuxt-icon": "^0.6.6",
-    "nuxt-simple-sitemap": "^4.1.3",
-    "sass": "^1.69.5",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
+    "sass": "^1.90.0"
   },
   "dependencies": {
+    "@astrojs/node": "^9.4.3",
+    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/vue": "^5.1.0",
     "@cloudinary/url-gen": "^1.13.0",
     "@funken-studio/sitemap-nuxt-3": "^4.0.4",
+    "@nanostores/vue": "^1.0.1",
     "@nuxtjs/cloudinary": "^2.4.3",
     "@nuxtjs/sitemap": "^2.4.0",
     "@types/nodemailer": "^7.0.1",
     "@vercel/analytics": "^1.3.2",
-    "@vercel/speed-insights": "^1.0.14",
+    "@vercel/speed-insights": "^1.2.0",
+    "astro": "^5.13.3",
     "cloudinary": "^1.41.0",
     "consola": "3.0.1",
+    "nanostores": "^1.0.1",
     "nodemailer": "^7.0.5",
+    "vue": "^3.5.20",
     "vuex": "^4.0.2"
   }
 }

@@ -1,0 +1,383 @@
+---
+import { getLangFromUrl, useTranslations } from '../../utils/i18n';
+
+export interface Props {
+  lang: 'en' | 'de';
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const t = useTranslations(lang);
+
+// Check if current page is index or free_hand for grid toggle visibility
+const showGridToggle = currentPath === '/' || currentPath === '/de' || 
+                      currentPath === '/free-hand' || currentPath === '/freihand';
+---
+
+<div class="navbar" id="navdesktop">
+  <a class="logo nav_third" href={t('pages.routes.index')} style="color: black !important">
+    <div class="studio_name">Studio Rotstich</div>
+    <div>Jana Enderle</div>
+  </a>
+  <div id="main_navigation" class="nav_third">
+    <a href={t('pages.routes.index')} id="navbar_projects">{t('pages.titles.projects')}</a>
+    <div id="seperator-plus">+</div>
+    <a href={t('pages.routes.free_hand')} id="navbar_free_hand">{t('pages.titles.free_hand')}</a>
+  </div>
+  <div id="right_nav" class="nav_third">
+    {showGridToggle && (
+      <>
+        <img src="/Website_Icon_Fullscreen.svg" height="30" class="grid-fullscreen grid-mode-hidden" alt="Enable Full Screen" />
+        <img src="/Website_Icon_Raster.svg" height="30" class="grid-fullscreen grid-mode-visible" alt="Enable Grid Mode" />
+      </>
+    )}
+    <button class="lang-button" data-lang={lang === 'en' ? 'de' : 'en'}>
+      {lang === 'en' ? 'DE' : 'EN'}
+    </button>
+    <a href={t('pages.routes.about')} id="navbar_about">{t('pages.titles.about')}</a>
+    <a href={t('pages.routes.contact')} id="navbar_contact">{t('pages.titles.contact')}</a>
+  </div>
+</div>
+
+<div class="navbar mobile-nav" id="navmobile">
+  <a class="logo" href={t('pages.routes.index')} style="color: black !important">
+    <div class="studio_name">Studio Rotstich</div>
+    <div>Jana Enderle</div>
+  </a>
+  <div class="right-nav">
+    {showGridToggle && (
+      <>
+        <img src="/Website_Icon_Fullscreen.svg" height="30" class="grid-fullscreen grid-mode-hidden" alt="Enable Full Screen" />
+        <img src="/Website_Icon_Raster.svg" height="30" class="grid-fullscreen grid-mode-visible" alt="Enable Grid Mode" />
+      </>
+    )}
+    <div id="unfold_plus">+</div>
+  </div>
+</div>
+
+<div id="nav_mobile_unfolded" class="folded">
+  <a href={t('pages.routes.index')} id="navbar_projects">{t('pages.titles.projects')}</a>
+  <a href={t('pages.routes.free_hand')} id="navbar_free_hand">{t('pages.titles.free_hand')}</a>
+  <a href={t('pages.routes.contact')}>{t('pages.titles.contact')}</a>
+  <a href={t('pages.routes.about')}>{t('pages.titles.about')}</a>
+  <div class="spacer" style="height: 3vh"></div>
+  <a target="_blank" rel="noopener noreferrer" href="mailto:hello@janaenderle.com">Mail</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/studio.rotstich/">Instagram</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jana-enderle/">LinkedIn</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://www.etsy.com/shop/Janascreativestudio?ref=search_shop_redirect">Etsy</a>
+  <div class="spacer" style="height: 3vh"></div>
+  <button class="lang-button" data-lang={lang === 'en' ? 'de' : 'en'}>
+    {lang === 'en' ? 'Deutsch' : 'English'}
+  </button>
+</div>
+
+<script>
+  import { isMobile, gridMode } from '../../stores/app';
+
+  // Mobile navigation functionality
+  function toggleMobileNav() {
+    const navMobileUnfolded = document.getElementById('nav_mobile_unfolded');
+    const unfoldPlus = document.getElementById('unfold_plus');
+    
+    if (navMobileUnfolded?.classList.contains('unfolded')) {
+      navMobileUnfolded.classList.remove('unfolded');
+      navMobileUnfolded.classList.add('folded');
+      unfoldPlus?.classList.remove('rotated');
+      document.body.style.overflow = 'auto';
+    } else {
+      navMobileUnfolded?.classList.remove('folded');
+      navMobileUnfolded?.classList.add('unfolded');
+      unfoldPlus?.classList.add('rotated');
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = 'auto';
+    }
+  }
+
+  // Grid mode toggle functionality  
+  function toggleGrid() {
+    const currentValue = gridMode.get ? gridMode.get() : false;
+    gridMode.set(!currentValue);
+  }
+
+  // Language switching
+  function switchLanguage(newLang) {
+    const currentPath = window.location.pathname;
+    let newPath = '';
+    
+    if (newLang === 'de') {
+      if (currentPath === '/') {
+        newPath = '/de';
+      } else if (currentPath.startsWith('/project/')) {
+        newPath = currentPath.replace('/project/', '/projekt/');
+      } else {
+        // Map English routes to German
+        const routeMap = {
+          '/about': '/ueber',
+          '/free-hand': '/freihand',
+          '/contact': '/kontakt',
+          '/imprint': '/impressum'
+        };
+        newPath = routeMap[currentPath] || currentPath;
+      }
+    } else {
+      if (currentPath === '/de') {
+        newPath = '/';
+      } else if (currentPath.startsWith('/projekt/')) {
+        newPath = currentPath.replace('/projekt/', '/project/');
+      } else {
+        // Map German routes to English
+        const routeMap = {
+          '/ueber': '/about',
+          '/freihand': '/free-hand',
+          '/kontakt': '/contact',
+          '/impressum': '/imprint'
+        };
+        newPath = routeMap[currentPath] || currentPath;
+      }
+    }
+    
+    window.location.href = newPath;
+  }
+
+  // Studio name hover effect
+  function setupStudioNameHover() {
+    const logos = document.getElementsByClassName('logo');
+    for (let i = 0; i < logos.length; i++) {
+      const logo = logos[i];
+      logo.addEventListener('mouseover', function(event) {
+        const studioName = event.currentTarget.querySelector('.studio_name');
+        if (studioName) {
+          studioName.textContent = 'Studio Ro+s+ich';
+        }
+      });
+      
+      logo.addEventListener('mouseout', function(event) {
+        const studioName = event.currentTarget.querySelector('.studio_name');
+        if (studioName) {
+          studioName.textContent = 'Studio Rotstich';
+        }
+      });
+    }
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    setupStudioNameHover();
+    
+    // Setup mobile nav toggle
+    const unfoldPlus = document.getElementById('unfold_plus');
+    unfoldPlus?.addEventListener('click', toggleMobileNav);
+    
+    // Setup mobile nav link clicks
+    const navMobileUnfolded = document.getElementById('nav_mobile_unfolded');
+    const links = navMobileUnfolded?.querySelectorAll('a[href]');
+    links?.forEach(link => {
+      link.addEventListener('click', toggleMobileNav);
+    });
+    
+    // Setup grid toggle buttons
+    const gridButtons = document.querySelectorAll('.grid-fullscreen');
+    gridButtons.forEach(button => {
+      button.addEventListener('click', toggleGrid);
+    });
+    
+    // Setup language buttons
+    const langButtons = document.querySelectorAll('.lang-button');
+    langButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const target = e.target;
+        const newLang = target.getAttribute('data-lang');
+        if (newLang) {
+          switchLanguage(newLang);
+        }
+      });
+    });
+    
+    // Setup reactive visibility based on stores
+    function updateMobileVisibility() {
+      const isMobileValue = isMobile.get ? isMobile.get() : (window.innerWidth < 768);
+      const navDesktop = document.getElementById('navdesktop');
+      const navMobile = document.getElementById('navmobile');
+      const navMobileUnfolded = document.getElementById('nav_mobile_unfolded');
+      
+      if (navDesktop && navMobile && navMobileUnfolded) {
+        if (isMobileValue) {
+          navDesktop.style.display = 'none';
+          navMobile.style.display = 'flex';
+          navMobileUnfolded.style.display = 'flex';
+        } else {
+          navDesktop.style.display = 'flex';
+          navMobile.style.display = 'none';
+          navMobileUnfolded.style.display = 'none';
+        }
+      }
+    }
+    
+    // Update grid mode icons
+    function updateGridModeIcons() {
+      const gridModeValue = gridMode.get ? gridMode.get() : false;
+      const fullscreenIcons = document.querySelectorAll('.grid-mode-hidden');
+      const rasterIcons = document.querySelectorAll('.grid-mode-visible');
+      
+      fullscreenIcons.forEach(icon => {
+        icon.style.display = gridModeValue ? 'block' : 'none';
+      });
+      
+      rasterIcons.forEach(icon => {
+        icon.style.display = gridModeValue ? 'none' : 'block';
+      });
+    }
+    
+    // Subscribe to store changes if available
+    if (typeof isMobile.subscribe === 'function') {
+      isMobile.subscribe(updateMobileVisibility);
+    }
+    if (typeof gridMode.subscribe === 'function') {
+      gridMode.subscribe(updateGridModeIcons);
+    }
+    
+    // Initial setup
+    updateMobileVisibility();
+    updateGridModeIcons();
+  });
+</script>
+
+<style lang="scss">
+  .navbar {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .nav_third {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  #main_navigation {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  #right_nav {
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  .logo {
+    font-size: 25px;
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+  }
+
+  .studio_name {
+    transition: all 0.3s ease;
+  }
+
+  #seperator-plus {
+    font-size: 25px;
+    color: rgb(255, 26, 26);
+  }
+
+  .grid-fullscreen {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-fullscreen:hover {
+    opacity: 0.7;
+  }
+
+  .lang-button {
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
+  }
+
+  .lang-button:hover {
+    color: rgb(255, 26, 26);
+  }
+
+  #nav_mobile_unfolded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: left 0.3s ease;
+  }
+
+  .unfolded {
+    left: 0;
+  }
+
+  .folded {
+    left: -105vw;
+  }
+
+  #unfold_plus {
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: rgb(255, 26, 26);
+  }
+
+  .rotated {
+    transform: rotate(45deg);
+  }
+
+  .right-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .navbar:not(.mobile-nav) {
+      display: none !important;
+    }
+    
+    .mobile-nav {
+      display: flex !important;
+    }
+
+    #nav_mobile_unfolded {
+      display: flex;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .mobile-nav {
+      display: none !important;
+    }
+    
+    #nav_mobile_unfolded {
+      display: none !important;
+    }
+  }
+
+  .router-link-active {
+    color: rgb(255, 26, 26);
+  }
+</style>
