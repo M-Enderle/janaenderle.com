@@ -50,7 +50,7 @@
 
                      <button type="submit" class="btn-link" :disabled="isSubmitting || isSubmitted" :class="{ 'success': isSubmitted }">
              <span v-if="isSubmitting">{{ t('texts.contact.form.sending') }}</span>
-             <span v-else-if="isSubmitted" class="success">{{ t('texts.contact.form.success') }}</span>
+             <span v-else-if="isSubmitted">{{ t('texts.contact.form.success') }}</span>
              <span v-else>{{ t('texts.contact.form.submit') }}</span>
              <img v-if="!isSubmitting && !isSubmitted" src="/arrow.png" width="12px" alt="Send arrow" style="transform: rotate(180deg)" />
            </button>
@@ -71,7 +71,7 @@
 
 export default {
   setup() {
-    const { locale, locales, t } = useI18n()
+    const { t } = useI18n()
     const router = useRouter()
     const route = useRoute()
 
@@ -130,18 +130,10 @@ export default {
       return isValid
     }
 
-    // Read success from URL to show success state after reload
-    if (route.query?.sucess === 'True') {
+    // Initialize success state from URL query
+    if (route.query?.success === 'true') {
       isSubmitted.value = true
     }
-
-    // Update success state when URL query changes
-    watch(
-      () => route.query?.sucess,
-      (newValue) => {
-        isSubmitted.value = newValue === 'True'
-      }
-    )
 
     // Submit form function
     const submitForm = async () => {
@@ -165,7 +157,7 @@ export default {
         if (response?.success) {
           isSubmitted.value = true
           const url = new URL(window.location.href)
-          url.searchParams.set('sucess', 'True')
+          url.searchParams.set('success', 'true')
           window.location.replace(url.toString())
         }
       } catch (error) {
@@ -281,20 +273,17 @@ export default {
       cursor: not-allowed;
     }
 
-    .contact-form .btn-link.success {
+    .btn-link.success {
       color: #28a745 !important;
       opacity: 1;
     }
 
-    .contact-form .btn-link.success:disabled {
+    .btn-link.success:disabled {
       color: #28a745 !important;
       opacity: 1;
     }
     
-    .success {
-      color: #28a745 !important;
-      opacity: 1;
-    }
+    
 
     .form-input.error {
       border-bottom-color: #dc3545;
