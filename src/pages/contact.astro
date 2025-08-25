@@ -1,0 +1,306 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const title = t('pages.titles.contact');
+const description = t('defaultSEO');
+---
+
+<MainLayout title={title} description={description}>
+  <div class="contact">
+    <h1>{t('texts.contact.title')}</h1>
+    <div class="thirds">
+      <div class="third">
+        <p>Studio Rotstich</p>
+        <p>Jana Enderle</p>
+        <br>
+        <p>Olbersstraße 4</p>
+        <p>10589 Berlin</p>
+        <br>
+        <p><a href="mailto:hello@janaenderle.com">hello@janaenderle.com</a></p>
+        <p><a href="tel:+4917660404458">+49 176 60404458</a></p>
+      </div>
+      <div class="third">
+        <form class="contact-form" id="contact-form">
+          <label for="name">{t('texts.contact.form.name')}</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name"
+            class="form-input" 
+            autocomplete="name"
+            required
+          >
+          <span class="error-message" id="name-error"></span>
+
+          <label for="email">{t('texts.contact.form.email')}</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"
+            class="form-input" 
+            autocomplete="email"
+            required
+          >
+          <span class="error-message" id="email-error"></span>
+
+          <label for="message">{t('texts.contact.form.message')}</label>
+          <textarea 
+            id="message" 
+            name="message"
+            class="form-input" 
+            rows="6" 
+            autocomplete="off"
+            required
+          ></textarea>
+          <span class="error-message" id="message-error"></span>
+
+          <input type="hidden" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+
+          <button type="submit" class="btn-primary" id="submit-btn">
+            <span id="submit-text">{t('texts.contact.form.submit')}</span>
+            <span id="sending-text" style="display: none;">{t('texts.contact.form.sending')}</span>
+          </button>
+        </form>
+      </div>
+      <div class="third">
+        <div id="form-status" class="form-status"></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 100px"></div>
+</MainLayout>
+
+<script define:vars={{ 
+  successMessage: t('texts.contact.form.success'),
+  errorMessage: t('texts.contact.form.error'),
+  nameRequired: t('texts.contact.form.nameRequired'),
+  emailRequired: t('texts.contact.form.emailRequired'),
+  emailInvalid: t('texts.contact.form.emailInvalid'),
+  messageRequired: t('texts.contact.form.messageRequired'),
+  submitText: t('texts.contact.form.submit'),
+  sendingText: t('texts.contact.form.sending')
+}}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitTextEl = document.getElementById('submit-text');
+    const sendingTextEl = document.getElementById('sending-text');
+    const formStatus = document.getElementById('form-status');
+
+    // Clear errors function
+    function clearErrors() {
+      document.querySelectorAll('.error-message').forEach(el => {
+        el.textContent = '';
+      });
+      document.querySelectorAll('.form-input').forEach(el => {
+        el.classList.remove('error');
+      });
+    }
+
+    // Show error function
+    function showError(fieldId, message) {
+      const field = document.getElementById(fieldId);
+      const errorEl = document.getElementById(fieldId + '-error');
+      field.classList.add('error');
+      errorEl.textContent = message;
+    }
+
+    // Validate form
+    function validateForm(formData) {
+      clearErrors();
+      let isValid = true;
+
+      const name = formData.get('name')?.trim();
+      const email = formData.get('email')?.trim();
+      const message = formData.get('message')?.trim();
+      const honeypot = formData.get('honeypot');
+
+      // Check honeypot (spam protection)
+      if (honeypot) {
+        return false;
+      }
+
+      if (!name) {
+        showError('name', nameRequired);
+        isValid = false;
+      }
+
+      if (!email) {
+        showError('email', emailRequired);
+        isValid = false;
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          showError('email', emailInvalid);
+          isValid = false;
+        }
+      }
+
+      if (!message) {
+        showError('message', messageRequired);
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    // Submit form
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      
+      if (!validateForm(formData)) {
+        return;
+      }
+
+      // Show loading state
+      submitBtn.disabled = true;
+      submitTextEl.style.display = 'none';
+      sendingTextEl.style.display = 'inline';
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          formStatus.innerHTML = `<div class="success-message">${successMessage}</div>`;
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Unknown error');
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        formStatus.innerHTML = `<div class="error-message">${errorMessage}</div>`;
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitTextEl.style.display = 'inline';
+        sendingTextEl.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style lang="scss">
+  .contact {
+    margin-top: 50px;
+  }
+
+  .thirds {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .third {
+    flex: 1;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  label {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Sora', sans-serif;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: rgb(255, 26, 26);
+    }
+
+    &.error {
+      border-color: rgb(255, 26, 26);
+    }
+  }
+
+  textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .error-message {
+    color: rgb(255, 26, 26);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .btn-primary {
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Sora', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover:not(:disabled) {
+      background-color: rgb(255, 26, 26);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .form-status {
+    margin-top: 20px;
+  }
+
+  .success-message {
+    color: green;
+    font-weight: 500;
+  }
+
+  .error-message {
+    color: rgb(255, 26, 26);
+    font-weight: 500;
+  }
+
+  #honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .thirds {
+      flex-direction: row;
+      gap: 60px;
+    }
+  }
+</style>
