@@ -15,9 +15,9 @@ export interface Props {
 const { project, lang } = Astro.props;
 const t = useTranslations(lang);
 
-// Generate Cloudinary URLs
-const image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_35/Studio%20Rotstich/${project.imageID}`;
-const mobile_image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_40/Studio%20Rotstich/mobile/${project.mobileImageID}`;
+// Generate Cloudinary URLs with proper encoding
+const image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_35/Studio%20Rotstich/${encodeURIComponent(project.imageID)}`;
+const mobile_image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_40/Studio%20Rotstich/mobile/${encodeURIComponent(project.mobileImageID)}`;
 
 // Calculate animation speed based on title length
 const titleText = t(project.title);

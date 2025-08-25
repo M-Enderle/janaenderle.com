@@ -26,6 +26,15 @@ export default defineConfig({
     }
   },
   site: 'https://janaenderle.com',
+  image: {
+    domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com'
+      }
+    ]
+  },
   vite: {
     css: {
       preprocessorOptions: {

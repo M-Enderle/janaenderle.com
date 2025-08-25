@@ -16,8 +16,8 @@ export interface Props {
 const { project, lang, animationDelay = '0s' } = Astro.props;
 const t = useTranslations(lang);
 
-// Generate Cloudinary URLs
-const mobile_image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_40/Studio%20Rotstich/mobile/${project.mobileImageID}`;
+// Generate Cloudinary URLs with proper encoding  
+const mobile_image = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_40/Studio%20Rotstich/mobile/${encodeURIComponent(project.mobileImageID)}`;
 ---
 
 <div>

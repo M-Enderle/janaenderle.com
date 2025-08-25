@@ -1,0 +1,93 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const title = t('pages.titles.about');
+const description = t('defaultSEO');
+
+// Jana's profile image from Cloudinary
+const myImage = `https://res.cloudinary.com/dqxwy7joy/image/upload/f_auto,q_40/Studio%20Rotstich/2022_Jana_Basel-2-2_1_jgczkq.jpg`;
+---
+
+<MainLayout title={title} description={description}>
+  <div class="about">
+    <h1>{t('texts.about.title')}</h1>
+    <div class="thirds">
+      <div class="third">
+        <img src={myImage} alt="Jana Enderle, the lead designer at Studio Rotstich" class="image">
+      </div>
+      <div class="third">
+        <div class="spacemobile"></div>
+        <p>{t('texts.about.text1')}</p>
+        <div class="space"></div>
+        <p>{t('texts.about.text2')}</p>
+      </div>
+      <div class="third">
+        <div class="spacemobile"></div>
+        <p>{t('texts.about.history.1.1')}</p>
+        <p>{t('texts.about.history.1.2')}</p>
+        <div class="space"></div>
+        <p>{t('texts.about.history.2.1')}</p>
+        <p>{t('texts.about.history.2.2')}</p>
+        <p>{t('texts.about.history.2.3')}</p>
+        <div class="space"></div>
+        <p>{t('texts.about.history.3.1')}</p>
+        <p>{t('texts.about.history.3.2')}</p>
+        <div class="space"></div>
+        <p>{t('texts.about.history.4.1')}</p>
+        <p>{t('texts.about.history.4.2')}</p>
+        <div class="space"></div>
+        <p>{t('texts.about.history.5.1')}</p>
+        <p>{t('texts.about.history.5.2')}</p>
+        <div class="space"></div>
+        <p>{t('texts.about.history.6.1')}</p>
+        <p>{t('texts.about.history.6.2')}</p>
+        <p>{t('texts.about.history.6.3')}</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 100px"></div>
+</MainLayout>
+
+<style lang="scss">
+  .about {
+    margin-top: 50px;
+  }
+
+  .thirds {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .third {
+    flex: 1;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+  .space {
+    height: 20px;
+  }
+
+  .spacemobile {
+    height: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .thirds {
+      flex-direction: row;
+      gap: 60px;
+    }
+
+    .spacemobile {
+      display: none;
+    }
+  }
+</style>
