@@ -130,6 +130,19 @@ export default {
       return isValid
     }
 
+    // Read success from URL to show success state after reload
+    if (route.query?.sucess === 'True') {
+      isSubmitted.value = true
+    }
+
+    // Update success state when URL query changes
+    watch(
+      () => route.query?.sucess,
+      (newValue) => {
+        isSubmitted.value = newValue === 'True'
+      }
+    )
+
     // Submit form function
     const submitForm = async () => {
       if (!validateForm()) {
@@ -151,10 +164,9 @@ export default {
 
         if (response?.success) {
           isSubmitted.value = true
-          router.replace({
-            path: route.path,
-            query: { ...route.query, sucess: 'True' }
-          })
+          const url = new URL(window.location.href)
+          url.searchParams.set('sucess', 'True')
+          window.location.replace(url.toString())
         }
       } catch (error) {
         console.error('Form submission error:', error)
