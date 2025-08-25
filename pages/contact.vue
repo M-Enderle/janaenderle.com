@@ -281,13 +281,13 @@ export default {
       cursor: not-allowed;
     }
 
-    .btn-link.success {
-      color: #28a745;
+    .contact-form .btn-link.success {
+      color: #28a745 !important;
       opacity: 1;
     }
 
-    .btn-link.success:disabled {
-      color: #28a745;
+    .contact-form .btn-link.success:disabled {
+      color: #28a745 !important;
       opacity: 1;
     }
 
