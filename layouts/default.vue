@@ -21,6 +21,23 @@ const { url } = useCldImageUrl({
 const title = t(route.meta.title)
 const description = t(route.meta.description)
 
+// Google Analytics setup
+useHead({
+  script: [
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=AW-17503016741',
+      async: true
+    },
+    {
+      children: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17503016741');
+      `
+    }
+  ]
+})
 </script>
 
 <template>
@@ -48,16 +65,6 @@ const description = t(route.meta.description)
         <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <Link rel="icon" type="image/png" href="/favicon-google.png" />
         <Link rel="manifest" href="/site.webmanifest" />
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503016741"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'AW-17503016741');
-        </script>
 
         <!-- OpenGraph -->
         <Meta property="og:title" hid="og-title" :content="title" />
