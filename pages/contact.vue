@@ -163,7 +163,19 @@ export default {
           isSubmitted.value = true
           const url = new URL(window.location.href)
           url.searchParams.set('success', 'true')
-          window.location.replace(url.toString())
+          try {
+            if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+              window.gtag('event', 'conversion', {
+                send_to: 'AW-17503016741/BFElCK-NyI4bEKWui5pB',
+                event_callback: () => window.location.replace(url.toString())
+              })
+              setTimeout(() => window.location.replace(url.toString()), 800)
+            } else {
+              window.location.replace(url.toString())
+            }
+          } catch {
+            window.location.replace(url.toString())
+          }
         }
       } catch (error) {
         console.error('Form submission error:', error)
