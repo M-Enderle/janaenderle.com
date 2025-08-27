@@ -49,6 +49,16 @@ const description = t(route.meta.description)
         <Link rel="icon" type="image/png" href="/favicon-google.png" />
         <Link rel="manifest" href="/site.webmanifest" />
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17503016741"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'AW-17503016741');
+        </script>
+
         <!-- OpenGraph -->
         <Meta property="og:title" hid="og-title" :content="title" />
         <Meta property="og:description" hid="og-description" :content="t('defaultSEO')" /> 
