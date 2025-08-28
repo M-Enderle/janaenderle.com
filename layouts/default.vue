@@ -21,23 +21,7 @@ const { url } = useCldImageUrl({
 const title = t(route.meta.title)
 const description = t(route.meta.description)
 
-// Google Analytics setup
-useHead({
-  script: [
-    {
-      src: 'https://www.googletagmanager.com/gtag/js?id=AW-17503016741',
-      async: true
-    },
-    {
-      children: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-17503016741');
-      `
-    }
-  ]
-})
+// Google tag moved to app.vue to ensure sitewide load and single injection
 </script>
 
 <template>

@@ -47,6 +47,27 @@
       if (typeof window !== 'undefined') {
         initializeState()
       }
+
+      // Google Ads / gtag sitewide tag
+      if (typeof window !== 'undefined') {
+        // Inject gtag only once
+        if (!window.dataLayer) {
+          // eslint-disable-next-line no-undef
+          useHead({
+            script: [
+              { src: 'https://www.googletagmanager.com/gtag/js?id=AW-17503016741', async: true },
+              {
+                children: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);} 
+                  gtag('js', new Date());
+                  gtag('config', 'AW-17503016741');
+                `
+              }
+            ]
+          })
+        }
+      }
   
       return { store }
     },
