@@ -66,6 +66,39 @@
               }
             ]
           })
+          
+          // Define the conversion function globally
+          window.gtag_report_conversion = function(url = '') {
+            console.log('gtag_report_conversion called');
+            if (typeof gtag === 'undefined') {
+              console.error('gtag is not defined yet');
+              return false;
+            }
+            
+            var callback = function () {
+              console.log('Conversion reported successfully');
+              if (typeof(url) != 'undefined') {
+                        window.location = url;
+                        console.log('Conversion reported');
+                      } else {
+                        console.log('Conversion not reported');
+                      }
+            };
+            
+            try {
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-17503016741/ePFkCP6w2Y8bEKWui5pB',
+                  'event_callback': callback
+              });
+              console.log('Conversion event sent to gtag');
+              return true;
+            } catch (error) {
+              console.error('Error sending conversion event:', error);
+              return false;
+            }
+          };
+          
+          console.log('gtag_report_conversion function defined globally');
         }
       }
   
