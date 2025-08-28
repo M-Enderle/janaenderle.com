@@ -161,21 +161,22 @@ export default {
 
         if (response?.success) {
           isSubmitted.value = true
+          
+          // Send Google Analytics tag without page reload
+          if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+            try {
+              window.gtag('event', 'conversion', {
+                send_to: 'AW-17503016741/BFElCK-NyI4bEKWui5pB'
+              })
+            } catch (error) {
+              console.error('Google Analytics error:', error)
+            }
+          }
+          
+          // Update URL without page reload
           const url = new URL(window.location.href)
           url.searchParams.set('success', 'true')
-          try {
-            if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-              window.gtag('event', 'conversion', {
-                send_to: 'AW-17503016741/BFElCK-NyI4bEKWui5pB',
-                event_callback: () => window.location.replace(url.toString())
-              })
-              setTimeout(() => window.location.replace(url.toString()), 800)
-            } else {
-              window.location.replace(url.toString())
-            }
-          } catch {
-            window.location.replace(url.toString())
-          }
+          window.history.pushState({}, '', url.toString())
         }
       } catch (error) {
         console.error('Form submission error:', error)
