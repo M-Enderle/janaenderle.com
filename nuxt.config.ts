@@ -1,5 +1,7 @@
 export default defineNuxtConfig({
+  srcDir: 'src/',
   devtools: { enabled: false },
+
   modules: [
     "@nuxtjs/i18n",
     'nuxt-icon',
@@ -52,6 +54,10 @@ export default defineNuxtConfig({
       imprint: {
         en: '/imprint',
         de: '/impressum',
+      },
+      privacy: {
+        en: '/privacy',
+        de: '/datenschutz',
       },
       contact: {
         en: '/contact',
@@ -107,5 +113,5 @@ export default defineNuxtConfig({
     cloudName: 'dqxwy7joy',
   },
 
-
+  compatibilityDate: '2025-09-07',
 })
