@@ -18,12 +18,12 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'en',
-        iso: 'en-US',
+        language: 'en-US',
         file: 'en-US.ts',
       },
       {
         code: 'de',
-        iso: 'de-DE',
+        language: 'de-DE',
         file: 'de-DE.ts',
       },
     ],
@@ -104,7 +104,36 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      crawlLinks: true, // recommended
+      routes: [
+        '/',
+        '/de',
+        '/free-hand',
+        '/de/freihand',
+        '/imprint',
+        '/de/impressum',
+        '/privacy',
+        '/de/datenschutz',
+        '/contact',
+        '/de/kontakt',
+        '/about',
+        '/de/ueber',
+        '/project/annayuna',
+        '/de/project/annayuna',
+        '/project/super_me',
+        '/de/project/super_me',
+        '/project/lenis',
+        '/de/project/lenis',
+        '/project/IKEAXAstraZeneca',
+        '/de/project/IKEAXAstraZeneca',
+        '/project/odds_and_ends',
+        '/de/project/odds_and_ends',
+        '/project/vulkanfieber',
+        '/de/project/vulkanfieber',
+        '/project/cre4te',
+        '/de/project/cre4te',
+        '/privacy.de',
+        '/de/privacy.de'
+      ]
     },
     compressPublicAssets: true
   },

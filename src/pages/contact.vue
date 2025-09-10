@@ -51,7 +51,7 @@
           <button type="submit" class="btn-link" :disabled="isSubmitting || isSubmitted">
              <span v-if="isSubmitting">{{ t('texts.contact.form.sending') }}</span>
              <span v-if="!isSubmitting && !isSubmitted">{{ t('texts.contact.form.submit') }}</span>
-             <NuxtImg v-if="!isSubmitting && !isSubmitted" src="/arrow.png" width="12px" alt="Send arrow" style="transform: rotate(180deg)" />
+             <NuxtImg v-if="!isSubmitting && !isSubmitted" src="/icons/arrow.png" width="12px" alt="Send arrow" style="transform: rotate(180deg)" />
            </button>
 
           <span v-if="isSubmitted" id="success-message">{{ t('texts.contact.form.success') }}</span>

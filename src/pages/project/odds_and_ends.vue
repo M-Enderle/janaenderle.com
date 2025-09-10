@@ -2,8 +2,8 @@
   <div class="project">
     <h1 class="project-title">odds&#8203;&&#8203;ends</h1>
     <div class="buttons">
-      <NuxtLink :to="localePath(t('projects.odds_and_ends.previous'))"><NuxtImg src="/arrow.png" width="20px" /></NuxtLink>
-      <NuxtLink :to="localePath(t('projects.odds_and_ends.next'))"><NuxtImg src="/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.odds_and_ends.previous'))"><NuxtImg src="/icons/arrow.png" width="20px" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.odds_and_ends.next'))"><NuxtImg src="/icons/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
     </div>
     <div class="thirds">
       <div class="third">

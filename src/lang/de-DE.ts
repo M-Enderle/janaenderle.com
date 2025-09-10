@@ -58,7 +58,7 @@ export default {
                 5: "An einer Wand sind mehrere Poster zu sehen. Davor sind Fahrräder zu sehen und eine belebte Umgebung zu erahnen. Die Poster sind bunt und stammen von der Kampagne Super Me.",
                 6: "Ein Laptop steht auf einem Steinboden. Auf der rechten Fläche neben dem Touch Pad ist ein Aufkleber zu sehen. Der zeigt ein Statement und fällt auf."
             },
-            path: "/de/projekt/super_me",
+            path: "/de/project/super_me",
             title: "SUPER ME",
             next: "/de/projekt/lenis",
             previous: "/de/projekt/annayuna"
@@ -72,7 +72,7 @@ export default {
                 4: "Auf einer grauen Steinwand sind zwei verschiedene Poster angebracht. Sie sind beide von IKEA und zeigen das Produkt SORGLÖS, das Designerbaby, und SMASTAD, der Wickel- / Schreibtisch.",
 
             },
-            path: "/de/projekt/IKEAXAstraZeneca",
+            path: "/de/project/IKEAXAstraZeneca",
             title: "IKEA X AstraZeneca",
             next: "/de/projekt/odds_and_ends",
             previous: "/de/projekt/lenis"
@@ -84,7 +84,7 @@ export default {
                 2: "Auf einem Steinboden ist der Gutschein des Cafes Leni's zu erkennen. Der Gutschein ist verpackt in einer braunen Naturverpackung.",  
                 3: "Es ist eine Nahaufnahme der Menükarte von Leni's zu sehen. Mit einer Serifen Schrift und Wasserfarben werden mehrere Gerichte und Details abgebildet.",
             },
-            path: "/de/projekt/lenis",
+            path: "/de/project/lenis",
             title: "Leni's Sweet & Salty",
             next: "/de/projekt/IKEAXAstraZeneca",
             previous: "/de/projekt/super_me"
@@ -98,7 +98,7 @@ export default {
                 4: "Für die odds & ends Kampagne wurden Postkarten produziert. Sie werden in Supermärkten und an öffentlichen Plätzen ausgelegt und zeigen eine spannende Headline.",
                 5: "Auf der Rückseite der odds & ends Postkarten befinden sich Sticker für angebrochene oder aufzubrauchende Lebensmittel.",
             },
-            path: "/de/projekt/odds_and_ends",
+            path: "/de/project/odds_and_ends",
             title: "odds & ends",
             next: "/de/projekt/vulkanfieber",
             previous: "/de/projekt/IKEAXAstraZeneca"
@@ -112,7 +112,7 @@ export default {
                 4: "Es sind weitere Karten des Trinkspiels von Vulkanfieber zu sehen. Diese stammen aus verschiedenen Spielkategorien mit diversen lustigen Aufgaben.",
                 5: "Auf einer Oberfläche liegt ein Smartphone mit der geöffneten Website von Vulkanfieber. Diese ist in grellen Farben gehalten und beinhaltet informative und aufklärende Artikel über wichtige Themen. Dazu ansprechende Grafiken."
             },
-            path: "/de/projekt/vulkanfieber",
+            path: "/de/project/vulkanfieber",
             title: "Vulkanfieber",
             next: "/de/projekt/cre4te",
             previous: "/de/projekt/odds_and_ends"
@@ -125,7 +125,7 @@ export default {
                 3: "Mit zwei Händen werden die Puzzleteile zusammengesetzt. Hier ist das Grundgerüst der vier Phasen bereits zusammengebaut. Weitere Teile sind zusätzlich.",
                 4: "Die App für das Puzzle cre4te ist schlicht designed und funktioniert über Kameraerkennung. So können verschiedene Aktionen vorgenommen werden und das Team up to date bleiben.",
             },
-            path: "/de/projekt/cre4te",
+            path: "/de/project/cre4te",
             title: "CRE4TE",
             next: "/de/projekt/super_me",
             previous: "/de/projekt/annayuna"
@@ -137,7 +137,7 @@ export default {
               2: "Eine Person steht mit dem Rücken zur Kamera und trägt einen beigen Hoodie. Darauf ist in Nahaufnahme ein lilaner Audruck mit verschiedenen Schriftarten von der Musikerin ANNA YUNA zu sehen.",
               3: "Zwei kleine durchsichtige Plastiktüten liegen auf Beton. In den Tüten befinden sich weiße Sticker mit der lilanen Schrift ANNA YUNA. Sie liegen bei Konzerten aus.",
             },
-            path: "/de/projekt/annayuna",
+            path: "/de/project/annayuna",
             title: "ANNA YUNA",
             next: "/de/projekt/super_me",
             previous: "/de/projekt/cre4te"

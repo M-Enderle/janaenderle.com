@@ -81,8 +81,7 @@ export default {
                   {
                         imageID: 'rkw34nnlj9fk7g9uz1za',
                         mobileImageID: 'r43eywgbfpvu4oceswfw',
-                        alt: 'free_hand.placemat.alt',
-                        url: t('free_hand.placemat.href')
+                        alt: 'free_hand.placemat.alt'
                   }
             ];
 

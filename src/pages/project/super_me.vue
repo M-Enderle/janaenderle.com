@@ -2,8 +2,8 @@
     <div class="project">
       <h1 class="project-title">SUPER ME</h1>
       <div class="buttons">
-      <NuxtLink :to="localePath(t('projects.super_me.previous'))"><NuxtImg src="/arrow.png" width="20px" /></NuxtLink>
-      <NuxtLink :to="localePath(t('projects.super_me.next'))"><NuxtImg src="/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.super_me.previous'))"><NuxtImg src="/icons/arrow.png" width="20px" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.super_me.next'))"><NuxtImg src="/icons/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
     </div>
       <div class="thirds">
         <div class="third">

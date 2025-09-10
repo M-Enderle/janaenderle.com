@@ -2,8 +2,8 @@
   <div class="project">
     <h1 class="project-title">IKEA X AstraZeneca</h1>
     <div class="buttons">
-      <NuxtLink :to="localePath(t('projects.IKEAXAstraZeneca.previous'))"><NuxtImg src="/arrow.png" width="20px" /></NuxtLink>
-      <NuxtLink :to="localePath(t('projects.IKEAXAstraZeneca.next'))"><NuxtImg src="/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.IKEAXAstraZeneca.previous'))"><NuxtImg src="/icons/arrow.png" width="20px" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.IKEAXAstraZeneca.next'))"><NuxtImg src="/icons/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
     </div>
     <div class="thirds">
       <div class="third">

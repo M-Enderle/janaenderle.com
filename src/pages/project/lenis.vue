@@ -2,8 +2,8 @@
   <div class="project">
     <h1 class="project-title">Leni's Sweet & Salty</h1>
     <div class="buttons">
-      <NuxtLink :to="localePath(t('projects.lenis.previous'))"><NuxtImg src="/arrow.png" width="20px" /></NuxtLink>
-      <NuxtLink :to="localePath(t('projects.lenis.next'))"><NuxtImg src="/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.lenis.previous'))"><NuxtImg src="/icons/arrow.png" width="20px" /></NuxtLink>
+      <NuxtLink :to="localePath(t('projects.lenis.next'))"><NuxtImg src="/icons/arrow.png" width="20px" style="transform: rotate(180deg)" /></NuxtLink>
     </div>
     <div class="thirds">
       <div class="third">
