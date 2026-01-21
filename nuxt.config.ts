@@ -83,22 +83,26 @@ export default defineNuxtConfig({
         en: '/project/odds_and_ends',
         de: '/projekt/odds_and_ends',
       },
-      project_vulkanfieber: {
-        en: '/project/vulkanfieber',
-        de: '/projekt/vulkanfieber',
-      },
-      project_cre4te: {
-        en: '/project/cre4te',
-        de: '/projekt/cre4te',
-      },
       project_annayuna: {
         en: '/project/annayuna',
         de: '/projekt/annayuna',
       },
-      test: {
-        en: '/test',
-        de: '/test',
+      project_finanzguru: {
+        en: '/project/finanzguru',
+        de: '/projekt/finanzguru',
       },
+      project_thesharp_club: {
+        en: '/project/thesharp_club',
+        de: '/projekt/thesharp_club',
+      },
+      project_velvet_soul_street: {
+        en: '/project/velvet_soul_street',
+        de: '/projekt/velvet_soul_street',
+      },
+      project_weingut_werner: {
+        en: '/project/weingut_werner',
+        de: '/projekt/weingut_werner',
+      }
     }
   },
 
@@ -127,10 +131,14 @@ export default defineNuxtConfig({
         '/de/project/IKEAXAstraZeneca',
         '/project/odds_and_ends',
         '/de/project/odds_and_ends',
-        '/project/vulkanfieber',
-        '/de/project/vulkanfieber',
-        '/project/cre4te',
-        '/de/project/cre4te',
+        '/project/finanzguru',
+        '/de/project/finanzguru',
+        '/project/thesharp_club',
+        '/de/project/thesharp_club',
+        '/project/velvet_soul_street',
+        '/de/project/velvet_soul_street',
+        '/project/weingut_werner',
+        '/de/project/weingut_werner',
         '/privacy.de',
         '/de/privacy.de'
       ]
