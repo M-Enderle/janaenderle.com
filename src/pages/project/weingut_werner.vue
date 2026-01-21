@@ -16,9 +16,8 @@
         <p>{{ t('texts.weingut_werner.2.3') }}</p><br>
       </div>
     </div>
-    <img :src="images[0]" class="image" :alt="t('projects.weingut_werner.images.front')"><div class="spacer"></div>
-    <img :src="images[1]" class="image" :alt="t('projects.weingut_werner.images.1')"><div class="spacer"></div>
-    <img :src="images[2]" class="image" :alt="t('projects.weingut_werner.images.2')"><div class="spacer"></div>
+    <img :src="images[0]" class="image" :alt="t('projects.weingut_werner.images.1')"><div class="spacer"></div>
+    <img :src="images[1]" class="image" :alt="t('projects.weingut_werner.images.2')"><div class="spacer"></div>
   </div>
 </template>
 
@@ -43,9 +42,8 @@ export default {
     })
 
     const images = [
-      cld.image('Studio Rotstich/WernerWeingut_Cover').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/WernerWeingut_Flasche').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/WernerWeingut_Reben').format('auto').quality('20').toURL(),
+      cld.image('Studio Rotstich/WernerWeingut_Flasche_mjvgsl').format('auto').quality('20').toURL(),
+      cld.image('Studio Rotstich/WernerWeingut_Reben_rg8lyq').format('auto').quality('20').toURL()
     ]
     
     return {

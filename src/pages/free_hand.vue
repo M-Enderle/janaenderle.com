@@ -60,25 +60,24 @@ export default {
                         url: t('free_hand.calendar.href')
                   },
                   {
-                        imageID: '...',
-                        mobileImageID: '...',
+                        imageID: 'HaetteHaette_Poster_ib8imi',
+                        mobileImageID: 'HaetteHaette_Poster_Mobile_vw8akt',
                         alt: 'free_hand.haettehaette.alt',
                         title: 'free_hand.haettehaette.title',
                         url: t('free_hand.haettehaette.href')
                   },
                   {
-                        imageID: '...',
-                        mobileImageID: '...',
+                        imageID: 'HerzPostkarte_Web_jxxzr5',
+                        mobileImageID: 'HerzPostkarte_Mobile_ow2vxw',
                         alt: 'free_hand.heart.alt',
                         title: 'free_hand.heart.title',
                         url: t('free_hand.heart.href')
                   },
                   {
-                        imageID: '....',
-                        mobileImageID: '....',
-                        alt: 'free_hand.noodes.alt',
-                        url: t('free_hand.noodes.href'),
-                        title: 'free_hand.noodes.title'
+                        imageID: 'c5r32k5uh1eqcvpxach5',
+                        mobileImageID: 'opxd3snqumxsqsamslyv',
+                        alt: 'free_hand.linol.alt',
+                        url: t('free_hand.linol.href')
                   },
                   {
                         imageID: 'klkpetd2snocoqvcgyjx',

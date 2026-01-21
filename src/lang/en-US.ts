@@ -68,8 +68,8 @@ export default {
             },
             path: "/project/super_me",
             title: "SUPER ME",
-            next: "/project/lenis",
-            previous: "/project/annayuna"
+            next: "/project/IKEAXAstraZeneca",
+            previous: "/project/odds_and_ends"
         },
         IKEAXAstraZeneca: {
             images: {
@@ -82,8 +82,8 @@ export default {
             },
             path: "/project/IKEAXAstraZeneca",
             title: "IKEA X AstraZeneca",
-            next: "/project/odds_and_ends",
-            previous: "/project/lenis"
+            next: "/project/annayuna",
+            previous: "/project/super_me"
         },
         lenis: {
             images: {
@@ -94,8 +94,8 @@ export default {
             },
             path: "/project/lenis",
             title: "Leni's Sweet & Salty",
-            next: "/project/IKEAXAstraZeneca",
-            previous: "/project/super_me"
+            next: "/project/odds_and_ends",
+            previous: "/project/velvet_soul_street"
         },
         odds_and_ends: {
             images: {
@@ -108,8 +108,8 @@ export default {
             },
             path: "/project/odds_and_ends",
             title: "odds & ends",
-            next: "/project/vulkanfieber",
-            previous: "/project/IKEAXAstraZeneca"
+            next: "/project/super_me",
+            previous: "/project/lenis"
         },
         vulkanfieber: {
             images: {
@@ -148,8 +148,8 @@ export default {
             },
             path: "/project/annayuna",
             title: "ANNA YUNA",
-            next: "/project/super_me",
-            previous: "/project/cre4te"
+            next: "/project/thesharp_club",
+            previous: "/project/IKEAXAstraZeneca"
         },
         thesharp_club: {
             images: {
@@ -160,8 +160,8 @@ export default {
             },
             path: "/project/thesharp_club",
             title: "TheSharp.Club",
-            next: "/projekt/weingut_werner",
-            previous: "/projekt/annayuna"
+            next: "/project/weingut_werner",
+            previous: "/project/annayuna"
         },
         weingut_werner: {
             images: {
@@ -171,8 +171,8 @@ export default {
             },
             path: "/project/weingut_werner",
             title: "Weingut Werner",
-            next: "/projekt/finanzguru",
-            previous: "/projekt/thesharp_club"
+            next: "/project/finanzguru",
+            previous: "/project/thesharp_club"
         },
         finanzguru: {
             images: {
@@ -182,8 +182,8 @@ export default {
             },
             path: "/project/finanzguru",
             title: "Finanzguru",
-            next: "/projekt/velvet_soul_street",
-            previous: "/projekt/weingut_werner"
+            next: "/project/velvet_soul_street",
+            previous: "/project/weingut_werner"
         },
         velvet_soul_street: {
             images: {
@@ -194,8 +194,8 @@ export default {
             },
             path: "/project/velvet_soul_street",
             title: "Velvet Soul Street",
-            next: "/projekt/lenis",
-            previous: "/projekt/finanzguru"
+            next: "/project/lenis",
+            previous: "/project/finanzguru"
         }
     },
     free_hand: {

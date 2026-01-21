@@ -68,8 +68,8 @@ export default {
             },
             path: "/de/project/super_me",
             title: "SUPER ME",
-            next: "/de/projekt/lenis",
-            previous: "/de/projekt/annayuna"
+            next: "/de/projekt/IKEAXAstraZeneca",
+            previous: "/de/projekt/odds_and_ends"
         },
         IKEAXAstraZeneca: {
             images: {
@@ -82,8 +82,8 @@ export default {
             },
             path: "/de/project/IKEAXAstraZeneca",
             title: "IKEA X AstraZeneca",
-            next: "/de/projekt/odds_and_ends",
-            previous: "/de/projekt/lenis"
+            next: "/de/projekt/annayuna",
+            previous: "/de/projekt/super_me"
         },
         lenis: {
             images: {
@@ -94,8 +94,8 @@ export default {
             },
             path: "/de/project/lenis",
             title: "Leni's Sweet & Salty",
-            next: "/de/projekt/IKEAXAstraZeneca",
-            previous: "/de/projekt/super_me"
+            next: "/de/projekt/odds_and_ends",
+            previous: "/de/projekt/velvet_soul_street"
         },
         odds_and_ends: {
             images: {
@@ -108,8 +108,8 @@ export default {
             },
             path: "/de/project/odds_and_ends",
             title: "odds & ends",
-            next: "/de/projekt/vulkanfieber",
-            previous: "/de/projekt/IKEAXAstraZeneca"
+            next: "/de/projekt/super_me",
+            previous: "/de/projekt/lenis"
         },
         vulkanfieber: {
             images: {

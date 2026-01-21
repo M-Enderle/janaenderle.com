@@ -16,9 +16,8 @@
         <p>{{ t('texts.finanzguru.2.3') }}</p><br>
       </div>
     </div>
-    <img :src="images[0]" class="image" :alt="t('projects.finanzguru.images.front')"><div class="spacer"></div>
-    <img :src="images[1]" class="image" :alt="t('projects.finanzguru.images.1')"><div class="spacer"></div>
-    <img :src="images[2]" class="image" :alt="t('projects.finanzguru.images.2')"><div class="spacer"></div>
+    <img :src="images[0]" class="image" :alt="t('projects.finanzguru.images.1')"><div class="spacer"></div>
+    <img :src="images[1]" class="image" :alt="t('projects.finanzguru.images.2')"><div class="spacer"></div>
   </div>
 </template>
 
@@ -43,9 +42,8 @@ export default {
     })
 
     const images = [
-      cld.image('Studio Rotstich/Finanzguru_Cover').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/Finanzguru_Poster').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/Finanzguru_Pizza').format('auto').quality('20').toURL(),
+      cld.image('Studio Rotstich/Finanzguru_Poster_yjtf19').format('auto').quality('20').toURL(),
+      cld.image('Studio Rotstich/Finanzguru_Pizza_k7enpq').format('auto').quality('20').toURL(),
     ]
     
     return {

@@ -15,10 +15,9 @@
         <p>{{ t('texts.velvet_soul_street.2.2') }}</p><br>
       </div>
     </div>
-    <img :src="images[0]" class="image" :alt="t('projects.velvet_soul_street.images.front')"><div class="spacer"></div>
-    <img :src="images[1]" class="image" :alt="t('projects.velvet_soul_street.images.1')"><div class="spacer"></div>
-    <img :src="images[2]" class="image" :alt="t('projects.velvet_soul_street.images.2')"><div class="spacer"></div>
-    <img :src="images[3]" class="image" :alt="t('projects.velvet_soul_street.images.3')"><div class="spacer"></div>
+    <img :src="images[0]" class="image" :alt="t('projects.velvet_soul_street.images.1')"><div class="spacer"></div>
+    <img :src="images[1]" class="image" :alt="t('projects.velvet_soul_street.images.2')"><div class="spacer"></div>
+    <img :src="images[2]" class="image" :alt="t('projects.velvet_soul_street.images.3')"><div class="spacer"></div>
   </div>
 </template>
 
@@ -43,10 +42,9 @@ export default {
     })
 
     const images = [
-      cld.image('Studio Rotstich/VelvetSoul_Cover').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/VelvetSoul_Shirt').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/VelvetSoul_Sticker').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/VelvetSoul_Schild').format('auto').quality('20').toURL(),
+      cld.image('Studio Rotstich/VelvetSoul_Shirt_x6d9qn').format('auto').quality('20').toURL(),
+      cld.image('Studio Rotstich/VelvetSoul_Sticker_rqvr2q').format('auto').quality('20').toURL(),
+      cld.image('Studio Rotstich/VelvetSoul_Schild_aeqqaj').format('auto').quality('20').toURL(),
     ]
     
     return {
