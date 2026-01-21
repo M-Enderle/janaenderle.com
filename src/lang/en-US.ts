@@ -14,6 +14,10 @@ export default {
             vulkanfieber: "Vulkanfieber is a project by Studio Rotstich. It shows a campaign for festivals that provides effective sexual education.",
             cre4te: "CRE4TE is a project by Studio Rotstich. The project deals with a visual and physical realization of the design process.",
             annayuna: "Studio Rotstich created the visual identity for the artist ANNA YUNA. The logo and associated merch were designed.",
+            thesharp_club: "Studio Rotstich collaborated with the Start-Up named TheSharp.Club and developed a clever and minimalist corporate design for the knife sharping company.",
+            weingut_werner: "For the traditional winery Werner Studio Rotstich has created and further developed different wine labels.",
+            finanzguru: "Jana Enderle works as communication designer for the FinTech company Finanzguru and developed and designed various campaigns.",
+            velvet_soul_street: "Studio Rotstich has developed a new and classic corporate design for the allstar brand Velvet Soul Street.",
         }
 
     },
@@ -44,6 +48,10 @@ export default {
                 vulkanfieber: 'Vulkanfieber - a project by Studio Rotstich',
                 cre4te: 'CRE4TE - a project by Studio Rotstich',
                 annayuna: 'ANNA YUNA - a project by Studio Rotstich',
+                thesharp_club: 'TheSharp.Club - a project by Studio Rotstich',
+                weingut_werner: 'Weingut Werner - a project by Studio Rotstich',
+                finanzguru: 'Finanzguru - a project by Jana Enderle',
+                velvet_soul_street: 'Velvet Soul Street - a project by Studio Rotstich',
             }
         }
     },
@@ -133,15 +141,62 @@ export default {
         annayuna: {
             images: {
               front:"A person is standing in a dark-colored laundromat with her back to the camera. On the hoodie she is wearing is a purple print with different fonts of the musician ANNA YUNA.",
-              1: "A beige shirt is hanging on a clothes rail. The shirt has a small print on the front. It says ANNA YUNA in purple.",
-              2: "One person is standing with their back to the camera and is wearing a beige hoodie. A close-up of a purple print with different fonts of the musician ANNA YUNA can be seen on it.",
-              3: "Two small transparent plastic bags are lying on concrete. The bags contain white stickers with the purple lettering ANNA YUNA. They are handed out at concerts.",
+              1: "Two small transparent plastic bags are lying on concrete. The bags contain white stickers with the purple lettering ANNA YUNA. They are handed out at concerts.",
+              2: "Two different song covers by singer ANNA YUNA can be seen side by side. The covers show the titles of the songs, Panikwach and Mondlicht, as well as the artist herself bathed in blue light.",
+              3: "A poster hangs on a modern concrete wall in a public place, half of which is illuminated by the sun. The poster announces an upcoming event of the artist ANNA YUNA and two special acts.",
+              4: "A beige shirt is hanging on a clothes rail. The shirt has a small print on the front. It says ANNA YUNA in purple.",
             },
             path: "/project/annayuna",
             title: "ANNA YUNA",
             next: "/project/super_me",
             previous: "/project/cre4te"
         },
+        thesharp_club: {
+            images: {
+              front:"A simple printed cardboard box lies on a metal shelf, partially illuminated by the sun. The logo of TheSharp.Club is printed on the box.",
+              1: "An open cardboard box lies on a wooden table between vegetables and knives. Several stickers, flyers, and other printed products from TheSharp.Club can be seen inside the box.",
+              2: "A person is using both hands to stick a transparent security sticker onto a packaged knife. Vegetables, other knives, and an open box can be seen in the background.",
+              3: "A minimalist flyer is attached to a beige wall with packing tape. The TheSharp.Club brand name can be seen on the green and white packing tape and on the flyer. The flyer says welcome to the club!",
+            },
+            path: "/project/thesharp_club",
+            title: "TheSharp.Club",
+            next: "/projekt/weingut_werner",
+            previous: "/projekt/annayuna"
+        },
+        weingut_werner: {
+            images: {
+              front:"Red wine is being poured into glasses at a lavishly set table. The atmosphere is relaxed and happy. The wine has a burgundy and white label displaying the coat of arms and the name of the brand Weingut Werner.",
+              1: "An open box of wine bottles can be seen from above. One of the bottles has already been taken out and the label is visible. It reads Weingut Werner with a dark red and white label.",
+              2: "The picture shows a photo of grapevines with a small village in the background. The nature looks green and vibrant.",
+            },
+            path: "/project/weingut_werner",
+            title: "Weingut Werner",
+            next: "/projekt/finanzguru",
+            previous: "/projekt/thesharp_club"
+        },
+        finanzguru: {
+            images: {
+              front:"Several pizza boxes with turquoise print on the front, back, and sides are visible. Next to a prominent headline is a comic-style graphic showing a slice of pizza next to a smartphone.",
+              1: "In the Alexanderplatz subway station in Berlin, there is a large poster on the wall behind the train tracks. The poster shows an advertisement for the company Finanzguru. Humor and visual effects are used to draw attention to the relevance of finance.",
+              2: "A close-up of several pizza boxes can be seen. These are printed with colorful elements, including a comic-style graphic showing a slice of pizza and a smartphone.",
+            },
+            path: "/project/finanzguru",
+            title: "Finanzguru",
+            next: "/projekt/velvet_soul_street",
+            previous: "/projekt/weingut_werner"
+        },
+        velvet_soul_street: {
+            images: {
+              front:"The black-and-white image shows a section of a public space. A neon sign hangs from above, displaying the minimalist logo of the band Velvet Soul Street.",
+              1: "A man is lying on the ground, wearing a shirt with a logo. The logo shows the corporate design of the band Velvet Soul Street.",
+              2: "Two small transparent plastic bags are lying on concrete. The bags contain stickers of the band Velvet Soul Street.",
+              3: "A neon sign of the band Velvet Soul Street can be seen in the public space.",
+            },
+            path: "/project/velvet_soul_street",
+            title: "Velvet Soul Street",
+            next: "/projekt/lenis",
+            previous: "/projekt/finanzguru"
+        }
     },
     free_hand: {
         calendar: {
@@ -164,6 +219,16 @@ export default {
             "href": "https://www.etsy.com/de/listing/4312492180/postkarte-herz-alles-gute-linoldruck-din?ref=shop_home_feat_3&logging_key=0c10486a8f4a1f9d60fdff14061d34281ce31fb6%3A4312492180",
             "alt": "Postcard Heart all the best Linocut DIN A6",
             "title": "Buy the lino postcard here"
+        },
+        haettehaette: {
+            "href": "https://www.etsy.com/de/listing/4394886767/a2-poster-hatte-hatte-fahrradkette",
+            "alt": "A2 Poster Hätte Hätte Fahrradkette Lino Print Cycling Poster Abstract on Etsy",
+            "title": "Buy the poster here"
+        },
+        noodes: {
+            "href": "https://www.etsy.com/de/listing/1605783676/linoldruck-noodes-food-poster-a3-schwarz",
+            "alt": "Lino Print Noodes Food Poster A3 Black Blue on Etsy",
+            "title": "Buy the poster here"
         }
     },
     texts: {
@@ -180,7 +245,7 @@ export default {
             text2: "As a communication designer, I am aware of my position in society. I solve problems, communicate important topics, and make decisions. I work with structure and conception. My projects engage with socially relevant topics and highlight the possibilities and limits of our society.",
             history: {
                 1: { 
-                    1: "Until now", 
+                    1: "Since January 2023", 
                     2: "++ Communication Designer / Finanzguru / Part-time"
                 },
                 2: { 
@@ -284,6 +349,45 @@ export default {
                 1: "Awake to panic and a carousel of thoughts during the summer in Berlin? She wants to let go and create a safe space all to herself.",
                 2: "ANNA YUNA is singing about exactly that with her clear and pure voice. Her indie-pop style songs are enhanced with electronic elements. High-energy loud and cautious quiet - her songs evoke honest feelings.",
                 3: "The typeface reflects the mood with its high line weight contrast and deep purple tone. Lines from ANNA's songs make the merch approachable and empathetic."
+            },
+        },
+        thesharp_club: {
+            1: {
+                1: "Paid Project"
+            },
+            2: {
+                1: "TheSharp.Club offers private individuals and restaurants a fast and uncomplicated knife sharpening service by post.",
+                2: "In doing so, they are bringing back something that has almost disappeared – genuine craftsmanship. Knives and scissors can be sent by post to traditional sharpening workshops, where they are sharpened individually by hand.",
+                3: "Preserving what is valuable instead of buying new. TheSharp.Club shows that sustainability does not have to be loud. Just honest and well done."
+            },
+        },
+        weingut_werner: {
+            1: {
+                1: "Paid Project"
+            },
+            2: {
+                1: "The traditional winery Werner is based in Kirschroth – a very special village with a prevailing microclimate and low annual rainfall. These are ideal conditions for fully aromatic grapes and wines with a very individual character.",
+                2: "Quality is the top priority here. The winery Werner has spent many years developing and perfecting its pruning, harvesting, and fermentation techniques.",
+                3: "Its red wines are made exclusively using classic mash fermentation, which results in a strong color and a long storage life."
+            },
+        },
+        finanzguru: {
+            1: {
+                1: "Paid"
+            },
+            2: {
+                1: "Get your finances under control and start saving with Finanzguru.",
+                2: "You can link all your accounts and track your contracts, income, and expenses in the app.",
+                3: "With just a tap, you can cancel contracts, analyze your spending, or set up budgets to save money."
+            },
+        },
+        velvet_soul_street: {
+            1: {
+                1: "Paid Project"
+            },
+            2: {
+                1: "Velvet Soul Street is an all-star band featuring musicians from the Hohenloh region. As a live band, it transforms a wide variety of events into unforgettable moments.",
+                2: "The corporate design radiates professionalism and reliability, but also fun and harmony. The font is inspired by earlier years and features rounded shapes and experimental serifs.",
             },
         },
         contact: {

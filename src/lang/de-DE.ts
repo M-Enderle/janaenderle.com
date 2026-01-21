@@ -15,6 +15,10 @@ export default {
             vulkanfieber: "Vulkanfieber ist ein Projekt von Studio Rotstich. Es zeigt eine Kampagne für Festivals, die effektiv sexuell aufklärt.",
             cre4te: "CRE4TE ist ein Projekt von Studio Rotstich. Das Projekt beschäftigt sich mit einer visuellen und physischen Umsetzung des Designprozess.",
             annayuna: "Studio Rotstich hat das Erscheinungsbild für die Künstlerin ANNA YUNA erstellt. Designed wurden das Logo und dazugehöriger Merch.",
+            thesharp_club: "Studio Rotstich hat mit dem Start-Up TheSharp.Club zusammengearbeitet und ein durchdachtes Corporate Design für die Messer-Schleif-Firma entwickelt.",
+            weingut_werner: "Für den traditionellen Weingut Werner hat Studio Rotstich die Weinetiketten weiterentwickelt und modern gestaltet.",
+            finanzguru: "Jana Enderle arbeitet als Communication Designer bei dem FinTech Unternehmen Finanzguru und hat diverse Kampagnen konzipiert und umgesetzt.",
+            velvet_soul_street: "Studio Rotstich hat für die Allstar Band Velvet Soul Street ein neues und zeitloses Corporate Design entwickelt.",
         }
 
     },
@@ -44,6 +48,10 @@ export default {
                 vulkanfieber: 'Vulkanfieber - Ein Projekt von Studio Rotstich',
                 cre4te: 'CRE4TE - Ein Projekt von Studio Rotstich',
                 annayuna: 'ANNA YUNA - Ein Projekt von Studio Rotstich',
+                thesharp_club: 'TheSharp.Club - Ein Projekt von Studio Rotstich',
+                weingut_werner: 'Weingut Werner - Ein Projekt von Studio Rotstich',
+                finanzguru: 'Finanzguru - Ein Projekt von Jana Enderle',
+                velvet_soul_street: 'Velvet Soul Street - Ein Projekt von Studio Rotstich',
             }
         }
     },
@@ -133,14 +141,61 @@ export default {
         annayuna: {
             images: {
               front:"Eine Person steht in einem dunkel angehauchten Waschsalon mit dem Rücken zur Kamera. Auf dem Hoodie den sie trägt, ist ein lilaner Audruck mit verschiedenen Schriftarten von der Musikerin ANNA YUNA zu sehen.",
-              1: "Auf einer Kleiderstange hängt ein beiges Tshirt. Das Tshirt hat auf der Vorderseite einen kleinen Aufdruck. Hier steht in lilaner Farbe ANNA YUNA.",
-              2: "Eine Person steht mit dem Rücken zur Kamera und trägt einen beigen Hoodie. Darauf ist in Nahaufnahme ein lilaner Audruck mit verschiedenen Schriftarten von der Musikerin ANNA YUNA zu sehen.",
-              3: "Zwei kleine durchsichtige Plastiktüten liegen auf Beton. In den Tüten befinden sich weiße Sticker mit der lilanen Schrift ANNA YUNA. Sie liegen bei Konzerten aus.",
+              1: "Zwei kleine durchsichtige Plastiktüten liegen auf Beton. In den Tüten befinden sich weiße Sticker mit der lilanen Schrift ANNA YUNA. Sie liegen bei Konzerten aus.",
+              2: "Nebeneinander sind zwei verschiedene Song-Cover der Sängerin ANNA YUNA zu sehen. Die Cover zeigen jeweils die Titel der Songs, Panikwach und Mondlicht, und auch die Künstlerin selbst in blauem Licht.",
+              3: "An einer modernen Betonwand in der Öffentlichkeit, welche halb von der Sonne beschienen wird, hängt ein Poster. Auf dem Poster ist ein bevorstehendes Event der Künstlerin ANNA YUNA und zwei Special Acts zu lesen.",
+              4: "Auf einer Kleiderstange hängt ein beiges Tshirt. Das Tshirt hat auf der Vorderseite einen kleinen Aufdruck. Hier steht in lilaner Farbe ANNA YUNA.",
             },
             path: "/de/project/annayuna",
             title: "ANNA YUNA",
-            next: "/de/projekt/super_me",
-            previous: "/de/projekt/cre4te"
+            next: "/de/projekt/thesharp_club",
+            previous: "/de/projekt/IKEAXAstraZeneca"
+        },
+        thesharp_club: {
+            images: {
+              front:"Ein simple bedruckter Karton liegt in einem Metall Regal und wird teils von der Sonne angeschienen. Auf dem Karton ist ein Logo von TheSharp.Club aufgedruckt.",
+              1: "Auf einem Holztisch liegt zwischen Gemüse und Messern liegt ein augeklappter Karton. Im Karton sind mehrere Aufkleber, Flyer und andere Printprodukte von TheSharp.Club zu sehen.",
+              2: "Eine Person klebt mit beiden Händen einen durchsichtigen Sicherheits-Sticker auf ein verpacktes Messer. Im Hintergrund sind Gemüse, andere Messer und ein offener Karton zu sehen.",
+              3: "Auf einer beigen Wand ist ein minimalistisch designter Flyer mit einem Paketband befestigt. Sowohl dem grün-weißen Paketband, als auch auf dem Flyer ist die Marke TheSharp.Club zu lesen. Der Flyer heißt: Willkommen im Club!",
+            },
+            path: "/de/project/thesharp_club",
+            title: "TheSharp.Club",
+            next: "/de/projekt/weingut_werner",
+            previous: "/de/projekt/annayuna"
+        },
+        weingut_werner: {
+            images: {
+              front:"Bei einem reichlich gedeckten Tisch wird gerade Rotwein ins Glas eingeschenkt. Es herrscht eine gelassene und glückliche Atmosphäre. Der Wein ist mit einem weinrot-weißen Etiekett versehen und zeigt das Wappen und auch die Aufschrift der Marke Weingut Werner.",
+              1: "Von oben ist ein offener Karton mit Weinflaschen zu sehen. Eine der Flaschen ist bereits herausgeholt und das Etikett ist zu sehen. Darauf ist der Weingut Werner zu lesen mit einem dunkelrot-weißem Etikett.",
+              2: "Das Bild zeigt ein Foto von Weinreben mit einem kleinen Dorf im Hintergrund. Die Natur sieht grün und lebendig aus.",
+            },
+            path: "/de/project/weingut_werner",
+            title: "Weingut Werner",
+            next: "/de/projekt/finanzguru",
+            previous: "/de/projekt/thesharp_club"
+        },
+        finanzguru: {
+            images: {
+              front:"Zu sehen sind einige Pizza-Kartons mit einem türkisen Aufdruck auf Vorder- und Rückseite, sowohl auf den Seiten. Neben einer präsenten Headline ist eine comichafte Grafik zu sehen, welche ein Pizzastück neben einem Smartphone zeigt.",
+              1: "In der U-Bahn Station Alexanderplatz in Berlin befindet sich ein großes Poster an der Wand hinter der Bahnschiene. Das Poster zeigt eine Werbung von dem Unternehmen Finanzguru. Mit Humor und visuellen Effekten wird auf die Relevanz von Finanzen aufmerksam gemacht.",
+              2: "Zu sehen ist eine Nahaufname mehrerer Pizza-Kartons. Diese sind mit bunten Elementen bedruckt, unter anderem einer comichaften Grafik, die ein Pizzastück und ein Smartphone zeigt.",
+            },
+            path: "/de/project/finanzguru",
+            title: "Finanzguru",
+            next: "/de/projekt/velvet_soul_street",
+            previous: "/de/projekt/weingut_werner"
+        },
+        velvet_soul_street: {
+            images: {
+              front:"In schwarz-weiß ist der Ausschnitt aus einem öffentlichen Raum zu sehen. Von oben hängt ein Leuchtschild herunter, worauf ein minimalistisches Logo der Band Velvet Soul Street zu sehen ist.",
+              1: "Auf dem Boden ist ein liegender Mann zu sehen, welcher ein Shirt mit einem Logo trägt. Das Logo zeigt das Corporate Design der Band Velvet Soul Street.",
+              2: "Zwei kleine durchsichtige Plastiktüten liegen auf Beton. In den Tüten befinden sich Sticker der band Velvet Soul Street.",
+              3: "Im öffentlichen Raum ist ein Leucht-Schild der Band Velvet Soul Street zu sehen.",
+            },
+            path: "/de/project/velvet_soul_street",
+            title: "Velvet Soul Street",
+            next: "/de/projekt/lenis",
+            previous: "/de/projekt/finanzguru"
         },
     },
     free_hand: {
@@ -164,6 +219,16 @@ export default {
             "href": "https://www.etsy.com/de/listing/4312492180/postkarte-herz-alles-gute-linoldruck-din?ref=shop_home_feat_3&logging_key=0c10486a8f4a1f9d60fdff14061d34281ce31fb6%3A4312492180",
             "alt": "Linolschnitt Postkarte Herz alles Gute DIN A6",
             "title": "Kaufe die Linolschnitt Postkarte hier"
+        },
+        haettehaette: {
+            "href": "https://www.etsy.com/de/listing/4394886767/a2-poster-hatte-hatte-fahrradkette",
+            "alt": "A2 Poster Hätte Hätte Fahrradkette Linoldruck Cycling Poster Abstrakt auf Etsy",
+            "title": "Kaufe das Poster hier"
+        },
+        noodes: {
+            "href": "https://www.etsy.com/de/listing/1605783676/linoldruck-noodes-food-poster-a3-schwarz",
+            "alt": "Linoldruck Noodes Food Poster A3 Schwarz Blau auf Etsy",
+            "title": "Kaufe das Poster hier"
         }
     },
     texts: {
@@ -180,7 +245,7 @@ export default {
             text2: "Als Kommunikationsdesignerin bin ich meiner Position in der Gesellschaft bewusst. Ich löse Probleme, kommuniziere wichtige Themen und treffe Entscheidungen. Dabei arbeite ich mit Struktur und Konzeption. Meine Projekte setzen sich mit gesellschaftlich relevanten Themen auseinander und machen die Möglichkeiten und Grenzen unserer Gesellschaft klar.",
             history: {
                 1: { 
-                    1: "Bis jetzt", 
+                    1: "Seit Januar 2023", 
                     2: "++ Kommunikationsdesignern / Finanzguru / Teilzeit"
                 },
                 2: { 
@@ -284,6 +349,45 @@ export default {
                 1: "Panikwach und Gedankenkarussell im Sommer in Berlin? Sie möchte loslassen und einen safe space aufbauen, ganz für sich selbst.",
                 2: "ANNA YUNA singt mit ihrer klaren und puren Stimme genau darüber. Ihre Songs im Indie-Pop Stil sind mit elektronischen Elementen untermalt. Energie geladenes Laut und vorsichtiges Leise - bei ihren Songs kommen ehrliche Gefühle auf.",
                 3: "Das Schriftbild spiegelt die Stimmung durch hohen Strichstärkenkontrast und tiefem Lilaton wider. Zeilen aus ANNAs Songs machen den Merch nahbar und lassen mitfühlen."
+            },
+        },
+        thesharp_club: {
+            1: {
+                1: "Bezahltes Projekt"
+            },
+            2: {
+                1: "TheSharp.Club bietet Privatpersonen und Restaurants einen schnellen und unkomplizierten Messerschleifservice per Post.",
+                2: "Dadurch machen sie sichtbar, was fast verschwunden ist – die echte Handwerkskunst. Messer oder auch Scheren gelangen per Post zu traditionellen Schleifereien und werden individuell von Hand geschliffen.",
+                3: "Wertvolles bewahren, statt Neues zu kaufen. TheSharp.Club zeigt, dass Nachhaltigkeit nicht laut sein muss. Nur ehrlich und gut gemacht."
+            },
+        },
+        weingut_werner: {
+            1: {
+                1: "Bezahltes Projekt"
+            },
+            2: {
+                1: "Der Traditions-Weingut Werner stammt aus Kirschroth – einem ganz besonderen Dorf mit vorherrschendem Mikroklima und niedrigen Niederschlägen im Jahr. Optimale Bedingungen für eine voll aromatische Traube und Weine mit ganz individuellem Charakter.",
+                2: "Qualität steht hierbei an oberster Stelle. Der Weingut Werner entwickelte und perfektionierte viele Jahre lang den Rebschnitt, die Traubenlese und auch die Gärung.",
+                3: "Bei seinen Rotweinen kommt ausschließlich die klassische Maischegärung zum Einsatz, welche eine starke Farbe und eine lange Lagerzeit mit sich bringt."
+            },
+        },
+        finanzguru: {
+            1: {
+                1: "Bezahlt"
+            },
+            2: {
+                1: "Mit Finanzguru ganz einfach deine Finanzen in den Griff bekommen und anfangen zu sparen.",
+                2: "In der App kannst du alle deine Konten verknüpfen und deine Verträge, Einnahmen und Ausgaben tracken.",
+                3: "Per Fingertipp kannst du Verträge kündigen, Analysen zu deinen Ausgaben erstellen oder Budgets zum sparen einrichten."
+            },
+        },
+        velvet_soul_street: {
+            1: {
+                1: "Bezahltes Projekt"
+            },
+            2: {
+                1: "Velvet Soul Street ist eine Allstar Band mit Musikern aus dem Hohenloher Kreis. Sie verwandelt als Live-Band verschiedenste Anlässe zu unvergesselichen Momenten.",
+                2: "Das entwickelte Corporate Design strahlt Seriosität und Zuverlässlichkeit, aber auch Spaß und Harmonie aus. Die aus früheren Jahren inspirierte Schrift wurde mit runden Formen und experimentellen Serifen versehen.",
             },
         },
         contact: {

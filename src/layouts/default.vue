@@ -170,12 +170,18 @@ p {
   font-weight: 300;
 }
 
-h1 {
+h1, .project h2 {
   font-size: 100px;
   font-weight: 400;
   margin: 30px 0;
   line-height: 110%;
   letter-spacing: -1px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .arrow-up {

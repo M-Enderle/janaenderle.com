@@ -53,12 +53,15 @@ export default {
 
             const projects = [
                   { imageID: 'veg2hyw2oyeqlefycoul', mobileImageID: 'a2cn1asys3mm449ynigr', alt: 'projects.annayuna.images.front', title: 'projects.annayuna.title', url: t('projects.annayuna.path') },
-                  { imageID: 'm4qfb3n2sxstadl3za2r', mobileImageID: 'y9cax5heidbqufxrv3yy', alt: 'projects.super_me.images.front', title: 'projects.super_me.title', url: t('projects.super_me.path') },
+                  { imageID: 'SharpClub_Cover_lackww', mobileImageID: 'SharpClub_Karton_Innen_Mobile_gnogof', alt: 'projects.thesharp_club.images.front', title: 'projects.thesharp_club.title', url: t('projects.thesharp_club.path') },
+                  { imageID: 'WernerWeingut_Cover_hwrmw6', mobileImageID: 'WernerWeingut_Cover_Mobile_aems94', alt: 'projects.weingut_werner.images.front', title: 'projects.weingut_werner.title', url: t('projects.weingut_werner.path') },
+                  { imageID: 'Finanzguru_Cover_vihcop', mobileImageID: 'WernerWeingut_Cover_Mobile_aems94', alt: 'projects.finanzguru.images.front', title: 'projects.finanzguru.title', url: t('projects.finanzguru.path') },
+                  { imageID: 'VelvetSoul_Cover_kwfuhi', mobileImageID: 'VelvetSoul_Shirt_Mobile_ea9tbf', alt: 'projects.velvet_soul_street.images.front', title: 'projects.velvet_soul_street.title', url: t('projects.velvet_soul_street.path') },
                   { imageID: 'kf2qo9kd2yaxongtzy44', mobileImageID: 'byp6rgplmsbltdkyska2', alt: 'projects.lenis.images.front', title: 'projects.lenis.title', url: t('projects.lenis.path') },
-                  { imageID: 'j1mnrsywkwmrkhknw6kg', mobileImageID: 'tmtyeemgy56vw6kujyx6', alt: 'projects.IKEAXAstraZeneca.images.front', title: 'projects.IKEAXAstraZeneca.title', url: t('projects.IKEAXAstraZeneca.path') },
                   { imageID: 'uxcqpnglmtl2shbolu3j', mobileImageID: 'spivkzcya2ks1v71enbx', alt: 'projects.odds_and_ends.images.front', title: 'projects.odds_and_ends.title', url: t('projects.odds_and_ends.path') },
-                  { imageID: 'xp5kmuhkhfvdgtieff0y', mobileImageID: 'tknjkur0thaffq46um7y', alt: 'projects.vulkanfieber.images.front', title: 'projects.vulkanfieber.title', url: t('projects.vulkanfieber.path') },
-                  { imageID: 'ckguvelcu7tahwvnuzls', mobileImageID: 'agylusnxghug4b6ublsz', alt: 'projects.cre4te.images.front', title: 'projects.cre4te.title', url: t('projects.cre4te.path') }
+                  { imageID: 'm4qfb3n2sxstadl3za2r', mobileImageID: 'y9cax5heidbqufxrv3yy', alt: 'projects.super_me.images.front', title: 'projects.super_me.title', url: t('projects.super_me.path') },
+                  { imageID: 'j1mnrsywkwmrkhknw6kg', mobileImageID: 'tmtyeemgy56vw6kujyx6', alt: 'projects.IKEAXAstraZeneca.images.front', title: 'projects.IKEAXAstraZeneca.title', url: t('projects.IKEAXAstraZeneca.path') },
+
             ]
 
             // mobile 2 else 3

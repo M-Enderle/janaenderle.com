@@ -60,28 +60,31 @@ export default {
                         url: t('free_hand.calendar.href')
                   },
                   {
-                        imageID: 'HerzPostkarte_Web_jxxzr5.jpg',
-                        mobileImageID: 'HerzPostkarte_Mobile_ow2vxw.jpg',
-                        alt: 'free_hand.heart.alt',
-                        url: t('free_hand.heart.href'),
-                        title: 'free_hand.heart.title'
+                        imageID: '...',
+                        mobileImageID: '...',
+                        alt: 'free_hand.haettehaette.alt',
+                        title: 'free_hand.haettehaette.title',
+                        url: t('free_hand.haettehaette.href')
                   },
                   {
-                        imageID: 'c5r32k5uh1eqcvpxach5',
-                        mobileImageID: 'opxd3snqumxsqsamslyv',
-                        alt: 'free_hand.linol.alt',
-                        url: t('free_hand.linol.href')
+                        imageID: '...',
+                        mobileImageID: '...',
+                        alt: 'free_hand.heart.alt',
+                        title: 'free_hand.heart.title',
+                        url: t('free_hand.heart.href')
+                  },
+                  {
+                        imageID: '....',
+                        mobileImageID: '....',
+                        alt: 'free_hand.noodes.alt',
+                        url: t('free_hand.noodes.href'),
+                        title: 'free_hand.noodes.title'
                   },
                   {
                         imageID: 'klkpetd2snocoqvcgyjx',
                         mobileImageID: 'vkv0ggnclzy4nqgl5wyz',
                         alt: 'free_hand.card.alt',
                         url: t('free_hand.card.href')
-                  },
-                  {
-                        imageID: 'rkw34nnlj9fk7g9uz1za',
-                        mobileImageID: 'r43eywgbfpvu4oceswfw',
-                        alt: 'free_hand.placemat.alt'
                   }
             ];
 

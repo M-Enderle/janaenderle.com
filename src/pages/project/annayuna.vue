@@ -17,7 +17,7 @@
       </div>
     </div>
     <img :src="images[0]" class="image" :alt="t('projects.annayuna.images.1')"><div class="spacer"></div>
-    <img :src="images[1]" class="image" :alt="t('projects.annayuna.images.2')"><div class="spacer"></div>
+    <img v-if="isMobile" :src="images[1]" class="image" :alt="t('projects.annayuna.images.2')"><div class="spacer"></div>
     <img :src="images[2]" class="image" :alt="t('projects.annayuna.images.3')"><div class="spacer"></div>
   </div>
 </template>
@@ -36,6 +36,7 @@ export default {
 setup() {
 
   const { locale, locales, t } = useI18n()
+  const isMobile = computed(() => store.state.isMobile)
 
   definePageMeta({
     title: 'pages.titles.project.annayuna',
@@ -43,13 +44,16 @@ setup() {
   })
 
   const images = [
-    cld.image("Studio Rotstich/z1hcvfhb8bnqlflqo0qf").format('auto').quality('20').toURL(),
-    cld.image("Studio Rotstich/emsmgrq5mqoapnl2j26j").format('auto').quality('20').toURL(),
     cld.image("Studio Rotstich/g4qwy7jw4bkiewm6ngew").format('auto').quality('20').toURL(),
+    cld.image("Studio Rotstich/ANNAYUNA_Cover1u2_rxzwdu").format('auto').quality('20').toURL(),
+    cld.image("Studio Rotstich/ANNAYUNA_Cover1_ogygqd").format('auto').quality('20').toURL(),
+    cld.image("Studio Rotstich/ANNAYUNA_Cover2_bhnccl").format('auto').quality('20').toURL(),
+    cld.image("Studio Rotstich/ANNAYUNA_Friends_Poster_Mobile_ujac7b.jpg").format('auto').quality('20').toURL(),
+    cld.image("Studio Rotstich/z1hcvfhb8bnqlflqo0qf").format('auto').quality('20').toURL()
   ]
   
   return {
-    images, t
+    images, t, isMobile
   }
 },
 }
