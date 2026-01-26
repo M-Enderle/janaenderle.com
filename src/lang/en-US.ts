@@ -56,6 +56,11 @@ export default {
                 velvet_soul_street: 'Velvet Soul Street - a project by Studio Rotstich',
             }
         }
+    ,
+        blog: {
+            title: "Come back later...",
+            message: "...and be exited whats going on here."
+        }
     },
     projects: {
         super_me: {

@@ -1,6 +1,6 @@
 <template>
-    <h1 class="error_title">Wir freuen uns. Schauen wir mal...</h1>
-    <p class="error_message">was wird. Ich arbeite fleißig dran.</p>
+    <h1 class="error_title">{{ t('pages.blog.title') }}</h1>
+    <p class="error_message">{{ t('pages.blog.message') }}</p>
 </template>
   
 <script>
@@ -24,6 +24,7 @@
               store.dispatch('setIsMobile', true)
           }
           }
+          return { t }
       },
   
       mounted() {
