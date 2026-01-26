@@ -18,14 +18,8 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
+import { imageUrl } from '@/utils/cloudinary'
 import { useI18n } from 'vue-i18n'
-
-const cld = new Cloudinary({
-    cloud: {
-        cloudName: 'dqxwy7joy'
-    }
-});
 
 export default {
     props: {
@@ -35,8 +29,8 @@ export default {
         }
     },
     setup(props) {
-        let mobile_image = cld.image("Studio Rotstich/mobile/" + props.project.mobileImageID).format('auto').quality('40').toURL();
-        let image = cld.image("Studio Rotstich/" + props.project.imageID).format('auto').quality('55').toURL();
+        let mobile_image = imageUrl("Studio Rotstich/mobile/" + props.project.mobileImageID, true);
+        let image = imageUrl("Studio Rotstich/" + props.project.imageID);
         const { t } = useI18n()
 
         return {

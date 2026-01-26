@@ -40,7 +40,7 @@ export default {
     const isMobile = computed(() => store.state.isMobile)
     const baseIds = [
       {desktop: 'Studio Rotstich/SharpClub_Karton_Innen_u9bfi0', mobile: 'Studio Rotstich/mobile/SharpClub_Karton_Innen_Mobile_gnogof'},
-      {desktop: 'Studio Rotstich/SharpClub_Kleben_pl3x2d', mobile: 'Studio Rotstich/mobile/SharpClub_Kleben_Mobile.bak_aazdql'},
+      {desktop: 'Studio Rotstich/SharpClub_Kleben_pl3x2d', mobile: 'Studio Rotstich/mobile/SharpClub_Kleben_Mobile_kqppkk'},
       {desktop: 'Studio Rotstich/SharpClub_Flyer_u02txe', mobile: 'Studio Rotstich/mobile/SharpClub_Flyer_Mobile_y2ynvy'}
     ]
 
