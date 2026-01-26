@@ -8,6 +8,9 @@
             <nuxt-link :to="t('pages.routes.index')" id="navbar_projects">{{ t('pages.titles.projects') }}</nuxt-link>
             <div id="seperator-plus">+</div>
             <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand">{{ t('pages.titles.free_hand') }}</nuxt-link>
+            <div id="seperator-plus">+</div>
+            <nuxt-link :to="t('pages.routes.blog')" id="navbar_blog">{{ t('pages.titles.blog') }}</nuxt-link>
+
         </div>
         <div id="right_nav" class="nav_third">
             <img :src="fullscreenIconSrc" height="30px" class="grid-fullscreen" v-show="gridMode" @click="toggleGrid" alt="Enable Full Screen" v-if="currentRoute.fullPath === t('pages.routes.index') || currentRoute.fullPath === t('pages.routes.free_hand')"/>
@@ -35,6 +38,7 @@
     <div id="nav_mobile_unfolded" class="folded" v-show="isMobile">
         <nuxt-link :to="t('pages.routes.index')" id="navbar_projects" @click="toggle_mobile_nav">{{ t('pages.titles.projects') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.free_hand')" id="navbar_free_hand" @click="toggle_mobile_nav">{{ t('pages.titles.free_hand') }}</nuxt-link>
+        <nuxt-link :to="t('pages.routes.blog')" id="navbar_blog" @click="toggle_mobile_nav">{{ t('pages.titles.blog') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.contact')" @click="toggle_mobile_nav">{{ t('pages.titles.contact') }}</nuxt-link>
         <nuxt-link :to="t('pages.routes.about')" @click="toggle_mobile_nav">{{ t('pages.titles.about') }}</nuxt-link>
         <div class="spacer" style="height: 3vh"></div>
@@ -153,21 +157,19 @@ export default {
     }
 }
 
-#navbar_contact {
-    margin-left: 10px;
-}
 
 #right_nav {
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    gap: 18px;
 
     button {
-        margin-right: 18px;
+        margin-right: 0;
     }
 
     .grid-fullscreen {
-        margin-right: 18px;
+        margin-right: 0;
         cursor: pointer;
 
         &:hover {
@@ -221,11 +223,11 @@ export default {
 }
 
 #nav_mobile_unfolded {
+    padding: 10px;
     position: fixed;
     background-color: white;
-    padding: 10px 0;
     width: 100%;
-    top: 90px;
+    top: 95px;
     height: calc(var(--vh, 1vh) * 100 - 100px);
     z-index: 100;
     -webkit-transition: all 0.3s ease;

@@ -30,8 +30,8 @@ const { url } = useCldImageUrl({
   }
 })
 
-const title = t(route.meta.title)
-const description = t(route.meta.description)
+const title = computed(() => route.meta.title ? t(route.meta.title) : t('pages.titles.index'))
+const description = computed(() => route.meta.description ? t(route.meta.description) : t('defaultSEO'))
 
 // Google tag moved to app.vue to ensure sitewide load and single injection
 </script>
@@ -64,7 +64,7 @@ const description = t(route.meta.description)
 
         <!-- OpenGraph -->
         <Meta property="og:title" hid="og-title" :content="title" />
-        <Meta property="og:description" hid="og-description" :content="t('defaultSEO')" /> 
+        <Meta property="og:description" hid="og-description" :content="description" /> 
         <Meta property="og:image" hid="og-image" :content="url" />
         <Meta property="og:url" hid="og-url" content="https://janaenderle.com" />
         <Meta property="og:type" hid="og-type" content="website" />
@@ -81,7 +81,8 @@ const description = t(route.meta.description)
 
   @font-face {
     font-family: 'Sora';
-    src:  url('/fonts/Sora.woff2') format('woff2');
+    src:  url('/fonts/Sora-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 200 300 400 500 600 700 800 900;
   }
 
   $color-primary: white;
@@ -170,12 +171,23 @@ p {
   font-weight: 300;
 }
 
-h1, .project h2 {
-  font-size: 100px;
+.project h2 {
+  font-size: 25px;
   font-weight: 400;
-  margin: 30px 0;
-  line-height: 110%;
-  letter-spacing: -1px;
+  margin: 20px 0;
+  line-height: 130%;
+}
+
+@media (max-width: 767px) {
+  .project h1 {
+    font-size: 6.5vh;
+    line-height: 1.2;
+  }
+}
+
+.spacer-project-paid {
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .buttons {
@@ -196,6 +208,10 @@ h1, .project h2 {
   opacity: 0;
   transition: opacity 300ms;
   pointer-events: none;
+}
+
+.full-width-image {
+  width: 100%;
 }
 
 </style>

@@ -26,6 +26,7 @@ export default {
         routes: {
             about: '/de/ueber',
             free_hand: '/de/freihand',
+            blog: '/de/blog',
             imprint: '/de/impressum',
             privacy: '/de/datenschutz',
             contact: '/de/kontakt',
@@ -34,6 +35,7 @@ export default {
         },
         titles: {
             about: 'Über',
+            blog: 'Blog',
             free_hand: 'Freihand',
             imprint: 'Impressum',
             privacy: 'Datenschutz',
@@ -68,8 +70,8 @@ export default {
             },
             path: "/de/project/super_me",
             title: "SUPER ME",
-            next: "/de/projekt/IKEAXAstraZeneca",
-            previous: "/de/projekt/odds_and_ends"
+            next: "/de/project/IKEAXAstraZeneca",
+            previous: "/de/project/odds_and_ends"
         },
         IKEAXAstraZeneca: {
             images: {
@@ -82,8 +84,8 @@ export default {
             },
             path: "/de/project/IKEAXAstraZeneca",
             title: "IKEA X AstraZeneca",
-            next: "/de/projekt/annayuna",
-            previous: "/de/projekt/super_me"
+            next: "/de/project/annayuna",
+            previous: "/de/project/super_me"
         },
         lenis: {
             images: {
@@ -94,8 +96,8 @@ export default {
             },
             path: "/de/project/lenis",
             title: "Leni's Sweet & Salty",
-            next: "/de/projekt/odds_and_ends",
-            previous: "/de/projekt/velvet_soul_street"
+            next: "/de/project/odds_and_ends",
+            previous: "/de/project/velvet_soul_street"
         },
         odds_and_ends: {
             images: {
@@ -108,8 +110,8 @@ export default {
             },
             path: "/de/project/odds_and_ends",
             title: "odds & ends",
-            next: "/de/projekt/super_me",
-            previous: "/de/projekt/lenis"
+            next: "/de/project/super_me",
+            previous: "/de/project/lenis"
         },
         vulkanfieber: {
             images: {
@@ -122,8 +124,8 @@ export default {
             },
             path: "/de/project/vulkanfieber",
             title: "Vulkanfieber",
-            next: "/de/projekt/cre4te",
-            previous: "/de/projekt/odds_and_ends"
+            next: "/de/project/cre4te",
+            previous: "/de/project/odds_and_ends"
         },
         cre4te: {
             images: {
@@ -135,8 +137,8 @@ export default {
             },
             path: "/de/project/cre4te",
             title: "CRE4TE",
-            next: "/de/projekt/super_me",
-            previous: "/de/projekt/annayuna"
+            next: "/de/project/super_me",
+            previous: "/de/project/annayuna"
         },
         annayuna: {
             images: {
@@ -148,8 +150,8 @@ export default {
             },
             path: "/de/project/annayuna",
             title: "ANNA YUNA",
-            next: "/de/projekt/thesharp_club",
-            previous: "/de/projekt/IKEAXAstraZeneca"
+            next: "/de/project/thesharp_club",
+            previous: "/de/project/IKEAXAstraZeneca"
         },
         thesharp_club: {
             images: {
@@ -160,8 +162,8 @@ export default {
             },
             path: "/de/project/thesharp_club",
             title: "TheSharp.Club",
-            next: "/de/projekt/weingut_werner",
-            previous: "/de/projekt/annayuna"
+            next: "/de/project/weingut_werner",
+            previous: "/de/project/annayuna"
         },
         weingut_werner: {
             images: {
@@ -171,8 +173,8 @@ export default {
             },
             path: "/de/project/weingut_werner",
             title: "Weingut Werner",
-            next: "/de/projekt/finanzguru",
-            previous: "/de/projekt/thesharp_club"
+            next: "/de/project/finanzguru",
+            previous: "/de/project/thesharp_club"
         },
         finanzguru: {
             images: {
@@ -182,8 +184,8 @@ export default {
             },
             path: "/de/project/finanzguru",
             title: "Finanzguru",
-            next: "/de/projekt/velvet_soul_street",
-            previous: "/de/projekt/weingut_werner"
+            next: "/de/project/velvet_soul_street",
+            previous: "/de/project/weingut_werner"
         },
         velvet_soul_street: {
             images: {
@@ -194,8 +196,8 @@ export default {
             },
             path: "/de/project/velvet_soul_street",
             title: "Velvet Soul Street",
-            next: "/de/projekt/lenis",
-            previous: "/de/projekt/finanzguru"
+            next: "/de/project/lenis",
+            previous: "/de/project/finanzguru"
         },
     },
     free_hand: {
@@ -205,8 +207,9 @@ export default {
             "alt": "Ein handgezeichneter Saisonkalender mit regionalem Gemüse und Obst von Jana Enderle, welcher auf der Plattform Etsy in DIN A5 und DIN A4 verkauft wird."
         },
         linol: {
-            "href": "https://www.etsy.com/de/listing/1661217069/linoldruck-grab-the-cat-linolschnitt?ref=listings_manager_grid",
-            "alt": "Ein handgefertigter Linoldruck von Jana Enderle, welcher auf der Plattform Etsy verkauft wird. Der Druck zeigt eine Katze, die von einer Hand gegriffen wird."
+            "href": "https://www.etsy.com/de/listing/1605783676/linoldruck-noodes-food-poster-a3-schwarz",
+            "alt": "Ein handgefertigter Linoldruck von Jana Enderle, welcher auf der Plattform Etsy verkauft wird. Der Druck zeigt eine Katze, die von einer Hand gegriffen wird.",
+            "title": "Kaufe den Linoldruck hier"
         },
         card: {
             "href": "https://www.etsy.com/de/listing/1370905299/postkarte-schlitten-geschenke?click_key=a758981933b95e8d8073a81ad3ae0ecb540a29f0%3A1370905299&click_sum=83b8aae5&ref=related-5",

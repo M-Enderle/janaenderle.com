@@ -7,8 +7,7 @@
     </div>
     <div class="thirds">
       <div class="third">
-        <p>{{ t("texts.lenis.1.1") }}</p>
-        <div class="spacer"></div>
+        <p class="spacer-project-paid">{{ t("texts.lenis.1.1") }}</p>
       </div>
       <div class="third">
         <p>{{ t("texts.lenis.2.1") }}</p><br>
@@ -24,13 +23,8 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
-
-const cld = new Cloudinary({
-cloud: {
-  cloudName: 'dqxwy7joy'
-}
-}); 
+import { useStore } from 'vuex';
+import { imageUrl } from '@/utils/cloudinary'
 
 export default {
 setup() {
@@ -42,11 +36,16 @@ setup() {
     description: 'SEO.project.lenis',
   })
 
-  const images = [
-    cld.image("Studio Rotstich/kr4glizwz3ob9o6xdhzm").format('auto').quality('20').toURL(),
-    cld.image("Studio Rotstich/r44c1bugwcpk6udynhuj").format('auto').quality('20').toURL(),
-    cld.image("Studio Rotstich/rjtuefx7vuuj4lvedkk5").format('auto').quality('20').toURL(),
+  const store = useStore();
+  const isMobile = computed(() => store.state.isMobile)
+
+  const rawIds = [
+    "Studio Rotstich/kr4glizwz3ob9o6xdhzm",
+    "Studio Rotstich/r44c1bugwcpk6udynhuj",
+    "Studio Rotstich/rjtuefx7vuuj4lvedkk5",
   ]
+
+  const images = computed(() => rawIds.map((id) => imageUrl(id, isMobile.value)))
   
   return {
     images, t

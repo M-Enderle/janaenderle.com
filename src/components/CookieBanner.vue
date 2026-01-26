@@ -141,13 +141,45 @@ const decline = () => {
     top: 0;
     bottom: 0;
     margin: 0 auto;
-    width: 90%;
-    padding: 10px;
+    width: 85%;
+    padding: 15px;
   }
 
-  .button-group button {
+  .halves {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .half {
+    padding: 5px;
+  }
+
+  .half h3 {
+    margin-bottom: 8px;
+  }
+
+  .half:nth-child(2) {
+    align-items: center;
+  }
+
+  .cookie-icon {
+    width: 60px;
+  }
+
+  .button-group {
+    flex-direction: column-reverse;
+    gap: 8px;
+    margin-top: 5px;
+  }
+
+  .button-group button,
+  .button-group .privacy-btn {
     font-size: 16px;
-    padding: 5px 10px;
+    padding: 8px 16px;
+    width: 100%;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
   }
 }
 

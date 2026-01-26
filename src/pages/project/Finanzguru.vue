@@ -7,8 +7,7 @@
     </div>
     <div class="thirds">
       <div class="third">
-        <p>{{ t('texts.finanzguru.1.1') }}</p>
-        <div class="spacer"></div>
+        <p class="spacer-project-paid">{{ t('texts.finanzguru.1.1') }}</p>
       </div>
       <div class="third">
         <p>{{ t('texts.finanzguru.2.1') }}</p><br>
@@ -23,14 +22,6 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
-
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'dqxwy7joy'
-  }
-}); 
-
 export default {
   setup() {
 
@@ -41,10 +32,15 @@ export default {
       description: 'SEO.project.finanzguru',
     })
 
-    const images = [
-      cld.image('Studio Rotstich/Finanzguru_Poster_yjtf19').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/Finanzguru_Pizza_k7enpq').format('auto').quality('20').toURL(),
+    const store = useStore();
+    const isMobile = computed(() => store.state.isMobile)
+
+    const rawIds = [
+      {desktop: 'Studio Rotstich/Finanzguru_Poster_yjtf19', mobile: 'Studio Rotstich/mobile/Finanzguru_Poster_Mobile_ip3p3y'},
+      {desktop: 'Studio Rotstich/Finanzguru_Pizza_k7enpq', mobile: 'Studio Rotstich/mobile/Finanzguru_Cover_Mobile_faklyb'}
     ]
+
+    const images = computed(() => rawIds.map((id) => imageUrl(id, isMobile.value)))
     
     return {
       images, t

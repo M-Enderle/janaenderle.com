@@ -7,8 +7,7 @@
     </div>
     <div class="thirds">
       <div class="third">
-        <p>{{ t('texts.weingut_werner.1.1') }}</p>
-        <div class="spacer"></div>
+        <p class="spacer-project-paid" >{{ t('texts.weingut_werner.1.1') }}</p>
       </div>
       <div class="third">
         <p>{{ t('texts.weingut_werner.2.1') }}</p><br>
@@ -23,13 +22,8 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
-
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'dqxwy7joy'
-  }
-}); 
+import { imageUrl } from '@/utils/cloudinary'
+import { useStore } from 'vuex'
 
 export default {
   setup() {
@@ -41,14 +35,29 @@ export default {
       description: 'SEO.project.weingut_werner',
     })
 
-    const images = [
-      cld.image('Studio Rotstich/WernerWeingut_Flasche_mjvgsl').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/WernerWeingut_Reben_rg8lyq').format('auto').quality('20').toURL()
+    const store = useStore()
+    const isMobile = computed(() => store.state.isMobile)
+    const baseIds = [
+      {desktop: 'Studio Rotstich/WernerWeingut_Flasche_mjvgsl', mobile: 'Studio Rotstich/mobile/WernerWeingut_Cover_Mobile_aems94'},
+      {desktop: 'Studio Rotstich/WernerWeingut_Reben_rg8lyq', mobile: 'Studio Rotstich/mobile/WernerWeingut_Reben_u6fg09'}
     ]
-    
+
+    const images = computed(() => baseIds.map((id) => imageUrl(id, isMobile.value)))
+
     return {
       images, t
     }
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 767px) {
+  .image {
+    max-width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+  }
+}
+</style>

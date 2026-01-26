@@ -1,11 +1,11 @@
 <template>
-    <div style="margin-top: 50px"></div>
-    <nuxt-link :to="project.url">
+    <div class="top-spacer"></div>
+    <nuxt-link :to="project.url" :target="project.target">
         <div class="image_wrapper">
             <img :src="image" :alt="project.alt" class="desktop image">
             <img :src="mobile_image" :alt="project.alt" class="mobile image">
         </div>
-        <div style="margin-top: 20px"></div>
+        <div class="spacer"></div>
         <div class="scroll-container" v-if="project.title">
             <div class="scroll-text">
                 <span v-for="i in speed" :key="i" class="no_hover_text" >
@@ -36,7 +36,7 @@ export default {
     },
     setup(props) {
         let mobile_image = cld.image("Studio Rotstich/mobile/" + props.project.mobileImageID).format('auto').quality('40').toURL();
-        let image = cld.image("Studio Rotstich/" + props.project.imageID).format('auto').quality('35').toURL();
+        let image = cld.image("Studio Rotstich/" + props.project.imageID).format('auto').quality('55').toURL();
         const { t } = useI18n()
 
         return {
@@ -84,6 +84,14 @@ export default {
     color: black;
 }
 
+.spacer {
+    margin-top: 10px;
+}
+
+.top-spacer {
+    margin-top: 30px;
+}
+
 .desktop {
     display: none;
 }
@@ -103,6 +111,14 @@ export default {
 
     .scroll-container {
         margin: -20px -20px;
+    }
+
+    .spacer {
+        margin-top: 30px;
+    }
+
+    .top-spacer {
+        margin-top: 50px;
     }
 }
 </style>

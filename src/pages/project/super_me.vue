@@ -7,9 +7,8 @@
     </div>
       <div class="thirds">
         <div class="third">
-          <p>{{ t("texts.super_me.1.1") }}</p>
-          <p>{{ t("texts.super_me.1.2") }}</p>
-          <div class="spacer"></div>
+          <p  class="spacer-project-paid" style="margin-bottom: 0;">{{ t("texts.super_me.1.1") }}</p>
+          <p  class="spacer-project-paid" style="margin-top: 0;">{{ t("texts.super_me.1.2") }}</p>
         </div>
         <div class="third">
           <p>{{ t("texts.super_me.2.1") }}</p><br>
@@ -29,13 +28,8 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
-
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'dqxwy7joy'
-  }
-}); 
+import { imageUrl } from '@/utils/cloudinary'
+import { useStore } from 'vuex'
 
 export default {
   setup() {
@@ -47,18 +41,33 @@ export default {
       description: 'SEO.project.super_me',
     })
 
-    const images = [
-      cld.image("Studio Rotstich/z3lhyyecsghqswgpbciq").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/zkis9rqjh5sat9uhugks").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/k18lzpeuupkm3iybjk2e").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/yekn1rijsk1h6acgniay").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/a9wslmnqdbpqs8oww91h").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/kfca1oyzwzyfqdmw53wr").format('auto').quality('20').toURL(),
+    const store = useStore()
+    const isMobile = computed(() => store.state.isMobile)
+    const baseIds = [
+      'Studio Rotstich/z3lhyyecsghqswgpbciq',
+      'Studio Rotstich/zkis9rqjh5sat9uhugks',
+      'Studio Rotstich/k18lzpeuupkm3iybjk2e',
+      'Studio Rotstich/yekn1rijsk1h6acgniay',
+      'Studio Rotstich/a9wslmnqdbpqs8oww91h',
+      'Studio Rotstich/kfca1oyzwzyfqdmw53wr'
     ]
-    
+
+    const images = computed(() => baseIds.map((id) => imageUrl(id, isMobile.value)))
+
     return {
       images, t
     }
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 767px) {
+  .image {
+    max-width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+  }
+}
+</style>

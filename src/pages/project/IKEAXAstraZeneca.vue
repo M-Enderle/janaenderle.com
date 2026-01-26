@@ -7,9 +7,8 @@
     </div>
     <div class="thirds">
       <div class="third">
-        <p>{{ t("texts.IKEAXAstraZeneca.1.1") }}</p>
-        <p>{{ t("texts.IKEAXAstraZeneca.1.2") }}</p>
-        <div class="spacer"></div>
+        <p class="spacer-project-paid" style="margin-bottom: 0;">{{ t("texts.IKEAXAstraZeneca.1.1") }}</p>
+        <p class="spacer-project-paid"  style="margin-top: 0;">{{ t("texts.IKEAXAstraZeneca.1.2") }}</p>
       </div>
       <div class="third">
         <p>{{ t("texts.IKEAXAstraZeneca.2.1") }}</p><br>
@@ -26,13 +25,8 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
-
-const cld = new Cloudinary({
-cloud: {
-  cloudName: 'dqxwy7joy'
-}
-}); 
+import { useStore } from 'vuex';
+import { imageUrl } from '@/utils/cloudinary'
 
 export default {
 setup() {
@@ -44,12 +38,17 @@ setup() {
     description: 'SEO.project.IKEAXAstraZeneca',
   })
 
-  const images = [
-    cld.image("Studio Rotstich/gehuhl22ttn4zpsbjxpy").format('auto').quality('20').toURL(),
-    cld.image("Studio Rotstich/slvtenpesbyw4kpg4ryl").format('auto').quality('20').toURL(),
-    cld.image("Studio Rotstich/cnivphcl2kii4v8b2sut").format('auto').quality('20').toURL(),
-    cld.image("Studio Rotstich/kf51fx0wupjqeyljbt8u").format('auto').quality('20').toURL(),
+  const store = useStore();
+  const isMobile = computed(() => store.state.isMobile)
+
+  const rawIds = [
+    "Studio Rotstich/gehuhl22ttn4zpsbjxpy",
+    "Studio Rotstich/slvtenpesbyw4kpg4ryl",
+    "Studio Rotstich/cnivphcl2kii4v8b2sut",
+    "Studio Rotstich/kf51fx0wupjqeyljbt8u",
   ]
+
+  const images = computed(() => rawIds.map((id) => imageUrl(id, isMobile.value)))
   
   return {
     images, t

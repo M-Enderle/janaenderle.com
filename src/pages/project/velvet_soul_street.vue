@@ -7,8 +7,7 @@
     </div>
     <div class="thirds">
       <div class="third">
-        <p>{{ t('texts.velvet_soul_street.1.1') }}</p>
-        <div class="spacer"></div>
+        <p class="spacer-project-paid" >{{ t('texts.velvet_soul_street.1.1') }}</p>
       </div>
       <div class="third">
         <p>{{ t('texts.velvet_soul_street.2.1') }}</p><br>
@@ -23,13 +22,8 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
-
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'dqxwy7joy'
-  }
-}); 
+import { imageUrl } from '@/utils/cloudinary'
+import { useStore } from 'vuex'
 
 export default {
   setup() {
@@ -41,15 +35,30 @@ export default {
       description: 'SEO.project.velvet_soul_street',
     })
 
-    const images = [
-      cld.image('Studio Rotstich/VelvetSoul_Shirt_x6d9qn').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/VelvetSoul_Sticker_rqvr2q').format('auto').quality('20').toURL(),
-      cld.image('Studio Rotstich/VelvetSoul_Schild_aeqqaj').format('auto').quality('20').toURL(),
+    const store = useStore()
+    const isMobile = computed(() => store.state.isMobile)
+    const baseIds = [
+      {desktop: 'Studio Rotstich/VelvetSoul_Shirt_x6d9qn', mobile: 'Studio Rotstich/mobile/VelvetSoul_Shirt_Mobile_jc8x6g'},
+      {desktop: 'Studio Rotstich/VelvetSoul_Sticker_rqvr2q', mobile: 'Studio Rotstich/mobile/VelvetSoul_Sticker_Mobile_uodw6s'},
+      {desktop: 'Studio Rotstich/VelvetSoul_Schild_aeqqaj', mobile: 'Studio Rotstich/mobile/VelvetSoul_Schild_Mobile_gsoeus'}
     ]
-    
+
+    const images = computed(() => baseIds.map((id) => imageUrl(id, isMobile.value)))
+
     return {
       images, t
     }
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 767px) {
+  .image {
+    max-width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+  }
+}
+</style>

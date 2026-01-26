@@ -2,6 +2,12 @@ export default defineNuxtConfig({
   srcDir: 'src/',
   devtools: { enabled: false },
 
+  vite: {
+    server: {
+      allowedHosts: ['nondemocratical-maple-linebred.ngrok-free.dev']
+    }
+  },
+
   modules: [
     "@nuxtjs/i18n",
     'nuxt-icon',
