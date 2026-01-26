@@ -56,6 +56,11 @@ export default {
                 velvet_soul_street: 'Velvet Soul Street - Ein Projekt von Studio Rotstich',
             }
         }
+    ,
+        blog: {
+            title: 'Wir freuen uns. Schauen wir mal...',
+            message: 'was wird. Ich arbeite fleißig dran.'
+        }
     },
     projects: {
         super_me: {
