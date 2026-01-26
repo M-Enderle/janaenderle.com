@@ -22,7 +22,7 @@
       <Card v-for="project in projects" v-if="!gridMode" :key="project.imageID" :project="project" />
       </ClientOnly>
       
-      <a v-for="project in projects" :href="project.url" :aria-label="t(project.alt)" :key="project.imageID"></a>
+      <a v-for="project in projects" :href="project.url" :target="project.target" :aria-label="t(project.alt)" :key="project.imageID"></a>
 </template>
 
 
@@ -57,31 +57,39 @@ export default {
                         mobileImageID: 'drirbfm0onnubjpnr9xa',
                         alt: 'free_hand.calendar.alt',
                         title: 'free_hand.calendar.title',
-                        url: t('free_hand.calendar.href')
+                        url: t('free_hand.calendar.href'),
+                        target: '_blank'
                   },
                   {
-                        imageID: 'HerzPostkarte_Web_jxxzr5.jpg',
-                        mobileImageID: 'HerzPostkarte_Mobile_ow2vxw.jpg',
+                        imageID: 'HaetteHaette_Poster_ib8imi',
+                        mobileImageID: 'HaetteHaette_Poster_Mobile_vw8akt',
+                        alt: 'free_hand.haettehaette.alt',
+                        title: 'free_hand.haettehaette.title',
+                        url: t('free_hand.haettehaette.href'),
+                        target: '_blank'
+                  },
+                  {
+                        imageID: 'HerzPostkarte_Web_jxxzr5',
+                        mobileImageID: 'HerzPostkarte_Mobile_ow2vxw',
                         alt: 'free_hand.heart.alt',
+                        title: 'free_hand.heart.title',
                         url: t('free_hand.heart.href'),
-                        title: 'free_hand.heart.title'
+                        target: '_blank'
                   },
                   {
-                        imageID: 'c5r32k5uh1eqcvpxach5',
-                        mobileImageID: 'opxd3snqumxsqsamslyv',
+                        imageID: 'Noodes_Poster_ytmvrs',
+                        mobileImageID: 'Noodes_Poster_Mobile_dymgy6',
                         alt: 'free_hand.linol.alt',
-                        url: t('free_hand.linol.href')
+                        title: 'free_hand.linol.title',
+                        url: t('free_hand.linol.href'),
+                        target: '_blank'
                   },
                   {
                         imageID: 'klkpetd2snocoqvcgyjx',
                         mobileImageID: 'vkv0ggnclzy4nqgl5wyz',
                         alt: 'free_hand.card.alt',
-                        url: t('free_hand.card.href')
-                  },
-                  {
-                        imageID: 'rkw34nnlj9fk7g9uz1za',
-                        mobileImageID: 'r43eywgbfpvu4oceswfw',
-                        alt: 'free_hand.placemat.alt'
+                        url: t('free_hand.card.href'),
+                        target: '_blank'
                   }
             ];
 

@@ -7,9 +7,8 @@
     </div>
       <div class="thirds">
         <div class="third">
-          <p>{{ t("texts.super_me.1.1") }}</p>
-          <p>{{ t("texts.super_me.1.2") }}</p>
-          <div class="spacer"></div>
+          <p  class="spacer-project-paid" style="margin-bottom: 0;">{{ t("texts.super_me.1.1") }}</p>
+          <p  class="spacer-project-paid" style="margin-top: 0;">{{ t("texts.super_me.1.2") }}</p>
         </div>
         <div class="third">
           <p>{{ t("texts.super_me.2.1") }}</p><br>
@@ -29,13 +28,8 @@
 
 <script>
 
-import { Cloudinary } from '@cloudinary/url-gen';
-
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'dqxwy7joy'
-  }
-}); 
+import { imageUrl } from '@/utils/cloudinary'
+import { useStore } from 'vuex'
 
 export default {
   setup() {
@@ -47,18 +41,33 @@ export default {
       description: 'SEO.project.super_me',
     })
 
-    const images = [
-      cld.image("Studio Rotstich/z3lhyyecsghqswgpbciq").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/zkis9rqjh5sat9uhugks").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/k18lzpeuupkm3iybjk2e").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/yekn1rijsk1h6acgniay").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/a9wslmnqdbpqs8oww91h").format('auto').quality('20').toURL(),
-      cld.image("Studio Rotstich/kfca1oyzwzyfqdmw53wr").format('auto').quality('20').toURL(),
+    const store = useStore()
+    const isMobile = computed(() => store.state.isMobile)
+    const baseIds = [
+      {desktop: 'Studio Rotstich/z3lhyyecsghqswgpbciq', mobile: 'Studio Rotstich/mobile/SuperMe_Screen_Gelb_Mobile_t3pb8i'},
+      {desktop: 'Studio Rotstich/zkis9rqjh5sat9uhugks', mobile: 'Studio Rotstich/mobile/SuperMe_Store_Mobile_r8v6be'},
+      {desktop: 'Studio Rotstich/k18lzpeuupkm3iybjk2e', mobile: 'Studio Rotstich/mobile/SuperMe_Smartphone_Mobile_fkaodn'},
+      {desktop: 'Studio Rotstich/yekn1rijsk1h6acgniay', mobile: 'Studio Rotstich/mobile/SuperMe_Poster1_Mobile_a6xeog'},
+      {desktop: 'Studio Rotstich/a9wslmnqdbpqs8oww91h', mobile: 'Studio Rotstich/mobile/SuperMe_Poster2_Mobile_gxljko'},
+      {desktop: 'Studio Rotstich/kfca1oyzwzyfqdmw53wr', mobile: 'Studio Rotstich/mobile/SuperME_Sticker_Mobile_tivoly'},
     ]
-    
+
+    const images = computed(() => baseIds.map((id) => imageUrl(id, isMobile.value)))
+
     return {
       images, t
     }
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 767px) {
+  .image {
+    max-width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+  }
+}
+</style>

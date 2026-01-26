@@ -5,8 +5,8 @@
                 <nuxt-link :to="t('pages.routes.imprint')">{{ t('pages.titles.imprint') }}</nuxt-link><br>
                 <nuxt-link :to="t('pages.routes.privacy')">{{ t('pages.titles.privacy') }}</nuxt-link>
                 <ClientOnly>
-                <div style="margin-top: 1vh" v-if="isMobile">
-                    Copyright © 2025 <br>
+                <div style="margin-top: 21px" v-if="isMobile">
+                    Copyright © 2026 <br>
                     Jana Enderle
                 </div>
             </ClientOnly>
@@ -19,7 +19,7 @@
             </div>
         <ClientOnly>
             <div class="third" v-if="!isMobile">
-                Copyright © 2025 Jana Enderle
+                Copyright © 2026 Jana Enderle
             </div>
         </ClientOnly>
             

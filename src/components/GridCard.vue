@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nuxt-link :to="project.url">
+        <nuxt-link :to="project.url" :target="project.target">
             <div class="gridcard-container" :style="{ backgroundImage: 'url(' + mobile_image + ')' }">
                 <div class="cutout-text" v-if="project.title">{{ t(project.title) }}</div>
             </div>
