@@ -22,6 +22,9 @@
 
 <script>
 
+import { useStore } from 'vuex';
+import { imageUrl } from '@/utils/cloudinary'
+
 export default {
   setup() {
 
