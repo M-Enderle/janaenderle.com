@@ -42,10 +42,10 @@ setup() {
   const isMobile = computed(() => store.state.isMobile)
 
   const rawIds = [
-    "Studio Rotstich/gehuhl22ttn4zpsbjxpy",
+    {desktop: "Studio Rotstich/gehuhl22ttn4zpsbjxpy", mobile: 'Studio Rotstich/mobile/IKEA_Magazin_Mobile_jdvt1z'},
     "Studio Rotstich/slvtenpesbyw4kpg4ryl",
     "Studio Rotstich/cnivphcl2kii4v8b2sut",
-    "Studio Rotstich/kf51fx0wupjqeyljbt8u",
+    {desktop: "Studio Rotstich/kf51fx0wupjqeyljbt8u", mobile: 'Studio Rotstich/mobile/IKEA_Poster_Mobile_pzkdvn'},
   ]
 
   const images = computed(() => rawIds.map((id) => imageUrl(id, isMobile.value)))

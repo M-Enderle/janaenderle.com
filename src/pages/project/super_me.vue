@@ -44,12 +44,12 @@ export default {
     const store = useStore()
     const isMobile = computed(() => store.state.isMobile)
     const baseIds = [
-      'Studio Rotstich/z3lhyyecsghqswgpbciq',
-      'Studio Rotstich/zkis9rqjh5sat9uhugks',
-      'Studio Rotstich/k18lzpeuupkm3iybjk2e',
-      'Studio Rotstich/yekn1rijsk1h6acgniay',
-      'Studio Rotstich/a9wslmnqdbpqs8oww91h',
-      'Studio Rotstich/kfca1oyzwzyfqdmw53wr'
+      {desktop: 'Studio Rotstich/z3lhyyecsghqswgpbciq', mobile: 'Studio Rotstich/mobile/SuperMe_Screen_Gelb_Mobile_t3pb8i'},
+      {desktop: 'Studio Rotstich/zkis9rqjh5sat9uhugks', mobile: 'Studio Rotstich/mobile/SuperMe_Store_Mobile_r8v6be'},
+      {desktop: 'Studio Rotstich/k18lzpeuupkm3iybjk2e', mobile: 'Studio Rotstich/mobile/SuperMe_Smartphone_Mobile_fkaodn'},
+      {desktop: 'Studio Rotstich/yekn1rijsk1h6acgniay', mobile: 'Studio Rotstich/mobile/SuperMe_Poster1_Mobile_a6xeog'},
+      {desktop: 'Studio Rotstich/a9wslmnqdbpqs8oww91h', mobile: 'Studio Rotstich/mobile/SuperMe_Poster2_Mobile_gxljko'},
+      {desktop: 'Studio Rotstich/kfca1oyzwzyfqdmw53wr', mobile: 'Studio Rotstich/mobile/SuperME_Sticker_Mobile_tivoly'},
     ]
 
     const images = computed(() => baseIds.map((id) => imageUrl(id, isMobile.value)))

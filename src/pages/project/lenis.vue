@@ -40,9 +40,9 @@ setup() {
   const isMobile = computed(() => store.state.isMobile)
 
   const rawIds = [
-    "Studio Rotstich/kr4glizwz3ob9o6xdhzm",
-    "Studio Rotstich/r44c1bugwcpk6udynhuj",
-    "Studio Rotstich/rjtuefx7vuuj4lvedkk5",
+    {desktop: "Studio Rotstich/kr4glizwz3ob9o6xdhzm", mobile: 'Studio Rotstich/mobile/Lenis_VisitenkarteNah_Mobile_xjbyve'},
+    {desktop: "Studio Rotstich/r44c1bugwcpk6udynhuj", mobile: 'Studio Rotstich/mobile/Lenis_Gutschein_Mobile_bkjexz'},
+    {desktop: "Studio Rotstich/rjtuefx7vuuj4lvedkk5", mobile: 'Studio Rotstich/mobile/OddsEnds_Sticker_Mobile_yuagev'},
   ]
 
   const images = computed(() => rawIds.map((id) => imageUrl(id, isMobile.value)))
