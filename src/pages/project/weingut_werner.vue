@@ -38,7 +38,7 @@ export default {
     const store = useStore()
     const isMobile = computed(() => store.state.isMobile)
     const baseIds = [
-      {desktop: 'Studio Rotstich/WernerWeingut_Flasche_mjvgsl', mobile: 'Studio Rotstich/mobile/WernerWeingut_Cover_Mobile_aems94'},
+      {desktop: 'Studio Rotstich/WernerWeingut_Flasche_mjvgsl', mobile: 'Studio Rotstich/mobile/WernerWeingut_Flasche_Mobile_e3pg68'},
       {desktop: 'Studio Rotstich/WernerWeingut_Reben_rg8lyq', mobile: 'Studio Rotstich/mobile/WernerWeingut_Reben_u6fg09'}
     ]
 
