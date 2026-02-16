@@ -7,7 +7,8 @@
                 <ClientOnly>
                 <div style="margin-top: 21px" v-if="isMobile">
                     Copyright © 2026 <br>
-                    Jana Enderle
+                    Jana Enderle <br>
+                    <a href="https://www.intellize-deutschland.de" target="_blank" rel="noopener noreferrer" style="font-size: 2px; color: lightgray;">Programmierung von Intellize Deutschland</a>
                 </div>
             </ClientOnly>
             </div>
@@ -19,7 +20,8 @@
             </div>
         <ClientOnly>
             <div class="third" v-if="!isMobile">
-                Copyright © 2026 Jana Enderle
+                Copyright © 2026 Jana Enderle <br>
+                <a href="https://www.intellize-deutschland.de" target="_blank" rel="noopener noreferrer" style="font-size: 2px; color: lightgray;">Programmierung von Intellize Deutschland</a>
             </div>
         </ClientOnly>
             
